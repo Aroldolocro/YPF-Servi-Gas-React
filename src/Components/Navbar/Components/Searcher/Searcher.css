@@ -1,0 +1,17 @@
+.Searcher-background {
+  height: 6vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Searcher-input {
+  margin: 0;
+  padding: 0 2vh 0 2vh;
+  height: 100%;
+  width: 100%;
+  border: none;
+  background-color: whitesmoke;
+  font-size: 3vw;
+}
