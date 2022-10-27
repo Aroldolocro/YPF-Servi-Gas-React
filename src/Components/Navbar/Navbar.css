@@ -17,14 +17,14 @@
   height: auto;
   width: 90%;
   display: grid;
-  grid-template-columns: 4vh auto;
+  grid-template-columns: 4vh auto 4vh;
   grid-template-rows: auto;
   align-items: center;
   grid-column-gap: 4vh;
 }
 
 .Navbar-svg-1 {
-  height: 4vh;
+  height: 3.5vh;
   width: auto;
   fill: rgb(64, 64, 64);
 }

@@ -4,14 +4,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .Searcher-input {
   margin: 0;
-  padding: 0 2vh 0 2vh;
+  padding: 0 5vh 0 2vh;
   height: 100%;
   width: 100%;
   border: none;
   background-color: whitesmoke;
   font-size: 3vw;
+}
+
+.Searcher-svg-1 {
+  right: 2vh;
+  height: 4vw;
+  width: auto;
+  fill: rgb(128, 128, 128);
+  position: absolute;
 }

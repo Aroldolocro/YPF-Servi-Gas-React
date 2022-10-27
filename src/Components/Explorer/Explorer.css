@@ -1,0 +1,87 @@
+.Explorer-background {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Explorer-content {
+  height: auto;
+  width: 90%;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-row-gap: 4vh;
+}
+
+.Explorer-C-B1 {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: auto;
+  align-items: center;
+  overflow-y: hidden;
+  overflow-x: auto;
+  grid-column-gap: 2vh;
+}
+
+.Explorer-C-B1::-webkit-scrollbar {
+  display: none;
+}
+
+.Explorer-C-B1B1 {
+  height: fit-content;
+  width: 10.5vh;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+}
+
+.Explorer-C-B1B1B1 {
+  height: 8vh;
+  width: 1005;
+}
+
+.Explorer-img-1 {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: 0 90%;
+  border-radius: 2vh;
+}
+
+.Explorer-txt-1 {
+  margin: 0;
+  font-size: 4vw;
+  font-weight: 400;
+  color: rgb(44, 44, 44);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
+}
+
+.Explorer-C-B2 {
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: auto;
+  align-items: center;
+  overflow-y: hidden;
+  overflow-x: auto;
+  grid-column-gap: 2vh;
+}
+
+.Explorer-C-B2::-webkit-scrollbar {
+  display: none;
+}
+
+.Explorer-txt-2 {
+  margin: 0;
+  border: 0.2vh solid rgb(128, 128, 128, 0.3);
+  padding: 0.5vh 2vh 0.5vh 2vh;
+  border-radius: 1vh;
+  font-size: 4vw;
+  font-weight: 400;
+  color: black;
+}
