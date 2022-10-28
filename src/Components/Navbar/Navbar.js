@@ -1,9 +1,25 @@
 import "./Navbar.css";
 import Searcher from "./Components/Searcher/Searcher";
+import Menu from "./Components/Menu/Menu";
+import { AppConext } from "../../AppContext/AppContext";
+import { useContext, useEffect } from "react";
 
 const Navbar = () => {
+  const { Controler1, setControler1 } = useContext(AppConext);
+
+  useEffect(() => {
+    if (Controler1) {
+      document.getElementById("root").className = "NoScroll";
+      document.body.className = "NoScroll";
+    } else {
+      document.getElementById("root").className = undefined;
+      document.body.className = undefined;
+    }
+  }, [Controler1]);
+
   return (
     <div className="Navbar-background">
+      {Controler1 && <Menu />}
       <div className="Navbar-content">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -12,6 +28,7 @@ const Navbar = () => {
           fillRule="currentColor"
           className="Navbar-svg-1"
           viewBox="0 0 16 16"
+          onClick={() => setControler1(true)}
         >
           <path
             fillRule="evenodd"

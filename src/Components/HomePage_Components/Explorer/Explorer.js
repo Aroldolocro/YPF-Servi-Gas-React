@@ -1,6 +1,6 @@
 import "./Explorer.css";
-import Image3 from "../../Images/Image3.png";
-import Image4 from "../../Images/Image4.png";
+import Image3 from "../../../Images/Image3.png";
+import Image4 from "../../../Images/Image4.png";
 
 const Explorer = () => {
   return (
@@ -39,10 +39,22 @@ const Explorer = () => {
           </div>
         </div>
         <div className="Explorer-C-B2">
-          <p className="Explorer-txt-2">Promociones</p>
-          <p className="Explorer-txt-2">Promociones</p>
-          <p className="Explorer-txt-2">Promociones</p>
-          <p className="Explorer-txt-2">Promociones</p>
+          <div className="Explorer-C-B2B1">
+            <p className="Explorer-txt-2">🤑</p>
+            <p className="Explorer-txt-2">Promociones</p>
+          </div>
+          <div className="Explorer-C-B2B1">
+            <p className="Explorer-txt-2">🤑</p>
+            <p className="Explorer-txt-2">Promociones</p>
+          </div>
+          <div className="Explorer-C-B2B1">
+            <p className="Explorer-txt-2">🤑</p>
+            <p className="Explorer-txt-2">Promociones</p>
+          </div>
+          <div className="Explorer-C-B2B1">
+            <p className="Explorer-txt-2">🤑</p>
+            <p className="Explorer-txt-2">Promociones</p>
+          </div>
         </div>
       </div>
     </div>
