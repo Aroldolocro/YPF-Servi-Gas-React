@@ -2,6 +2,7 @@ import "./Menu.css";
 import Logo from "../../../../Images/Logo.png";
 import { AppConext } from "../../../../AppContext/AppContext";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   const { setControler1 } = useContext(AppConext);
@@ -12,7 +13,13 @@ const Menu = () => {
         <div className="Menu-content">
           <div className="Menu-C-B1">
             <div className="Menu-C-B1B1">
-              <img src={Logo} className="Menu-img-1" alt="" />
+              <Link
+                to={"/"}
+                className="Menu-C-B1B1B1"
+                onClick={() => setControler1(false)}
+              >
+                <img src={Logo} className="Menu-img-1" alt="" />
+              </Link>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

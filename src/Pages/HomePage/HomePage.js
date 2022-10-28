@@ -2,6 +2,7 @@ import "./HomePage.css";
 import Explorer from "../../Components/HomePage_Components/Explorer/Explorer";
 import Image3 from "../../Images/Image3.png";
 import Image4 from "../../Images/Image4.png";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -34,7 +35,7 @@ const HomePage = () => {
           </div>
           <div className="HomePage-C-B2B2">
             <p className="HomePage-txt-3">Nuestro menú</p>
-            <div className="HomePage-C-B2B2B1">
+            <Link to={"/desayunos"} className="HomePage-C-B2B2B1">
               <div className="HomePage-C-B2B2B1B1">
                 <img src={Image3} className="HomePage-img-1" alt="" />
               </div>
@@ -55,8 +56,8 @@ const HomePage = () => {
                   <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                 </svg>
               </div>
-            </div>
-            <div className="HomePage-C-B2B2B1">
+            </Link>
+            <Link to={"/platos"} className="HomePage-C-B2B2B1">
               <div className="HomePage-C-B2B2B1B1">
                 <img src={Image4} className="HomePage-img-1" alt="" />
               </div>
@@ -77,7 +78,7 @@ const HomePage = () => {
                   <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                 </svg>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

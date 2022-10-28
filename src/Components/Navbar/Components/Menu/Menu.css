@@ -55,6 +55,11 @@
   align-items: center;
 }
 
+.Menu-C-B1B1B1 {
+  height: fit-content;
+  width: fit-content;
+}
+
 .Menu-img-1 {
   height: 3.7vh;
   width: auto;
@@ -123,14 +128,11 @@
   fill: black;
 }
 
-/**/
-
 .Menu-C-B2B2 {
   height: auto;
   width: 100%;
   display: flex;
   justify-content: center;
-  border-bottom: 0.2vh solid rgb(128, 128, 128, 0.2);
 }
 
 .Menu-C-B2B2B1 {
