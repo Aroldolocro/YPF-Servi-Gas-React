@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: scroll;
 }
 
 .DesayunosPage-content {
@@ -41,7 +42,7 @@
 }
 
 .DesayunosPage-C-B2B1B1 {
-  height: 20vh;
+  height: 22vh;
   width: 100%;
   position: relative;
 }
@@ -130,6 +131,10 @@
   border-bottom: 0.2vh solid rgb(128, 128, 128, 0.1);
 }
 
+.DesayunosPagedbProducts-background-notdisplayed {
+  display: none;
+}
+
 .DesayunosPagedbProducts-B1 {
   height: 14vh;
   width: auto;
@@ -189,4 +194,363 @@
   box-shadow: 0px 5px 5px 0px rgba(64, 64, 64, 0.3);
   -webkit-box-shadow: 0px 5px 5px 0px rgba(64, 64, 64, 0.3);
   -moz-box-shadow: 0px 5px 5px 0px rgba(64, 64, 64, 0.3);
+}
+
+/*DesayunosPagedbProducts_Loader*/
+
+.DesayunosPagedbProducts_Loader-background {
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  grid-column-gap: 2vh;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3vh 0 3vh 0;
+  border-bottom: 0.2vh solid rgb(128, 128, 128, 0.1);
+}
+
+.DesayunosPagedbProducts_Loader-background-notdisplayed {
+  display: none;
+}
+
+.DesayunosPagedbProducts_Loader-B1 {
+  height: 14vh;
+  width: auto;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
+  align-content: space-between;
+}
+
+.DesayunosPagedbProducts_Loader-B1B1 {
+  height: 3vh;
+  width: 35vw;
+  border-radius: 1vh;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(0, 0%, 75%);
+  }
+
+  100% {
+    background-color: hsl(0, 0%, 95%);
+  }
+}
+
+.DesayunosPagedbProducts_Loader-B1B2 {
+  height: 6vh;
+  width: 50vw;
+  border-radius: 1vh;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.DesayunosPagedbProducts_Loader-B1B3 {
+  height: 3vh;
+  width: 25vw;
+  border-radius: 1vh;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.DesayunosPagedbProducts_Loader-B2 {
+  height: 14vh;
+  width: 14vh;
+  border-radius: 3vh;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+/*RenderOfDesaynosPageTop*/
+
+.RenderOfDesaynosPageTop-background {
+  height: 18vh;
+  width: 100%;
+  position: fixed;
+  top: 12vh;
+  left: -1;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 60% 40%;
+  align-content: flex-start;
+  animation: RenderOfDesaynosPageTop-background-animation 0.3s;
+  box-shadow: 0px 5px 5px 0px rgba(64, 64, 64, 0.05);
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(64, 64, 64, 0.05);
+  -moz-box-shadow: 0px 5px 5px 0px rgba(64, 64, 64, 0.05);
+}
+
+@keyframes RenderOfDesaynosPageTop-background-animation {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.RenderOfDesaynosPageTop-B1 {
+  background-image: url(../../Images/Image3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.RenderOfDesaynosPageTop-B1B1 {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.4);
+  backdrop-filter: blur(7px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.RenderOfDesaynosPageTop-B1B1B1 {
+  height: 100%;
+  width: 90%;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.RenderOfDesaynosPageTop-B1B1B1B1 {
+  height: auto;
+  width: auto;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  justify-content: flex-start;
+  align-items: center;
+  grid-column-gap: 2vh;
+}
+
+.RenderOfDesaynosPageTop-B1B1B1B1B1 {
+  height: fit-content;
+  width: fit-content;
+}
+
+.RenderOfDesaynosPageTop-svg-1 {
+  height: 2.5vh;
+  width: auto;
+  fill: black;
+  background-color: white;
+  border-radius: 50%;
+  padding: 1vh;
+  box-shadow: 0px 3px 5px 0px rgba(64, 64, 64, 0.5);
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(64, 64, 64, 0.5);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(64, 64, 64, 0.5);
+  vertical-align: top;
+}
+
+.RenderOfDesaynosPageTop-txt-1 {
+  margin: 0;
+  font-size: 4.5vw;
+  font-weight: 800;
+  color: white;
+}
+
+.RenderOfDesaynosPageTop-B1B1B1B2 {
+  height: fit-content;
+  width: fit-content;
+}
+
+.RenderOfDesaynosPageTop-svg-2 {
+  height: 2.5vh;
+  width: auto;
+  fill: white;
+  background-color: rgb(44, 44, 44);
+  border-radius: 50%;
+  padding: 0.5vh;
+  box-shadow: 0px 3px 5px 0px rgba(64, 64, 64, 0.5);
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(64, 64, 64, 0.5);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(64, 64, 64, 0.5);
+  vertical-align: top;
+  border: 0.5vh solid white;
+}
+
+.RenderOfDesaynosPageTop-B2 {
+  background-color: white;
+  border-bottom: 0.2vh solid rgb(128, 128, 128, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 3px;
+}
+
+.RenderOfDesaynosPageTop-B2B1 {
+  height: 100%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.RenderOfDesaynosPageTop-txt-2 {
+  margin: 0;
+  font-size: 4.5vw;
+  font-weight: 800;
+  color: #2796ff;
+  position: relative;
+}
+
+.RenderOfDesaynosPageTop-txt-2::after {
+  content: "";
+  height: 3px;
+  width: 100%;
+  background-color: #2796ff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 0.2vh;
+}
+
+/*RenderOfInfoBottom*/
+
+.RenderOfInfoBottom-background {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  align-content: flex-end;
+}
+
+.RenderOfInfoBottom-B1 {
+  height: 60vh;
+  width: 100%;
+}
+
+.RenderOfInfoBottom-B2 {
+  background-color: white;
+  height: auto;
+  width: 100%;
+  border-radius: 2vh 2vh 0 0;
+  animation: RenderOfInfoBottom-B2-animation 0.5s;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  align-content: flex-start;
+  justify-items: center;
+}
+
+@keyframes RenderOfInfoBottom-B2-animation {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.RenderOfInfoBottom-B2B1 {
+  height: auto;
+  width: 100%;
+  border-bottom: 0.2vh solid rgb(128, 128, 128, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.RenderOfInfoBottom-B2B1B1 {
+  height: auto;
+  width: 90%;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 3vh 0 2vh 0;
+}
+
+.RenderOfInfoBottom-B2B1B1B1 {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  justify-content: flex-start;
+  grid-column-gap: 3vh;
+}
+
+.RenderOfInfoBottom-img {
+  height: 3.7vh;
+  width: auto;
+}
+
+.RenderOfInfoBottom-B2B1B1B1B1 {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
+  align-content: flex-start;
+}
+
+.RenderOfInfoBottom-txt-1 {
+  line-height: normal;
+  margin: 0;
+  font-size: 4.5vw;
+  font-weight: 700;
+  color: black;
+  line-height: 100%;
+}
+
+.RenderOfInfoBottom-txt-2 {
+  margin: 0;
+  font-size: 4vw;
+  font-weight: 400;
+  color: gray;
+}
+
+.RenderOfInfoBottom-svg-1 {
+  height: 3vh;
+  width: auto;
+  background-color: rgb(128, 128, 128);
+  fill: white;
+  border-radius: 50%;
+}
+
+.RenderOfInfoBottom-B2B2 {
+  height: auto;
+  width: 90%;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+}
+
+.RenderOfInfoBottom-B2B2B1 {
+  height: auto;
+  width: 100%;
+  border-bottom: 0.2vh solid rgb(128, 128, 128, 0.2);
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-row-gap: 1vh;
+  justify-content: flex-start;
+  padding: 2vh 0 2vh 0;
+}
+
+.RenderOfInfoBottom-B2B2B2 {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.RenderOfInfoBottom-btn {
+  background-color: #2796ff;
+  color: white;
+  font-size: 4vw;
+  font-weight: 700;
+  border: none;
+  border-radius: 3vh;
+  padding: 2vh 3vh 2vh 3vh;
+  margin: 2vh 0 2vh 0;
 }
