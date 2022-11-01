@@ -1,5 +1,5 @@
 import "./DesayunosPage.css";
-import Image3 from "../../Images/Image3.png";
+import Image3 from "../../Images/Image3.jpg";
 import Logo from "../../Images/Logo.png";
 import { Link } from "react-router-dom";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
@@ -276,7 +276,7 @@ const DesayunosPage = () => {
           <div className="DesayunosPage-C-B2B1">
             <div className="DesayunosPage-C-B2B1B1">
               <img src={Image3} className="DesayunosPage-img-1" alt="" />
-              <Link to={"/"} className="DesayunosPage-C-B2B1B1B0">
+              <Link to={"/"} className="DesayunosPage-C-B2B1B1B1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -294,12 +294,37 @@ const DesayunosPage = () => {
                 </svg>
               </Link>
             </div>
-            <div className="DesayunosPage-C-B2B1B1B1">
+            <div className="DesayunosPage-C-B2B1B2">
               ☕️
-              <div className="DesayunosPage-C-B2B1B1B1B1">
+              <div className="DesayunosPage-C-B2B1B2B1">
                 <p className="DesayunosPage-txt-1">Desayunos</p>
                 <p className="DesayunosPage-txt-2">Servi Gas</p>
               </div>
+            </div>
+            <div className="DesayunosPage-C-B2B1B3">
+              <div className="DesayunosPage-C-B2B1B3B1">
+                <div className="DesayunosPage-C-B2B1B3B1B1">
+                  <p className="DesayunosPage-txt-3">Preparacion</p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fillRule="currentColor"
+                    className="DesayunosPage-svg-2"
+                    viewBox="-1 -1 18 18"
+                    stroke="gray"
+                    stroke-width="1"
+                  >
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
+                  </svg>
+                </div>
+                <div className="DesayunosPage-C-B2B1B3B1B2">
+                  <p className="DesayunosPage-txt-4">10 - 15 min</p>
+                </div>
+              </div>
+              <div className="DesayunosPage-C-B2B1B3B2"></div>
+              <div className="DesayunosPage-C-B2B1B3B3"></div>
             </div>
           </div>
           <div className="DesayunosPage-C-B2B2">

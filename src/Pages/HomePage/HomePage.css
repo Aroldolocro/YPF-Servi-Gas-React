@@ -39,7 +39,12 @@
 }
 
 .HomePage-C-B2B1B1 {
-  background-color: whitesmoke;
+  background: rgb(51, 148, 236);
+  background: linear-gradient(
+    52deg,
+    rgba(51, 148, 236, 0.05) 0%,
+    rgba(51, 160, 236, 0.25) 100%
+  );
   width: 100%;
   height: auto;
   display: flex;

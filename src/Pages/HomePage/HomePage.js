@@ -1,7 +1,7 @@
 import "./HomePage.css";
 import Explorer from "../../Components/HomePage_Components/Explorer/Explorer";
-import Image3 from "../../Images/Image3.png";
-import Image4 from "../../Images/Image4.png";
+import Image3 from "../../Images/Image3.jpg";
+import test2 from "../../Images/test2.jpg";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
@@ -41,8 +41,8 @@ const HomePage = () => {
               </div>
               <div className="HomePage-C-B2B2B1B2">
                 <div className="HomePage-C-B2B2B1B2B1">
-                  <p className="HomePage-txt-3">Desayunos</p>
-                  <p className="HomePage-txt-4">Productos (8)</p>
+                  <p className="HomePage-txt-3">Desayunos y meriendas</p>
+                  <p className="HomePage-txt-4">Ítems (8)</p>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -59,12 +59,12 @@ const HomePage = () => {
             </Link>
             <Link to={"/platos"} className="HomePage-C-B2B2B1">
               <div className="HomePage-C-B2B2B1B1">
-                <img src={Image4} className="HomePage-img-1" alt="" />
+                <img src={test2} className="HomePage-img-1" alt="" />
               </div>
               <div className="HomePage-C-B2B2B1B2">
                 <div className="HomePage-C-B2B2B1B2B1">
-                  <p className="HomePage-txt-3">Platos</p>
-                  <p className="HomePage-txt-4">Productos (16)</p>
+                  <p className="HomePage-txt-3">Almuerzos y cenas</p>
+                  <p className="HomePage-txt-4">Ítems (16)</p>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

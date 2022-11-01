@@ -37,7 +37,11 @@ const Menu = () => {
             <div className="Menu-C-B2B1">
               <div className="Menu-C-B2B1B1">
                 <p className="Menu-txt-1">SECCIONES</p>
-                <div className="Menu-C-B2B1B1B1">
+                <Link
+                  to={"/desayunos"}
+                  className="Menu-C-B2B1B1B1"
+                  onClick={() => setControler1(false)}
+                >
                   <p className="Menu-txt-2">Desayunos</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -46,14 +50,20 @@ const Menu = () => {
                     fillRule="currentColor"
                     className="Menu-svg-2"
                     viewBox="0 0 16 16"
+                    stroke="black"
+                    stroke-width="0.5"
                   >
                     <path
                       fill-rule="evenodd"
                       d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
                     />
                   </svg>
-                </div>
-                <div className="Menu-C-B2B1B1B1">
+                </Link>
+                <Link
+                  to={"/platos"}
+                  className="Menu-C-B2B1B1B1"
+                  onClick={() => setControler1(false)}
+                >
                   <p className="Menu-txt-2">Platos</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -62,13 +72,15 @@ const Menu = () => {
                     fillRule="currentColor"
                     className="Menu-svg-2"
                     viewBox="0 0 16 16"
+                    stroke="black"
+                    stroke-width="0.5"
                   >
                     <path
                       fill-rule="evenodd"
                       d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
                     />
                   </svg>
-                </div>
+                </Link>
               </div>
             </div>
             <div className="Menu-C-B2B2">
