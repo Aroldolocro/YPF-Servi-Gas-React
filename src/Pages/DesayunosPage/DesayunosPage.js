@@ -304,7 +304,7 @@ const DesayunosPage = () => {
                   height="16"
                   fillRule="currentColor"
                   className="DesayunosPage-svg-1"
-                  viewBox="0 0 16 16"
+                  viewBox="1 0 16 16"
                   stroke="black"
                   stroke-width="1.5"
                 >
@@ -314,6 +314,19 @@ const DesayunosPage = () => {
                   />
                 </svg>
               </Link>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fillRule="currentColor"
+                className="DesayunosPage-svg-4"
+                viewBox="0 0 16 16"
+                stroke="white"
+                stroke-width="0.5"
+                onClick={() => setInfo(true)}
+              >
+                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+              </svg>
             </div>
             <div className="DesayunosPage-C-B2B1B2">
               ☕️
@@ -348,7 +361,9 @@ const DesayunosPage = () => {
                 className="DesayunosPage-C-B2B1B3B2"
                 onClick={() => setControler2(true)}
               >
-                <p className="DesayunosPage-txt-3">Calificar</p>
+                <p className="DesayunosPage-txt-3 DesayunosPage-txt-3-1">
+                  Calificar
+                </p>
                 {Calification > 0 ? (
                   <div className="DesayunosPage-C-B2B1B3B2B1">
                     <svg
