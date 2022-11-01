@@ -2,28 +2,39 @@ import "./DesayunosPage.css";
 import Image3 from "../../Images/Image3.jpg";
 import Logo from "../../Images/Logo.png";
 import { Link } from "react-router-dom";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  doc,
+  getDoc,
+} from "firebase/firestore";
+import { useContext, useEffect, useState } from "react";
+import { AppContext } from "../../AppContext/AppContext";
+import Qualifier from "../../Components/D&PPage_Components/Qualifier/Qualifier";
 
 const DesayunosPage = () => {
+  const { Controler2, setControler2 } = useContext(AppContext);
   const [data, setData] = useState([]);
   const [Loading, setLoading] = useState(false);
   const [Info, setInfo] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [Quantity, setQuantity] = useState({});
+  const [Quality, setQuality] = useState({});
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    if (Info) {
+    if (Info | Controler2) {
       document.getElementById("root").className = "NoScroll";
       document.body.className = "NoScroll";
     } else {
       document.getElementById("root").className = undefined;
       document.body.className = undefined;
     }
-  }, [Info]);
+  }, [Info, Controler2]);
 
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -41,12 +52,17 @@ const DesayunosPage = () => {
   useEffect(() => {
     const db = getFirestore();
     const dbcollection = collection(db, "Desayunos");
+    const dbcollection2 = doc(db, "Calificación", "Sub-Calificación");
+    getDoc(dbcollection2).then((res) => setQuantity(res.get("Cantidad")));
+    getDoc(dbcollection2).then((res) => setQuality(res.get("Calidad")));
     getDocs(dbcollection).then((res) =>
       setData(
         res.docs.map((product) => ({ id: product.id, ...product.data() }))
       )
     );
   }, []);
+
+  const Calification = (Quality / Quantity).toFixed(2);
 
   const DesayunosPagedbProducts = data.map((Item, index) => (
     <div
@@ -266,8 +282,13 @@ const DesayunosPage = () => {
     </div>
   );
 
+  const CalificationLoader = (
+    <div className="CalificationLoader-background"></div>
+  );
+
   return (
     <div className="DesayunosPage-background">
+      {Controler2 && <Qualifier />}
       {Info && RenderOfInfoBottom}
       {scrollPosition > 200 ? RenderOfDesaynosPageTop : null}
       <div className="DesayunosPage-content">
@@ -323,8 +344,33 @@ const DesayunosPage = () => {
                   <p className="DesayunosPage-txt-4">10 - 15 min</p>
                 </div>
               </div>
-              <div className="DesayunosPage-C-B2B1B3B2"></div>
-              <div className="DesayunosPage-C-B2B1B3B3"></div>
+              <div
+                className="DesayunosPage-C-B2B1B3B2"
+                onClick={() => setControler2(true)}
+              >
+                <p className="DesayunosPage-txt-3">Calificar</p>
+                {Calification > 0 ? (
+                  <div className="DesayunosPage-C-B2B1B3B2B1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fillRule="currentColor"
+                      className="DesayunosPage-svg-3"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                    </svg>
+                    <p className="DesayunosPage-txt-4">{Calification}</p>
+                  </div>
+                ) : (
+                  CalificationLoader
+                )}
+              </div>
+              <div className="DesayunosPage-C-B2B1B3B3">
+                <p className="DesayunosPage-txt-3">Seccion</p>
+                <p className="DesayunosPage-txt-4">Desayunos</p>
+              </div>
             </div>
           </div>
           <div className="DesayunosPage-C-B2B2">

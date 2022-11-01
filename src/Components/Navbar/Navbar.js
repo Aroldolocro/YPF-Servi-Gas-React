@@ -1,11 +1,11 @@
 import "./Navbar.css";
 import Searcher from "./Components/Searcher/Searcher";
 import Menu from "./Components/Menu/Menu";
-import { AppConext } from "../../AppContext/AppContext";
+import { AppContext } from "../../AppContext/AppContext";
 import { useContext, useEffect } from "react";
 
 const Navbar = () => {
-  const { Controler1, setControler1 } = useContext(AppConext);
+  const { Controler1, setControler1 } = useContext(AppContext);
 
   useEffect(() => {
     if (Controler1) {

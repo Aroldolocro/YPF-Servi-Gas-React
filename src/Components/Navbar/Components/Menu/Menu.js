@@ -1,11 +1,11 @@
 import "./Menu.css";
 import Logo from "../../../../Images/Logo.png";
-import { AppConext } from "../../../../AppContext/AppContext";
+import { AppContext } from "../../../../AppContext/AppContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 const Menu = () => {
-  const { setControler1 } = useContext(AppConext);
+  const { setControler1 } = useContext(AppContext);
 
   return (
     <div className="Menu-Shadow">
