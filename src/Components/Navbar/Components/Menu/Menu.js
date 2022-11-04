@@ -51,7 +51,7 @@ const Menu = () => {
                     className="Menu-svg-2"
                     viewBox="0 0 16 16"
                     stroke="black"
-                    stroke-width="0.5"
+                    strokeWidth={0.5}
                   >
                     <path
                       fill-rule="evenodd"
@@ -73,7 +73,7 @@ const Menu = () => {
                     className="Menu-svg-2"
                     viewBox="0 0 16 16"
                     stroke="black"
-                    stroke-width="0.5"
+                    strokeWidth={0.5}
                   >
                     <path
                       fill-rule="evenodd"

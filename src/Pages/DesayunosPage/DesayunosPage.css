@@ -99,13 +99,19 @@
   grid-template-rows: auto;
   grid-column-gap: 2vh;
   justify-content: flex-start;
-  align-content: flex-start;
+}
+
+.DesayunosPage-img-0 {
+  height: 5vh;
+  width: auto;
+  border-radius: 50%;
 }
 
 .DesayunosPage-C-B2B1B2B1 {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto auto;
+  align-content: space-between;
 }
 
 .DesayunosPage-txt-1 {
@@ -113,6 +119,7 @@
   font-size: 5vw;
   font-weight: 700;
   color: black;
+  line-height: 100%;
 }
 
 .DesayunosPage-txt-2 {
@@ -120,6 +127,7 @@
   font-size: 3vw;
   font-weight: 400;
   color: black;
+  line-height: 100%;
 }
 
 .DesayunosPage-C-B2B1B3 {
@@ -253,6 +261,7 @@
   grid-template-columns: auto;
   grid-template-rows: auto auto auto;
   align-content: space-between;
+  transition: 0.3s;
 }
 
 .DesayunosPagedbProducts-txt-1 {
@@ -504,7 +513,7 @@
 
 .RenderOfDesaynosPageTop-txt-2 {
   margin: 0;
-  font-size: 4.5vw;
+  font-size: 4vw;
   font-weight: 800;
   color: #2796ff;
   position: relative;
@@ -516,7 +525,7 @@
   width: 100%;
   background-color: #2796ff;
   position: absolute;
-  bottom: 0;
+  bottom: -0.5vh;
   left: 0;
   border-radius: 0.2vh;
 }
@@ -533,7 +542,7 @@
   left: 0;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto min-content;
   align-content: flex-end;
 }
 
@@ -544,7 +553,6 @@
 
 .RenderOfInfoBottom-B2 {
   background-color: white;
-  height: auto;
   width: 100%;
   border-radius: 2vh 2vh 0 0;
   animation: RenderOfInfoBottom-B2-animation 0.5s;

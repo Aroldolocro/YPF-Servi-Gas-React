@@ -7,6 +7,8 @@ const ConstAppContext = ({ children }) => {
 
   const [Controler1, setControler1] = useState(false);
   const [Controler2, setControler2] = useState(false);
+  const [Controler3, setControler3] = useState();
+  const [Controler4, setControler4] = useState();
 
   /*SAVED ON LOCALSTORAGE*/
 
@@ -31,6 +33,10 @@ const ConstAppContext = ({ children }) => {
         setControler1,
         Controler2,
         setControler2,
+        Controler3,
+        setControler3,
+        Controler4,
+        setControler4,
         Quealificated,
         setQuealificated,
       }}

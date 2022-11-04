@@ -35,7 +35,7 @@ const HomePage = () => {
           </div>
           <div className="HomePage-C-B2B2">
             <p className="HomePage-txt-3">Nuestro menú</p>
-            <Link to={"/desayunos"} className="HomePage-C-B2B2B1">
+            <Link to={"/Desayunos"} className="HomePage-C-B2B2B1">
               <div className="HomePage-C-B2B2B1B1">
                 <img src={Image3} className="HomePage-img-1" alt="" />
               </div>

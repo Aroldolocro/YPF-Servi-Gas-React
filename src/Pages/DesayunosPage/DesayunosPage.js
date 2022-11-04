@@ -1,7 +1,8 @@
 import "./DesayunosPage.css";
+import Image2 from "../../Images/Image2.png";
 import Image3 from "../../Images/Image3.jpg";
 import Logo from "../../Images/Logo.png";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   getFirestore,
   collection,
@@ -12,9 +13,17 @@ import {
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../AppContext/AppContext";
 import Qualifier from "../../Components/D&PPage_Components/Qualifier/Qualifier";
+import ItemDetail from "../../Components/D&PPage_Components/ItemDetail/ItemDetail";
 
 const DesayunosPage = () => {
-  const { Controler2, setControler2 } = useContext(AppContext);
+  const { Path1 } = useParams();
+  const {
+    Controler2,
+    setControler2,
+    Controler3,
+    setControler3,
+    setControler4,
+  } = useContext(AppContext);
   const [data, setData] = useState([]);
   const [Loading, setLoading] = useState(false);
   const [Info, setInfo] = useState(false);
@@ -27,14 +36,14 @@ const DesayunosPage = () => {
   }, []);
 
   useEffect(() => {
-    if (Info | Controler2) {
+    if (Info | Controler2 | (Controler3 !== undefined)) {
       document.getElementById("root").className = "NoScroll";
       document.body.className = "NoScroll";
     } else {
       document.getElementById("root").className = undefined;
       document.body.className = undefined;
     }
-  }, [Info, Controler2]);
+  }, [Info, Controler2, Controler3]);
 
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -64,35 +73,42 @@ const DesayunosPage = () => {
 
   const Calification = (Quality / Quantity).toFixed(2);
 
-  const DesayunosPagedbProducts = data.map((Item, index) => (
-    <div
-      key={index}
-      className={
-        Loading
-          ? "DesayunosPagedbProducts-background"
-          : "DesayunosPagedbProducts-background-notdisplayed"
-      }
-    >
-      <div className="DesayunosPagedbProducts-B1">
-        <p className="DesayunosPagedbProducts-txt-1">{Item.Nombre}</p>
-        <p className="DesayunosPagedbProducts-txt-2">{Item.Descripción}</p>
-        <p className="DesayunosPagedbProducts-txt-3">
-          {new Intl.NumberFormat("es-AR", {
-            style: "currency",
-            currency: "ARS",
-          }).format(Item.Precio)}
-        </p>
+  const DesayunosPagedbProducts = data
+    .sort(function (x, y) {
+      let a = x.Tipo.toUpperCase(),
+        b = y.Tipo.toUpperCase();
+      return a === b ? 0 : a > b ? 1 : -1;
+    })
+    .map((Item, index) => (
+      <div
+        key={index}
+        className={
+          Loading
+            ? "DesayunosPagedbProducts-background"
+            : "DesayunosPagedbProducts-background-notdisplayed"
+        }
+        onClick={() => setControler3(Item.id) & setControler4(Path1)}
+      >
+        <div className="DesayunosPagedbProducts-B1">
+          <p className="DesayunosPagedbProducts-txt-1">{Item.Nombre}</p>
+          <p className="DesayunosPagedbProducts-txt-2">{Item.Descripción}</p>
+          <p className="DesayunosPagedbProducts-txt-3">
+            {new Intl.NumberFormat("es-AR", {
+              style: "currency",
+              currency: "ARS",
+            }).format(Item.Precio)}
+          </p>
+        </div>
+        <div className="DesayunosPagedbProducts-B2">
+          <img
+            src={Item.Imagen}
+            className="DesayunosPagedbProducts-img"
+            alt=""
+            onLoad={() => setLoading(true)}
+          />
+        </div>
       </div>
-      <div className="DesayunosPagedbProducts-B2">
-        <img
-          src={Item.Imagen}
-          className="DesayunosPagedbProducts-img"
-          alt=""
-          onLoad={() => setLoading(true)}
-        />
-      </div>
-    </div>
-  ));
+    ));
 
   const DesayunosPagedbProducts_Loader = (
     <>
@@ -182,9 +198,9 @@ const DesayunosPage = () => {
                   height="16"
                   fillRule="currentColor"
                   className="RenderOfDesaynosPageTop-svg-1"
-                  viewBox="0 0 16 16"
+                  viewBox="1 0 16 16"
                   stroke="black"
-                  stroke-width="1.5"
+                  strokeWidth={1.5}
                 >
                   <path
                     fillRule="evenodd"
@@ -206,7 +222,7 @@ const DesayunosPage = () => {
                 className="RenderOfDesaynosPageTop-svg-2"
                 viewBox="0 0 16 16"
                 stroke="white"
-                stroke-width="0.5"
+                strokeWidth={0.5}
               >
                 <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
               </svg>
@@ -251,7 +267,7 @@ const DesayunosPage = () => {
               className="RenderOfInfoBottom-svg-1"
               viewBox="0 0 16 16"
               stroke="white"
-              stroke-width="0.5"
+              strokeWidth={0.5}
               onClick={() => setInfo(false)}
             >
               <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
@@ -288,6 +304,7 @@ const DesayunosPage = () => {
 
   return (
     <div className="DesayunosPage-background">
+      {Controler3 && <ItemDetail />}
       {Controler2 && <Qualifier />}
       {Info && RenderOfInfoBottom}
       {scrollPosition > 200 ? RenderOfDesaynosPageTop : null}
@@ -306,7 +323,7 @@ const DesayunosPage = () => {
                   className="DesayunosPage-svg-1"
                   viewBox="1 0 16 16"
                   stroke="black"
-                  stroke-width="1.5"
+                  strokeWidth={1.5}
                 >
                   <path
                     fillRule="evenodd"
@@ -322,14 +339,14 @@ const DesayunosPage = () => {
                 className="DesayunosPage-svg-4"
                 viewBox="0 0 16 16"
                 stroke="white"
-                stroke-width="0.5"
+                strokeWidth={0.5}
                 onClick={() => setInfo(true)}
               >
                 <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
               </svg>
             </div>
             <div className="DesayunosPage-C-B2B1B2">
-              ☕️
+              <img src={Image2} className="DesayunosPage-img-0" alt="" />
               <div className="DesayunosPage-C-B2B1B2B1">
                 <p className="DesayunosPage-txt-1">Desayunos</p>
                 <p className="DesayunosPage-txt-2">Servi Gas</p>
@@ -347,7 +364,7 @@ const DesayunosPage = () => {
                     className="DesayunosPage-svg-2"
                     viewBox="-1 -1 18 18"
                     stroke="gray"
-                    stroke-width="1"
+                    strokeWidth={1}
                   >
                     <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
                     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
