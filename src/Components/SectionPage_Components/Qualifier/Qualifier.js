@@ -1,32 +1,42 @@
 import "./Qualifier.css";
 import { AppContext } from "../../../AppContext/AppContext";
 import { useContext, useEffect, useState } from "react";
-import { getFirestore, doc, updateDoc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, updateDoc } from "firebase/firestore";
 
 const Qualifier = () => {
-  const [Quantity, setQuantity] = useState({});
-  const [Quality, setQuality] = useState({});
-  const { setControler2, Quealificated, setQuealificated } =
-    useContext(AppContext);
+  const {
+    setControler2,
+    Quealificated,
+    setQuealificated,
+    sectionName,
+    DesayunoQuantity,
+    DesayunoQuality,
+    AlmuerzoQuantity,
+    AlmuerzoQuality,
+  } = useContext(AppContext);
   const [Calification, setCalification] = useState();
   const [Loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const db = getFirestore();
-    const dbcollection = doc(db, "Calificación", "Sub-Calificación");
-    getDoc(dbcollection).then((res) => setQuantity(res.get("Cantidad")));
-    getDoc(dbcollection).then((res) => setQuality(res.get("Calidad")));
-  }, []);
-
   const SendCalification = () => {
-    const NewDoc = {
-      Cantidad: Quantity + 1,
-      Calidad: Quality + Calification,
-    };
-    const db = getFirestore();
-    const dbdoc = doc(db, "Calificación", "Sub-Calificación");
-    updateDoc(dbdoc, NewDoc);
-    setQuealificated(true);
+    if (sectionName === "Desayunos y meriendas") {
+      const NewDoc = {
+        Cantidad: DesayunoQuantity + 1,
+        Calidad: DesayunoQuality + Calification,
+      };
+      const db = getFirestore();
+      const dbdoc = doc(db, "Calificación", "Desayuno");
+      updateDoc(dbdoc, NewDoc);
+      setQuealificated(true);
+    } else if (sectionName === "Almuerzos y cenas") {
+      const NewDoc1 = {
+        Cantidad: AlmuerzoQuantity + 1,
+        Calidad: AlmuerzoQuality + Calification,
+      };
+      const db = getFirestore();
+      const dbdoc = doc(db, "Calificación", "Almuerzos");
+      updateDoc(dbdoc, NewDoc1);
+      setQuealificated(true);
+    }
   };
 
   const SVG = (

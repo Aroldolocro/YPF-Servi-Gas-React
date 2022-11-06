@@ -1,4 +1,4 @@
-.DesayunosPage-background {
+.SectionPage-background {
   height: fit-content;
   width: 100%;
   display: flex;
@@ -7,7 +7,7 @@
   overflow: scroll;
 }
 
-.DesayunosPage-content {
+.SectionPage-content {
   height: 100%;
   width: 100%;
   display: grid;
@@ -16,11 +16,11 @@
   padding: 0 0 4vh 0;
 }
 
-.DesayunosPage-C-B1 {
+.SectionPage-C-B1 {
   background-color: none;
 }
 
-.DesayunosPage-C-B2 {
+.SectionPage-C-B2 {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto auto;
@@ -28,7 +28,7 @@
   justify-items: center;
 }
 
-.DesayunosPage-C-B2B1 {
+.SectionPage-C-B2B1 {
   height: auto;
   width: 100%;
   border-bottom: 0.2vh solid rgb(128, 128, 128, 0.2);
@@ -41,19 +41,19 @@
   justify-items: center;
 }
 
-.DesayunosPage-C-B2B1B1 {
+.SectionPage-C-B2B1B1 {
   height: 22vh;
   width: 100%;
   position: relative;
 }
 
-.DesayunosPage-img-1 {
+.SectionPage-img-1 {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
 
-.DesayunosPage-C-B2B1B1B1 {
+.SectionPage-C-B2B1B1B1 {
   border-radius: 50%;
   width: fit-content;
   height: fit-content;
@@ -65,7 +65,7 @@
   justify-content: center;
 }
 
-.DesayunosPage-svg-1 {
+.SectionPage-svg-1 {
   height: 2.5vh;
   width: auto;
   fill: rgb(44, 44, 44);
@@ -74,7 +74,7 @@
   padding: 1vh;
 }
 
-.DesayunosPage-svg-4 {
+.SectionPage-svg-4 {
   height: 2.5vh;
   width: auto;
   fill: white;
@@ -91,7 +91,7 @@
   right: 5%;
 }
 
-.DesayunosPage-C-B2B1B2 {
+.SectionPage-C-B2B1B2 {
   height: auto;
   width: 90%;
   display: grid;
@@ -101,20 +101,20 @@
   justify-content: flex-start;
 }
 
-.DesayunosPage-img-0 {
+.SectionPage-img-0 {
   height: 5vh;
   width: auto;
   border-radius: 50%;
 }
 
-.DesayunosPage-C-B2B1B2B1 {
+.SectionPage-C-B2B1B2B1 {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto auto;
   align-content: space-between;
 }
 
-.DesayunosPage-txt-1 {
+.SectionPage-txt-1 {
   margin: 0;
   font-size: 5vw;
   font-weight: 700;
@@ -122,7 +122,7 @@
   line-height: 100%;
 }
 
-.DesayunosPage-txt-2 {
+.SectionPage-txt-2 {
   margin: 0;
   font-size: 3vw;
   font-weight: 400;
@@ -130,7 +130,7 @@
   line-height: 100%;
 }
 
-.DesayunosPage-C-B2B1B3 {
+.SectionPage-C-B2B1B3 {
   height: auto;
   width: 90%;
   border: 0.2vh solid rgb(128, 128, 128, 0.2);
@@ -143,7 +143,7 @@
   grid-template-rows: auto;
 }
 
-.DesayunosPage-C-B2B1B3B1 {
+.SectionPage-C-B2B1B3B1 {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: repeat(2, 1fr);
@@ -151,7 +151,7 @@
   padding: 2.5vmax 1vmax 2.5vmax 1vmax;
 }
 
-.DesayunosPage-C-B2B1B3B1B1 {
+.SectionPage-C-B2B1B3B1B1 {
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto;
@@ -159,7 +159,7 @@
   align-items: center;
 }
 
-.DesayunosPage-txt-3 {
+.SectionPage-txt-3 {
   margin: 0;
   font-size: 80%;
   font-weight: 600;
@@ -167,24 +167,24 @@
   text-align: center;
 }
 
-.DesayunosPage-txt-3-1 {
+.SectionPage-txt-3-1 {
   color: black;
   font-weight: 700;
 }
 
-.DesayunosPage-svg-2 {
+.SectionPage-svg-2 {
   height: 2vh;
   width: auto;
   fill: gray;
 }
 
-.DesayunosPage-C-B2B1B3B1B2 {
+.SectionPage-C-B2B1B3B1B2 {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.DesayunosPage-txt-4 {
+.SectionPage-txt-4 {
   margin: 0;
   font-size: 80%;
   font-weight: 800;
@@ -192,7 +192,7 @@
   text-align: center;
 }
 
-.DesayunosPage-C-B2B1B3B2 {
+.SectionPage-C-B2B1B3B2 {
   background-color: #fff2e5;
   display: grid;
   grid-template-columns: auto;
@@ -203,7 +203,7 @@
   align-items: center;
 }
 
-.DesayunosPage-C-B2B1B3B2B1 {
+.SectionPage-C-B2B1B3B2B1 {
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto;
@@ -211,13 +211,13 @@
   align-items: center;
 }
 
-.DesayunosPage-svg-3 {
+.SectionPage-svg-3 {
   height: 2vh;
   width: auto;
   fill: #ffae00;
 }
 
-.DesayunosPage-C-B2B1B3B3 {
+.SectionPage-C-B2B1B3B3 {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: repeat(2, 1fr);
@@ -227,7 +227,20 @@
   align-items: center;
 }
 
-.DesayunosPage-C-B2B2 {
+.SectionPage-txt-5 {
+  margin: 0;
+  font-size: 80%;
+  font-weight: 800;
+  color: black;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.SectionPage-C-B2B2 {
   height: auto;
   width: 90%;
   display: grid;
@@ -235,9 +248,9 @@
   grid-auto-rows: auto;
 }
 
-/*DesayunosPagedbProducts*/
+/*SectionPagedbProducts*/
 
-.DesayunosPagedbProducts-background {
+.SectionPagedbProducts-background {
   height: auto;
   width: 100%;
   display: grid;
@@ -250,11 +263,11 @@
   border-bottom: 0.2vh solid rgb(128, 128, 128, 0.1);
 }
 
-.DesayunosPagedbProducts-background-notdisplayed {
+.SectionPagedbProducts-background-notdisplayed {
   display: none;
 }
 
-.DesayunosPagedbProducts-B1 {
+.SectionPagedbProducts-B1 {
   height: 14vh;
   width: auto;
   display: grid;
@@ -264,7 +277,7 @@
   transition: 0.3s;
 }
 
-.DesayunosPagedbProducts-txt-1 {
+.SectionPagedbProducts-txt-1 {
   margin: 0;
   font-size: 4vw;
   font-weight: 600;
@@ -276,7 +289,7 @@
   -webkit-box-orient: vertical;
 }
 
-.DesayunosPagedbProducts-txt-2 {
+.SectionPagedbProducts-txt-2 {
   margin: 0;
   font-size: 3.5vw;
   font-weight: 500;
@@ -287,7 +300,7 @@
   -webkit-box-orient: vertical;
 }
 
-.DesayunosPagedbProducts-txt-3 {
+.SectionPagedbProducts-txt-3 {
   margin: 0;
   font-size: 4vw;
   font-weight: 800;
@@ -299,13 +312,13 @@
   -webkit-box-orient: vertical;
 }
 
-.DesayunosPagedbProducts-B2 {
+.SectionPagedbProducts-B2 {
   height: 14vh;
   width: 14vh;
   border-radius: 3vh;
 }
 
-.DesayunosPagedbProducts-img {
+.SectionPagedbProducts-img {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -316,9 +329,9 @@
   -moz-box-shadow: 0px 5px 5px 0px rgba(64, 64, 64, 0.3);
 }
 
-/*DesayunosPagedbProducts_Loader*/
+/*SectionPagedbProducts_Loader*/
 
-.DesayunosPagedbProducts_Loader-background {
+.SectionPagedbProducts_Loader-background {
   height: auto;
   width: 100%;
   display: grid;
@@ -331,11 +344,11 @@
   border-bottom: 0.2vh solid rgb(128, 128, 128, 0.1);
 }
 
-.DesayunosPagedbProducts_Loader-background-notdisplayed {
+.SectionPagedbProducts_Loader-background-notdisplayed {
   display: none;
 }
 
-.DesayunosPagedbProducts_Loader-B1 {
+.SectionPagedbProducts_Loader-B1 {
   height: 14vh;
   width: auto;
   display: grid;
@@ -344,7 +357,7 @@
   align-content: space-between;
 }
 
-.DesayunosPagedbProducts_Loader-B1B1 {
+.SectionPagedbProducts_Loader-B1B1 {
   height: 3vh;
   width: 35vw;
   border-radius: 1vh;
@@ -361,30 +374,30 @@
   }
 }
 
-.DesayunosPagedbProducts_Loader-B1B2 {
+.SectionPagedbProducts_Loader-B1B2 {
   height: 6vh;
   width: 50vw;
   border-radius: 1vh;
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
-.DesayunosPagedbProducts_Loader-B1B3 {
+.SectionPagedbProducts_Loader-B1B3 {
   height: 3vh;
   width: 25vw;
   border-radius: 1vh;
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
-.DesayunosPagedbProducts_Loader-B2 {
+.SectionPagedbProducts_Loader-B2 {
   height: 14vh;
   width: 14vh;
   border-radius: 3vh;
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
-/*RenderOfDesaynosPageTop*/
+/*RenderOfSectionPageTop*/
 
-.RenderOfDesaynosPageTop-background {
+.RenderOfSectionPageTop-background {
   height: 18vh;
   width: 100%;
   position: fixed;
@@ -395,13 +408,13 @@
   grid-template-columns: auto;
   grid-template-rows: 60% 40%;
   align-content: flex-start;
-  animation: RenderOfDesaynosPageTop-background-animation 0.3s;
+  animation: RenderOfSectionPageTop-background-animation 0.3s;
   box-shadow: 0px 5px 5px 0px rgba(64, 64, 64, 0.05);
   -webkit-box-shadow: 0px 5px 5px 0px rgba(64, 64, 64, 0.05);
   -moz-box-shadow: 0px 5px 5px 0px rgba(64, 64, 64, 0.05);
 }
 
-@keyframes RenderOfDesaynosPageTop-background-animation {
+@keyframes RenderOfSectionPageTop-background-animation {
   0% {
     transform: translateY(-100%);
   }
@@ -410,52 +423,50 @@
   }
 }
 
-.RenderOfDesaynosPageTop-B1 {
-  background-image: url(../../Images/Image3.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+.RenderOfSectionPageTop-B1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
-.RenderOfDesaynosPageTop-B1B1 {
+.RenderOfSectionPageTop-img {
   height: 100%;
   width: 100%;
+  object-fit: cover;
+}
+
+.RenderOfSectionPageTop-B1B1 {
   background-color: rgb(0, 0, 0, 0.4);
   backdrop-filter: blur(7px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.RenderOfDesaynosPageTop-B1B1B1 {
   height: 100%;
   width: 90%;
-  display: grid;
-  grid-template-columns: auto auto;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.RenderOfDesaynosPageTop-B1B1B1B1 {
-  height: auto;
-  width: auto;
+  position: absolute;
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding: 0 5% 0 5%;
+}
+
+.RenderOfSectionPageTop-B1B1B1 {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  grid-column-gap: 2vh;
   justify-content: flex-start;
   align-items: center;
-  grid-column-gap: 2vh;
 }
 
-.RenderOfDesaynosPageTop-B1B1B1B1B1 {
+.RenderOfSectionPageTop-B1B1B1B1 {
   height: fit-content;
   width: fit-content;
+  border-radius: 50%;
 }
 
-.RenderOfDesaynosPageTop-svg-1 {
+.RenderOfSectionPageTop-svg-1 {
   height: 2.5vh;
   width: auto;
   fill: black;
@@ -468,19 +479,20 @@
   vertical-align: top;
 }
 
-.RenderOfDesaynosPageTop-txt-1 {
+.RenderOfSectionPageTop-txt-1 {
   margin: 0;
   font-size: 4.5vw;
   font-weight: 800;
   color: white;
 }
 
-.RenderOfDesaynosPageTop-B1B1B1B2 {
+.RenderOfSectionPageTop-B1B1B2 {
   height: fit-content;
   width: fit-content;
+  border-radius: 50%;
 }
 
-.RenderOfDesaynosPageTop-svg-2 {
+.RenderOfSectionPageTop-svg-2 {
   height: 2.5vh;
   width: auto;
   fill: white;
@@ -494,7 +506,7 @@
   border: 0.5vh solid white;
 }
 
-.RenderOfDesaynosPageTop-B2 {
+.RenderOfSectionPageTop-B2 {
   background-color: white;
   border-bottom: 0.2vh solid rgb(128, 128, 128, 0.1);
   display: flex;
@@ -503,7 +515,7 @@
   padding-bottom: 3px;
 }
 
-.RenderOfDesaynosPageTop-B2B1 {
+.RenderOfSectionPageTop-B2B1 {
   height: 100%;
   width: 90%;
   display: flex;
@@ -511,7 +523,7 @@
   justify-content: flex-start;
 }
 
-.RenderOfDesaynosPageTop-txt-2 {
+.RenderOfSectionPageTop-txt-2 {
   margin: 0;
   font-size: 4vw;
   font-weight: 800;
@@ -519,7 +531,7 @@
   position: relative;
 }
 
-.RenderOfDesaynosPageTop-txt-2::after {
+.RenderOfSectionPageTop-txt-2::after {
   content: "";
   height: 3px;
   width: 100%;
@@ -608,7 +620,7 @@
 .RenderOfInfoBottom-B2B1B1B1B1 {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto;
   align-content: flex-start;
 }
 
