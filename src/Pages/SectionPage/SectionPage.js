@@ -78,9 +78,7 @@ const SectionPage = () => {
 
   const SectionPagedbProducts = data
     .sort(function (x, y) {
-      let a = x.Tipo.toUpperCase(),
-        b = y.Tipo.toUpperCase();
-      return a === b ? 0 : a > b ? 1 : -1;
+      return x.Prioridad - y.Prioridad;
     })
     .map((Item, index) => (
       <div
