@@ -1,8 +1,9 @@
 import "./SectionPage.css";
-import Image2 from "../../Images/Image2.png";
-import Image3 from "../../Images/Image3.jpg";
-import test2 from "../../Images/test2.jpg";
-import Logo from "../../Images/Logo.png";
+import Café_con_leche from "../../Images/Products photos/Desayunos/Café_con_leche.png";
+import Pizza_especial from "../../Images/Products photos/Almuerzos/Pizza_especial.png";
+import Promo from "../../Images/Products photos/Almuerzos/Promo.jpg";
+import Logo1 from "../../Images/Logo1.png";
+import Logo2 from "../../Images/Logo2.png";
 import { Link, useParams } from "react-router-dom";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
@@ -22,6 +23,7 @@ const SectionPage = () => {
     setSectionName,
     DesayunoQualification,
     AlmuerzoQualification,
+    PromocionesQualification,
   } = useContext(AppContext);
   const [data, setData] = useState([]);
   const [Loading, setLoading] = useState(false);
@@ -69,10 +71,13 @@ const SectionPage = () => {
   useEffect(() => {
     if (Path1 === "Desayunos") {
       setSectionName("Desayunos y meriendas");
-      setImage(Image3);
+      setImage(Café_con_leche);
     } else if (Path1 === "Almuerzos") {
       setSectionName("Almuerzos y cenas");
-      setImage(test2);
+      setImage(Pizza_especial);
+    } else if (Path1 === "Promociones") {
+      setSectionName("Promociones");
+      setImage(Promo);
     }
   }, [Path1, setSectionName]);
 
@@ -253,7 +258,7 @@ const SectionPage = () => {
         <div className="RenderOfInfoBottom-B2B1">
           <div className="RenderOfInfoBottom-B2B1B1">
             <div className="RenderOfInfoBottom-B2B1B1B1">
-              <img src={Logo} className="RenderOfInfoBottom-img" alt="" />
+              <img src={Logo2} className="RenderOfInfoBottom-img" alt="" />
               <div className="RenderOfInfoBottom-B2B1B1B1B1">
                 <p className="RenderOfInfoBottom-txt-1">Servi Gas</p>
                 <p className="RenderOfInfoBottom-txt-2">{sectionName}</p>
@@ -346,7 +351,7 @@ const SectionPage = () => {
               </svg>
             </div>
             <div className="SectionPage-C-B2B1B2">
-              <img src={Image2} className="SectionPage-img-0" alt="" />
+              <img src={Logo1} className="SectionPage-img-0" alt="" />
               <div className="SectionPage-C-B2B1B2B1">
                 <p className="SectionPage-txt-1">{sectionName}</p>
                 <p className="SectionPage-txt-2">Servi Gas</p>
@@ -417,6 +422,27 @@ const SectionPage = () => {
                       </svg>
                       <p className="SectionPage-txt-4">
                         {AlmuerzoQualification}
+                      </p>
+                    </div>
+                  ) : (
+                    CalificationLoader
+                  )
+                ) : null}
+                {sectionName === "Promociones" ? (
+                  PromocionesQualification > 0 ? (
+                    <div className="SectionPage-C-B2B1B3B2B1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fillRule="currentColor"
+                        className="SectionPage-svg-3"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                      </svg>
+                      <p className="SectionPage-txt-4">
+                        {PromocionesQualification}
                       </p>
                     </div>
                   ) : (

@@ -13,6 +13,8 @@ const Qualifier = () => {
     DesayunoQuality,
     AlmuerzoQuantity,
     AlmuerzoQuality,
+    PromocionesQuantity,
+    PromocionesQuality,
   } = useContext(AppContext);
   const [Calification, setCalification] = useState();
   const [Loading, setLoading] = useState(true);
@@ -35,6 +37,15 @@ const Qualifier = () => {
       const db = getFirestore();
       const dbdoc = doc(db, "Calificación", "Almuerzos");
       updateDoc(dbdoc, NewDoc1);
+      setQuealificated(true);
+    } else if (sectionName === "Promociones") {
+      const NewDoc2 = {
+        Cantidad: PromocionesQuantity + 1,
+        Calidad: PromocionesQuality + Calification,
+      };
+      const db = getFirestore();
+      const dbdoc = doc(db, "Calificación", "Promociones");
+      updateDoc(dbdoc, NewDoc2);
       setQuealificated(true);
     }
   };

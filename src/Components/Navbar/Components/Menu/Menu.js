@@ -1,5 +1,5 @@
 import "./Menu.css";
-import Logo from "../../../../Images/Logo.png";
+import Logo2 from "../../../../Images/Logo2.png";
 import { AppContext } from "../../../../AppContext/AppContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
@@ -18,7 +18,7 @@ const Menu = () => {
                 className="Menu-C-B1B1B1"
                 onClick={() => setControler1(false)}
               >
-                <img src={Logo} className="Menu-img-1" alt="" />
+                <img src={Logo2} className="Menu-img-1" alt="" />
               </Link>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -65,6 +65,28 @@ const Menu = () => {
                   onClick={() => setControler1(false)}
                 >
                   <p className="Menu-txt-2">Almuerzos y cenas</p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fillRule="currentColor"
+                    className="Menu-svg-2"
+                    viewBox="0 0 16 16"
+                    stroke="black"
+                    strokeWidth={0.5}
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                    />
+                  </svg>
+                </Link>
+                <Link
+                  to={"/Promociones"}
+                  className="Menu-C-B2B1B1B1"
+                  onClick={() => setControler1(false)}
+                >
+                  <p className="Menu-txt-2">Promociones</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
