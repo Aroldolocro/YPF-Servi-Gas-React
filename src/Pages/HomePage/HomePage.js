@@ -7,7 +7,8 @@ import { AppContext } from "../../AppContext/AppContext";
 import { useContext } from "react";
 
 const HomePage = () => {
-  const { Controler8, Controler3 } = useContext(AppContext);
+  const { Controler5, Controler3 } = useContext(AppContext);
+
   return (
     <div className="HomePage-background">
       {Controler3 && <ItemDetail />}
@@ -37,7 +38,7 @@ const HomePage = () => {
             </div>
             <Explorer />
           </div>
-          {Controler8 ? <Filter /> : <Main />}
+          {Controler5 ? <Filter /> : <Main />}
         </div>
       </div>
     </div>

@@ -17,6 +17,7 @@ import Jugo_de_naranja_en_vaso from "../../../Images/Products photos/Desayunos/J
 import Panificados from "../../../Images/Products photos/Desayunos/Panificados.png";
 import Tostadas from "../../../Images/Products photos/Desayunos/Tostadas.png";
 import Omelette_de_jamón_y_queso from "../../../Images/Products photos/Desayunos/Omelette_de_jamón_y_queso.png";
+import Desayuno from "../../../Images/Products photos/Promociones/Desayuno.png";
 
 const Category = () => {
   const {
@@ -49,7 +50,9 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Hamburguesas") &
+              setControler5(
+                Controler5 === "Hamburguesas" ? undefined : "Hamburguesas"
+              ) &
               setControler6("Almuerzos") &
               setLoading(false) &
               setControler7(false)
@@ -95,7 +98,7 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Pizzas") &
+              setControler5(Controler5 === "Pizzas" ? undefined : "Pizzas") &
               setControler6("Almuerzos") &
               setLoading(false) &
               setControler7(false)
@@ -141,7 +144,9 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Milanesas") &
+              setControler5(
+                Controler5 === "Milanesas" ? undefined : "Milanesas"
+              ) &
               setControler6("Almuerzos") &
               setLoading(false) &
               setControler7(false)
@@ -187,7 +192,9 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Sandwiches") &
+              setControler5(
+                Controler5 === "Sandwiches" ? undefined : "Sandwiches"
+              ) &
               setControler6("Almuerzos") &
               setLoading(false) &
               setControler7(false)
@@ -233,7 +240,9 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Lomopizzas") &
+              setControler5(
+                Controler5 === "Lomopizzas" ? undefined : "Lomopizzas"
+              ) &
               setControler6("Almuerzos") &
               setLoading(false) &
               setControler7(false)
@@ -279,7 +288,7 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Carnes") &
+              setControler5(Controler5 === "Carnes" ? undefined : "Carnes") &
               setControler6("Almuerzos") &
               setLoading(false) &
               setControler7(false)
@@ -325,7 +334,9 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Acompañamientos") &
+              setControler5(
+                Controler5 === "Acompañamientos" ? undefined : "Acompañamientos"
+              ) &
               setControler6("Almuerzos") &
               setLoading(false) &
               setControler7(false)
@@ -371,7 +382,7 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Café") &
+              setControler5(Controler5 === "Café" ? undefined : "Café") &
               setControler6("Desayunos") &
               setLoading(false) &
               setControler7(false)
@@ -417,7 +428,9 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Licuados") &
+              setControler5(
+                Controler5 === "Licuados" ? undefined : "Licuados"
+              ) &
               setControler6("Desayunos") &
               setLoading(false) &
               setControler7(false)
@@ -463,7 +476,7 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Té") &
+              setControler5(Controler5 === "Té" ? undefined : "Té") &
               setControler6("Desayunos") &
               setLoading(false) &
               setControler7(false)
@@ -509,7 +522,9 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Submarino") &
+              setControler5(
+                Controler5 === "Submarino" ? undefined : "Submarino"
+              ) &
               setControler6("Desayunos") &
               setLoading(false) &
               setControler7(false)
@@ -555,7 +570,9 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Capuchino") &
+              setControler5(
+                Controler5 === "Capuchino" ? undefined : "Capuchino"
+              ) &
               setControler6("Desayunos") &
               setLoading(false) &
               setControler7(false)
@@ -601,7 +618,7 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Jugos") &
+              setControler5(Controler5 === "Jugos" ? undefined : "Jugos") &
               setControler6("Desayunos") &
               setLoading(false) &
               setControler7(false)
@@ -647,7 +664,9 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Panificados") &
+              setControler5(
+                Controler5 === "Panificados" ? undefined : "Panificados"
+              ) &
               setControler6("Desayunos") &
               setLoading(false) &
               setControler7(false)
@@ -693,7 +712,9 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Tostadas") &
+              setControler5(
+                Controler5 === "Tostadas" ? undefined : "Tostadas"
+              ) &
               setControler6("Desayunos") &
               setLoading(false) &
               setControler7(false)
@@ -755,7 +776,7 @@ const Category = () => {
               <img
                 src={Omelette_de_jamón_y_queso}
                 className={
-                  Controler5 === "Omelett"
+                  Controler5 === "Omelette"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
@@ -780,6 +801,52 @@ const Category = () => {
               }
             >
               Omelette
+            </p>
+          </div>
+          <div
+            className="Category-B1B2B1"
+            onClick={() =>
+              setControler5("Promociones") &
+              setControler6("Promociones") &
+              setLoading(false) &
+              setControler7(false)
+            }
+          >
+            <div
+              className={
+                Controler5 === "Promociones"
+                  ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
+                  : "Category-B1B2B1B1"
+              }
+            >
+              <img
+                src={Desayuno}
+                className={
+                  Controler5 === "Promociones"
+                    ? "Category-img-1 Category-img-1-selected"
+                    : "Category-img-1"
+                }
+                alt=""
+              />
+              {Controler5 === "Promociones" && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fillRule="currentColor"
+                  className="Category-svg"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                </svg>
+              )}
+            </div>
+            <p
+              className={
+                Controler5 === "Promociones"
+                  ? "Category-txt-2 Category-txt-2-selected"
+                  : "Category-txt-2"
+              }
+            >
+              Promociónes
             </p>
           </div>
         </div>

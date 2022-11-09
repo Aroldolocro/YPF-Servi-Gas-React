@@ -10,10 +10,9 @@ const ConstAppContext = ({ children }) => {
   const [Controler2, setControler2] = useState(false);
   const [Controler3, setControler3] = useState();
   const [Controler4, setControler4] = useState();
-  const [Controler5, setControler5] = useState(false);
+  const [Controler5, setControler5] = useState();
   const [Controler6, setControler6] = useState();
   const [Controler7, setControler7] = useState(false);
-  const [Controler8, setControler8] = useState(false);
 
   /*CONDITIONAL DATA*/
 
@@ -104,8 +103,6 @@ const ConstAppContext = ({ children }) => {
         setControler6,
         Controler7,
         setControler7,
-        Controler8,
-        setControler8,
         Quealificated,
         setQuealificated,
         sectionName,

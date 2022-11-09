@@ -93,7 +93,7 @@ const SectionPage = () => {
             ? "SectionPagedbProducts-background"
             : "SectionPagedbProducts-background-notdisplayed"
         }
-        onClick={() => setControler3(Item.id) & setControler4(Path1)}
+        onClick={() => setControler3(Item.id) & setControler4(Item.Colección)}
       >
         <div className="SectionPagedbProducts-B1">
           <p className="SectionPagedbProducts-txt-1">{Item.Nombre}</p>
