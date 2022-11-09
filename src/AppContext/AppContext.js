@@ -12,10 +12,24 @@ const ConstAppContext = ({ children }) => {
   const [Controler4, setControler4] = useState();
   const [Controler5, setControler5] = useState(false);
   const [Controler6, setControler6] = useState();
+  const [Controler7, setControler7] = useState(false);
+  const [Controler8, setControler8] = useState(false);
 
   /*CONDITIONAL DATA*/
 
   const [sectionName, setSectionName] = useState();
+
+  /*LOADER ON CONTEXT*/
+
+  const [Loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!Loading) {
+      setTimeout(() => {
+        setLoading(true);
+      }, 1000);
+    }
+  }, [Loading]);
 
   /*QUALIFICATION DATA*/
 
@@ -88,6 +102,10 @@ const ConstAppContext = ({ children }) => {
         setControler5,
         Controler6,
         setControler6,
+        Controler7,
+        setControler7,
+        Controler8,
+        setControler8,
         Quealificated,
         setQuealificated,
         sectionName,
@@ -101,6 +119,8 @@ const ConstAppContext = ({ children }) => {
         AlmuerzoQuality,
         PromocionesQuantity,
         PromocionesQuality,
+        Loading,
+        setLoading,
       }}
     >
       {children}

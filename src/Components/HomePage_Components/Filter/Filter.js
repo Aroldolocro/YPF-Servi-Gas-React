@@ -4,9 +4,10 @@ import { useContext, useEffect, useState } from "react";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 const Filter = () => {
-  const { setControler3, Controler5, Controler6 } = useContext(AppContext);
-  const [Loading, setLoading] = useState(false);
+  const { setControler3, Controler5, Controler6, Loading } =
+    useContext(AppContext);
   const [data, setData] = useState([]);
+  const [InsideLoading, setInsideLoading] = useState(false);
 
   useEffect(() => {
     const db = getFirestore();
@@ -18,24 +19,13 @@ const Filter = () => {
     );
   }, [Controler6]);
 
-  console.log(Controler5);
-
-  useEffect(() => {
-    if (Controler5) {
-      setLoading(false);
-      setTimeout(() => {
-        setLoading(true);
-      }, 1000);
-    }
-  }, [Controler5]);
-
   const FilterdbProducts = data
     .filter((res) => res.Tipo === Controler5)
     .map((Item, index) => (
       <div
         key={index}
         className={
-          Loading
+          Loading && InsideLoading
             ? "SectionPagedbProducts-background"
             : "SectionPagedbProducts-background-notdisplayed"
         }
@@ -56,7 +46,7 @@ const Filter = () => {
             src={Item.Imagen}
             className="SectionPagedbProducts-img"
             alt=""
-            onLoad={() => setLoading(true)}
+            onLoad={() => setInsideLoading(true)}
           />
         </div>
       </div>
@@ -66,7 +56,7 @@ const Filter = () => {
     <>
       <div
         className={
-          Loading
+          Loading && InsideLoading
             ? "SectionPagedbProducts_Loader-background-notdisplayed"
             : "SectionPagedbProducts_Loader-background"
         }
@@ -80,7 +70,7 @@ const Filter = () => {
       </div>
       <div
         className={
-          Loading
+          Loading && InsideLoading
             ? "SectionPagedbProducts_Loader-background-notdisplayed"
             : "SectionPagedbProducts_Loader-background"
         }
@@ -94,7 +84,7 @@ const Filter = () => {
       </div>
       <div
         className={
-          Loading
+          Loading && InsideLoading
             ? "SectionPagedbProducts_Loader-background-notdisplayed"
             : "SectionPagedbProducts_Loader-background"
         }
@@ -108,7 +98,7 @@ const Filter = () => {
       </div>
       <div
         className={
-          Loading
+          Loading && InsideLoading
             ? "SectionPagedbProducts_Loader-background-notdisplayed"
             : "SectionPagedbProducts_Loader-background"
         }
@@ -122,7 +112,7 @@ const Filter = () => {
       </div>
       <div
         className={
-          Loading
+          Loading && InsideLoading
             ? "SectionPagedbProducts_Loader-background-notdisplayed"
             : "SectionPagedbProducts_Loader-background"
         }

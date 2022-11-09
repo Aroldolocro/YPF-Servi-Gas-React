@@ -5,17 +5,20 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { useEffect } from "react";
 
 const ItemDetail = () => {
-  const { Controler3, setControler3, Controler4 } = useContext(AppContext);
+  const { Controler3, setControler3, Controler4, Controler6 } =
+    useContext(AppContext);
   const [data, setData] = useState({});
   const [data2, setData2] = useState([]);
   const [Loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const db = getFirestore();
-    const dbdoc = doc(db, Controler4, Controler3);
-    getDoc(dbdoc).then((res) => setData({ id: res.id, ...res.data() }));
-    getDoc(dbdoc).then((res) => setData2(res.get("Acompañamientos")));
-  }, [Controler3, Controler4]);
+    setTimeout(() => {
+      const db = getFirestore();
+      const dbdoc = doc(db, !Controler4 ? Controler6 : Controler4, Controler3);
+      getDoc(dbdoc).then((res) => setData({ id: res.id, ...res.data() }));
+      getDoc(dbdoc).then((res) => setData2(res.get("Acompañamientos")));
+    }, 1000);
+  }, [Controler3, Controler4, Controler6]);
 
   return (
     <div className="ItemDetail-background">
