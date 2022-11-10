@@ -109,10 +109,22 @@ const Menu = () => {
               <div className="Menu-C-B2B2B1">
                 <p className="Menu-txt-1">OTROS</p>
                 <div className="Menu-C-B2B2B1B1">
-                  <p className="Menu-txt-3">Hace tu pedido</p>
+                  <Link
+                    to={"/Contacto"}
+                    className="Menu-txt-3"
+                    onClick={() => setControler1(false)}
+                  >
+                    Hace tu pedido
+                  </Link>
                 </div>
                 <div className="Menu-C-B2B2B1B1">
-                  <p className="Menu-txt-3">Contactanos</p>
+                  <Link
+                    to={"/Contacto"}
+                    className="Menu-txt-3"
+                    onClick={() => setControler1(false)}
+                  >
+                    Contactanos
+                  </Link>
                 </div>
               </div>
             </div>

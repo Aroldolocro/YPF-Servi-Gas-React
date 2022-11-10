@@ -18,6 +18,10 @@ const ConstAppContext = ({ children }) => {
 
   const [sectionName, setSectionName] = useState();
 
+  /*SEARCHER DATA*/
+
+  const [Filtered, setFiltered] = useState([]);
+
   /*LOADER ON CONTEXT*/
 
   const [Loading, setLoading] = useState(false);
@@ -118,6 +122,8 @@ const ConstAppContext = ({ children }) => {
         PromocionesQuality,
         Loading,
         setLoading,
+        Filtered,
+        setFiltered,
       }}
     >
       {children}
