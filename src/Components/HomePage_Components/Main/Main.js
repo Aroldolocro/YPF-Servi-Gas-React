@@ -1,6 +1,5 @@
 import "./Main.css";
-import { useContext, useEffect, useState } from "react";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { useContext } from "react";
 import { AppContext } from "../../../AppContext/AppContext";
 import { Link } from "react-router-dom";
 import Café_con_leche from "../../../Images/Products photos/Desayunos/Café_con_leche.png";
@@ -12,32 +11,10 @@ const Main = () => {
     DesayunoQualification,
     AlmuerzoQualification,
     PromocionesQualification,
+    data,
+    data1,
+    data2,
   } = useContext(AppContext);
-  const [data, setData] = useState([]);
-  const [data1, setData1] = useState([]);
-  const [data2, setData2] = useState([]);
-
-  useEffect(() => {
-    const db = getFirestore();
-    const dbcollection = collection(db, "Desayunos");
-    const dbcollection1 = collection(db, "Almuerzos");
-    const dbcollection2 = collection(db, "Promociones");
-    getDocs(dbcollection).then((res) =>
-      setData(
-        res.docs.map((product) => ({ id: product.id, ...product.data() }))
-      )
-    );
-    getDocs(dbcollection1).then((res) =>
-      setData1(
-        res.docs.map((product) => ({ id: product.id, ...product.data() }))
-      )
-    );
-    getDocs(dbcollection2).then((res) =>
-      setData2(
-        res.docs.map((product) => ({ id: product.id, ...product.data() }))
-      )
-    );
-  }, []);
 
   return (
     <div className="Main-background">

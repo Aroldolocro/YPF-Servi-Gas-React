@@ -51,6 +51,10 @@
   justify-content: space-between;
 }
 
+.RenderOfResultdbProducts-background-notdisplayed {
+  display: none;
+}
+
 .RenderOfResultdbProducts-B1 {
   display: grid;
   grid-template-columns: auto auto;
@@ -86,4 +90,49 @@
   background-color: gainsboro;
   border-radius: 0.5vh;
   padding: 0.2vh 0.7vh 0.2vh 0.7vh;
+}
+
+/*RenderOfResultdbProducts_Loader*/
+
+.RenderOfResultdbProducts_Loader-background {
+  height: 5vh;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.RenderOfResultdbProducts_Loader-background-notdisplayed {
+  display: none;
+}
+
+.RenderOfResultdbProducts_Loader-B1 {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  grid-column-gap: 2vh;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.RenderOfResultdbProducts_Loader-B1B1 {
+  height: 5vh;
+  width: 5vh;
+  animation: skeleton-loading 1s linear infinite alternate;
+  border-radius: 1vh;
+}
+
+.RenderOfResultdbProducts_Loader-B1B2 {
+  height: 2.5vh;
+  width: 50vw;
+  animation: skeleton-loading 1s linear infinite alternate;
+  border-radius: 0.5vh;
+}
+
+.RenderOfResultdbProducts_Loader-B2 {
+  height: 2.5vh;
+  width: 20vw;
+  animation: skeleton-loading 1s linear infinite alternate;
+  border-radius: 0.5vh;
 }

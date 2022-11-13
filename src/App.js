@@ -7,12 +7,14 @@ import ContactPage from "./Pages/ContactPage/ContactPage";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import ConstAppContext from "./AppContext/AppContext";
+import Popup from "./Components/Popup/Popup";
 
 export default function App() {
   return (
     <ConstAppContext>
       <HashRouter hashType="slash">
         <Navbar />
+        <Popup />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={"404"} />

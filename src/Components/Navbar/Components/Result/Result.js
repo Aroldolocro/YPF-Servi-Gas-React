@@ -1,23 +1,33 @@
 import "./Result.css";
 import { AppContext } from "../../../../AppContext/AppContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 const Result = () => {
-  const { setControler3, setControler4, Filtered, setFiltered } =
+  const { setProductId, setProductCollection, Filtered, setFiltered, setOpenPopUp } =
     useContext(AppContext);
+  const [Loading, setLoading] = useState(false);
 
   const RenderOfResultdbProducts = Filtered.slice(0, 5).map((value, index) => {
     return (
       <div
         key={index}
-        className="RenderOfResultdbProducts-background"
-        onClick={() => setControler3(value.id) & setControler4(value.Colección)}
+        className={
+          Loading
+            ? "RenderOfResultdbProducts-background"
+            : "RenderOfResultdbProducts-background-notdisplayed"
+        }
+        onClick={() =>
+          setProductId(value.id) &
+          setProductCollection(value.Colección) &
+          setOpenPopUp(true)
+        }
       >
         <div className="RenderOfResultdbProducts-B1">
           <img
             src={value.Imagen}
             className="RenderOfResultdbProducts-img"
             alt=""
+            onLoad={() => setLoading(true)}
           />
           <p className="RenderOfResultdbProducts-txt-1">{value.Nombre}</p>
         </div>
@@ -26,9 +36,82 @@ const Result = () => {
     );
   });
 
+  const RenderOfResultdbProducts_Loader = (
+    <>
+      <div
+        className={
+          Loading
+            ? "RenderOfResultdbProducts_Loader-background-notdisplayed"
+            : "RenderOfResultdbProducts_Loader-background"
+        }
+      >
+        <div className="RenderOfResultdbProducts_Loader-B1">
+          <div className="RenderOfResultdbProducts_Loader-B1B1"></div>
+          <div className="RenderOfResultdbProducts_Loader-B1B2"></div>
+        </div>
+        <div className="RenderOfResultdbProducts_Loader-B2"></div>
+      </div>
+      <div
+        className={
+          Loading
+            ? "RenderOfResultdbProducts_Loader-background-notdisplayed"
+            : "RenderOfResultdbProducts_Loader-background"
+        }
+      >
+        <div className="RenderOfResultdbProducts_Loader-B1">
+          <div className="RenderOfResultdbProducts_Loader-B1B1"></div>
+          <div className="RenderOfResultdbProducts_Loader-B1B2"></div>
+        </div>
+        <div className="RenderOfResultdbProducts_Loader-B2"></div>
+      </div>
+      <div
+        className={
+          Loading
+            ? "RenderOfResultdbProducts_Loader-background-notdisplayed"
+            : "RenderOfResultdbProducts_Loader-background"
+        }
+      >
+        <div className="RenderOfResultdbProducts_Loader-B1">
+          <div className="RenderOfResultdbProducts_Loader-B1B1"></div>
+          <div className="RenderOfResultdbProducts_Loader-B1B2"></div>
+        </div>
+        <div className="RenderOfResultdbProducts_Loader-B2"></div>
+      </div>
+      <div
+        className={
+          Loading
+            ? "RenderOfResultdbProducts_Loader-background-notdisplayed"
+            : "RenderOfResultdbProducts_Loader-background"
+        }
+      >
+        <div className="RenderOfResultdbProducts_Loader-B1">
+          <div className="RenderOfResultdbProducts_Loader-B1B1"></div>
+          <div className="RenderOfResultdbProducts_Loader-B1B2"></div>
+        </div>
+        <div className="RenderOfResultdbProducts_Loader-B2"></div>
+      </div>
+      <div
+        className={
+          Loading
+            ? "RenderOfResultdbProducts_Loader-background-notdisplayed"
+            : "RenderOfResultdbProducts_Loader-background"
+        }
+      >
+        <div className="RenderOfResultdbProducts_Loader-B1">
+          <div className="RenderOfResultdbProducts_Loader-B1B1"></div>
+          <div className="RenderOfResultdbProducts_Loader-B1B2"></div>
+        </div>
+        <div className="RenderOfResultdbProducts_Loader-B2"></div>
+      </div>
+    </>
+  );
+
   return (
     <div className="Result-background">
-      <div className="Result-content">{RenderOfResultdbProducts}</div>
+      <div className="Result-content">
+        {RenderOfResultdbProducts_Loader}
+        {RenderOfResultdbProducts}
+      </div>
       <div className="Result-content-out" onClick={() => setFiltered([])}></div>
     </div>
   );

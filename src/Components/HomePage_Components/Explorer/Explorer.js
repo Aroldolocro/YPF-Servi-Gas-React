@@ -5,47 +5,66 @@ import Milanesa_cheddar from "../../../Images/Products photos/Almuerzos/Milanesa
 import Baguette_especial from "../../../Images/Products photos/Almuerzos/Baguette_especial.png";
 import Lomopizza from "../../../Images/Products photos/Almuerzos/Lomopizza.png";
 import { AppContext } from "../../../AppContext/AppContext";
-import { useContext, useEffect } from "react";
-import Category from "../Category/Category";
+import { useContext } from "react";
 
 const Explorer = () => {
   const {
-    Controler5,
-    setControler5,
-    setControler6,
-    Controler7,
-    setControler7,
+    ProductoTipo,
+    setProductoTipo,
+    setCollection,
+    setOpenPopUp4,
     setLoading,
   } = useContext(AppContext);
 
-  useEffect(() => {
-    if (Controler7) {
-      document.getElementById("root").className = "NoScroll";
-      document.body.className = "NoScroll";
-    } else {
-      document.getElementById("root").className = undefined;
-      document.body.className = undefined;
-    }
-  }, [Controler7]);
+  const Explorer_Loader = (
+    <>
+      <div className="Explorer_Loader-background">
+        <div className="Explorer_Loader-B1"></div>
+        <div className="Explorer_Loader-B2"></div>
+      </div>
+      <div className="Explorer_Loader-background">
+        <div className="Explorer_Loader-B1"></div>
+        <div className="Explorer_Loader-B2"></div>
+      </div>
+      <div className="Explorer_Loader-background">
+        <div className="Explorer_Loader-B1"></div>
+        <div className="Explorer_Loader-B2"></div>
+      </div>
+      <div className="Explorer_Loader-background">
+        <div className="Explorer_Loader-B1"></div>
+        <div className="Explorer_Loader-B2"></div>
+      </div>
+      <div className="Explorer_Loader-background">
+        <div className="Explorer_Loader-B1"></div>
+        <div className="Explorer_Loader-B2"></div>
+      </div>
+      <div className="Explorer_Loader-background">
+        <div className="Explorer_Loader-B1"></div>
+        <div className="Explorer_Loader-B2"></div>
+      </div>
+    </>
+  );
 
   return (
     <div className="Explorer-background">
-      {Controler7 && <Category />}
       <div className="Explorer-content">
         <div className="Explorer-C-B1">
+          {true ? null : Explorer_Loader}
           <div
-            className="Explorer-C-B1B1"
+            className={
+              true ? "Explorer-C-B1B1" : "Explorer-C-B1B1-notdisplayed"
+            }
             onClick={() =>
-              setControler5(
-                Controler5 === "Hamburguesas" ? undefined : "Hamburguesas"
+              setProductoTipo(
+                ProductoTipo === "Hamburguesas" ? undefined : "Hamburguesas"
               ) &
-              setControler6("Almuerzos") &
+              setCollection("Almuerzos") &
               setLoading(false)
             }
           >
             <div
               className={
-                Controler5 === "Hamburguesas"
+                ProductoTipo === "Hamburguesas"
                   ? "Explorer-C-B1B1B1 Explorer-C-B1B1B1-selected"
                   : "Explorer-C-B1B1B1"
               }
@@ -53,13 +72,13 @@ const Explorer = () => {
               <img
                 src={Hamburguesa_city}
                 className={
-                  Controler5 === "Hamburguesas"
+                  ProductoTipo === "Hamburguesas"
                     ? "Explorer-img-1 Explorer-img-1-selected"
                     : "Explorer-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Hamburguesas" && (
+              {ProductoTipo === "Hamburguesas" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -72,7 +91,7 @@ const Explorer = () => {
             </div>
             <p
               className={
-                Controler5 === "Hamburguesas"
+                ProductoTipo === "Hamburguesas"
                   ? "Explorer-txt-1 Explorer-txt-1-selected"
                   : "Explorer-txt-1"
               }
@@ -81,16 +100,20 @@ const Explorer = () => {
             </p>
           </div>
           <div
-            className="Explorer-C-B1B1"
+            className={
+              true ? "Explorer-C-B1B1" : "Explorer-C-B1B1-notdisplayed"
+            }
             onClick={() =>
-              setControler5(Controler5 === "Pizzas" ? undefined : "Pizzas") &
-              setControler6("Almuerzos") &
+              setProductoTipo(
+                ProductoTipo === "Pizzas" ? undefined : "Pizzas"
+              ) &
+              setCollection("Almuerzos") &
               setLoading(false)
             }
           >
             <div
               className={
-                Controler5 === "Pizzas"
+                ProductoTipo === "Pizzas"
                   ? "Explorer-C-B1B1B1 Explorer-C-B1B1B1-selected"
                   : "Explorer-C-B1B1B1"
               }
@@ -98,13 +121,13 @@ const Explorer = () => {
               <img
                 src={Pizza_de_rucula_y_jamon_crudo}
                 className={
-                  Controler5 === "Pizzas"
+                  ProductoTipo === "Pizzas"
                     ? "Explorer-img-1 Explorer-img-1-selected"
                     : "Explorer-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Pizzas" && (
+              {ProductoTipo === "Pizzas" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -117,7 +140,7 @@ const Explorer = () => {
             </div>
             <p
               className={
-                Controler5 === "Pizzas"
+                ProductoTipo === "Pizzas"
                   ? "Explorer-txt-1 Explorer-txt-1-selected"
                   : "Explorer-txt-1"
               }
@@ -126,18 +149,20 @@ const Explorer = () => {
             </p>
           </div>
           <div
-            className="Explorer-C-B1B1"
+            className={
+              true ? "Explorer-C-B1B1" : "Explorer-C-B1B1-notdisplayed"
+            }
             onClick={() =>
-              setControler5(
-                Controler5 === "Milanesas" ? undefined : "Milanesas"
+              setProductoTipo(
+                ProductoTipo === "Milanesas" ? undefined : "Milanesas"
               ) &
-              setControler6("Almuerzos") &
+              setCollection("Almuerzos") &
               setLoading(false)
             }
           >
             <div
               className={
-                Controler5 === "Milanesas"
+                ProductoTipo === "Milanesas"
                   ? "Explorer-C-B1B1B1 Explorer-C-B1B1B1-selected"
                   : "Explorer-C-B1B1B1"
               }
@@ -145,13 +170,13 @@ const Explorer = () => {
               <img
                 src={Milanesa_cheddar}
                 className={
-                  Controler5 === "Milanesas"
+                  ProductoTipo === "Milanesas"
                     ? "Explorer-img-1 Explorer-img-1-selected"
                     : "Explorer-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Milanesas" && (
+              {ProductoTipo === "Milanesas" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -164,7 +189,7 @@ const Explorer = () => {
             </div>
             <p
               className={
-                Controler5 === "Milanesas"
+                ProductoTipo === "Milanesas"
                   ? "Explorer-txt-1 Explorer-txt-1-selected"
                   : "Explorer-txt-1"
               }
@@ -173,18 +198,20 @@ const Explorer = () => {
             </p>
           </div>
           <div
-            className="Explorer-C-B1B1"
+            className={
+              true ? "Explorer-C-B1B1" : "Explorer-C-B1B1-notdisplayed"
+            }
             onClick={() =>
-              setControler5(
-                Controler5 === "Sandwiches" ? undefined : "Sandwiches"
+              setProductoTipo(
+                ProductoTipo === "Sandwiches" ? undefined : "Sandwiches"
               ) &
-              setControler6("Almuerzos") &
+              setCollection("Almuerzos") &
               setLoading(false)
             }
           >
             <div
               className={
-                Controler5 === "Sandwiches"
+                ProductoTipo === "Sandwiches"
                   ? "Explorer-C-B1B1B1 Explorer-C-B1B1B1-selected"
                   : "Explorer-C-B1B1B1"
               }
@@ -192,13 +219,13 @@ const Explorer = () => {
               <img
                 src={Baguette_especial}
                 className={
-                  Controler5 === "Sandwiches"
+                  ProductoTipo === "Sandwiches"
                     ? "Explorer-img-1 Explorer-img-1-selected"
                     : "Explorer-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Sandwiches" && (
+              {ProductoTipo === "Sandwiches" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -211,7 +238,7 @@ const Explorer = () => {
             </div>
             <p
               className={
-                Controler5 === "Sandwiches"
+                ProductoTipo === "Sandwiches"
                   ? "Explorer-txt-1 Explorer-txt-1-selected"
                   : "Explorer-txt-1"
               }
@@ -220,18 +247,20 @@ const Explorer = () => {
             </p>
           </div>
           <div
-            className="Explorer-C-B1B1"
+            className={
+              true ? "Explorer-C-B1B1" : "Explorer-C-B1B1-notdisplayed"
+            }
             onClick={() =>
-              setControler5(
-                Controler5 === "Lomopizzas" ? undefined : "Lomopizzas"
+              setProductoTipo(
+                ProductoTipo === "Lomopizzas" ? undefined : "Lomopizzas"
               ) &
-              setControler6("Almuerzos") &
+              setCollection("Almuerzos") &
               setLoading(false)
             }
           >
             <div
               className={
-                Controler5 === "Lomopizzas"
+                ProductoTipo === "Lomopizzas"
                   ? "Explorer-C-B1B1B1 Explorer-C-B1B1B1-selected"
                   : "Explorer-C-B1B1B1"
               }
@@ -239,13 +268,13 @@ const Explorer = () => {
               <img
                 src={Lomopizza}
                 className={
-                  Controler5 === "Lomopizzas"
+                  ProductoTipo === "Lomopizzas"
                     ? "Explorer-img-1 Explorer-img-1-selected"
                     : "Explorer-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Lomopizzas" && (
+              {ProductoTipo === "Lomopizzas" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -258,7 +287,7 @@ const Explorer = () => {
             </div>
             <p
               className={
-                Controler5 === "Lomopizzas"
+                ProductoTipo === "Lomopizzas"
                   ? "Explorer-txt-1 Explorer-txt-1-selected"
                   : "Explorer-txt-1"
               }
@@ -266,7 +295,12 @@ const Explorer = () => {
               Lomopizzas
             </p>
           </div>
-          <div className="Explorer-C-B1B2" onClick={() => setControler7(true)}>
+          <div
+            className={
+              true ? "Explorer-C-B1B2" : "Explorer-C-B1B1-notdisplayed"
+            }
+            onClick={() => setOpenPopUp4(true)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -288,15 +322,15 @@ const Explorer = () => {
         <div className="Explorer-C-B2">
           <div
             className={
-              Controler5 === "Promociones"
+              ProductoTipo === "Promociones"
                 ? "Explorer-C-B2B1 Explorer-C-B2B1-selected"
                 : "Explorer-C-B2B1"
             }
             onClick={() =>
-              setControler5(
-                Controler5 === "Promociones" ? undefined : "Promociones"
+              setProductoTipo(
+                ProductoTipo === "Promociones" ? undefined : "Promociones"
               ) &
-              setControler6("Promociones") &
+              setCollection("Promociones") &
               setLoading(false)
             }
           >
@@ -306,7 +340,7 @@ const Explorer = () => {
               height="16"
               fillRule="currentColor"
               className={
-                Controler5 === "Promociones"
+                ProductoTipo === "Promociones"
                   ? "Explorer-svg-3 Explorer-svg-3-selected"
                   : "Explorer-svg-3"
               }
@@ -316,7 +350,7 @@ const Explorer = () => {
             </svg>
             <p
               className={
-                Controler5 === "Promociones"
+                ProductoTipo === "Promociones"
                   ? "Explorer-txt-5 Explorer-txt-5-selected"
                   : "Explorer-txt-5"
               }
@@ -326,17 +360,17 @@ const Explorer = () => {
           </div>
           <div
             className={
-              Controler5 === "Menor A Mayor Precio"
+              ProductoTipo === "Menor A Mayor Precio"
                 ? "Explorer-C-B2B1 Explorer-C-B2B1-selected"
                 : "Explorer-C-B2B1"
             }
             onClick={() =>
-              setControler5(
-                Controler5 === "Menor A Mayor Precio"
+              setProductoTipo(
+                ProductoTipo === "Menor A Mayor Precio"
                   ? undefined
                   : "Menor A Mayor Precio"
               ) &
-              setControler6("asd") &
+              setCollection("asd") &
               setLoading(false)
             }
           >
@@ -346,7 +380,7 @@ const Explorer = () => {
               height="16"
               fillRule="currentColor"
               className={
-                Controler5 === "Menor A Mayor Precio"
+                ProductoTipo === "Menor A Mayor Precio"
                   ? "Explorer-svg-3 Explorer-svg-3-selected"
                   : "Explorer-svg-3"
               }
@@ -358,7 +392,7 @@ const Explorer = () => {
             </svg>
             <p
               className={
-                Controler5 === "Menor A Mayor Precio"
+                ProductoTipo === "Menor A Mayor Precio"
                   ? "Explorer-txt-5 Explorer-txt-5-selected"
                   : "Explorer-txt-5"
               }
@@ -368,17 +402,17 @@ const Explorer = () => {
           </div>
           <div
             className={
-              Controler5 === "Nuestros favoritos"
+              ProductoTipo === "Nuestros favoritos"
                 ? "Explorer-C-B2B1 Explorer-C-B2B1-selected"
                 : "Explorer-C-B2B1"
             }
             onClick={() =>
-              setControler5(
-                Controler5 === "Nuestros favoritos"
+              setProductoTipo(
+                ProductoTipo === "Nuestros favoritos"
                   ? undefined
                   : "Nuestros favoritos"
               ) &
-              setControler6("Promociones") &
+              setCollection("Promociones") &
               setLoading(false)
             }
           >
@@ -388,7 +422,7 @@ const Explorer = () => {
               height="16"
               fillRule="currentColor"
               className={
-                Controler5 === "Nuestros favoritos"
+                ProductoTipo === "Nuestros favoritos"
                   ? "Explorer-svg-3 Explorer-svg-3-selected"
                   : "Explorer-svg-3"
               }
@@ -401,7 +435,7 @@ const Explorer = () => {
             </svg>
             <p
               className={
-                Controler5 === "Nuestros favoritos"
+                ProductoTipo === "Nuestros favoritos"
                   ? "Explorer-txt-5 Explorer-txt-5-selected"
                   : "Explorer-txt-5"
               }

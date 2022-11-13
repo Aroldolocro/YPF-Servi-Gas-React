@@ -22,11 +22,12 @@
 
 .Searcher-svg-1 {
   right: 2vh;
-  height: 3.5vw;
+  height: 4vw;
   width: auto;
   fill: rgb(128, 128, 128);
   position: absolute;
   animation: Searcher-svg 0.2s ease-in;
+  display: flex;
 }
 
 @keyframes Searcher-svg {

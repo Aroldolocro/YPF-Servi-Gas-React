@@ -21,10 +21,10 @@ import Desayuno from "../../../Images/Products photos/Promociones/Desayuno.png";
 
 const Category = () => {
   const {
-    Controler5,
-    setControler5,
-    setControler6,
-    setControler7,
+    ProductoTipo,
+    setProductoTipo,
+    setCollection,
+    setOpenPopUp4,
     setLoading,
   } = useContext(AppContext);
   return (
@@ -41,7 +41,7 @@ const Category = () => {
             viewBox="0 0 16 16"
             stroke="white"
             strokeWidth={0.5}
-            onClick={() => setControler7(false)}
+            onClick={() => setOpenPopUp4(false)}
           >
             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
           </svg>
@@ -50,17 +50,17 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5(
-                Controler5 === "Hamburguesas" ? undefined : "Hamburguesas"
+              setProductoTipo(
+                ProductoTipo === "Hamburguesas" ? undefined : "Hamburguesas"
               ) &
-              setControler6("Almuerzos") &
+              setCollection("Almuerzos") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Hamburguesas"
+                ProductoTipo === "Hamburguesas"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -68,13 +68,13 @@ const Category = () => {
               <img
                 src={Hamburguesa_city}
                 className={
-                  Controler5 === "Hamburguesas"
+                  ProductoTipo === "Hamburguesas"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Hamburguesas" && (
+              {ProductoTipo === "Hamburguesas" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -87,7 +87,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Hamburguesas"
+                ProductoTipo === "Hamburguesas"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -98,15 +98,17 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5(Controler5 === "Pizzas" ? undefined : "Pizzas") &
-              setControler6("Almuerzos") &
+              setProductoTipo(
+                ProductoTipo === "Pizzas" ? undefined : "Pizzas"
+              ) &
+              setCollection("Almuerzos") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Pizzas"
+                ProductoTipo === "Pizzas"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -114,13 +116,13 @@ const Category = () => {
               <img
                 src={Pizza_de_rucula_y_jamon_crudo}
                 className={
-                  Controler5 === "Pizzas"
+                  ProductoTipo === "Pizzas"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Pizzas" && (
+              {ProductoTipo === "Pizzas" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -133,7 +135,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Pizzas"
+                ProductoTipo === "Pizzas"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -144,17 +146,17 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5(
-                Controler5 === "Milanesas" ? undefined : "Milanesas"
+              setProductoTipo(
+                ProductoTipo === "Milanesas" ? undefined : "Milanesas"
               ) &
-              setControler6("Almuerzos") &
+              setCollection("Almuerzos") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Milanesas"
+                ProductoTipo === "Milanesas"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -162,13 +164,13 @@ const Category = () => {
               <img
                 src={Milanesa_cheddar}
                 className={
-                  Controler5 === "Milanesas"
+                  ProductoTipo === "Milanesas"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Milanesas" && (
+              {ProductoTipo === "Milanesas" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -181,7 +183,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Milanesas"
+                ProductoTipo === "Milanesas"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -192,17 +194,17 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5(
-                Controler5 === "Sandwiches" ? undefined : "Sandwiches"
+              setProductoTipo(
+                ProductoTipo === "Sandwiches" ? undefined : "Sandwiches"
               ) &
-              setControler6("Almuerzos") &
+              setCollection("Almuerzos") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Sandwiches"
+                ProductoTipo === "Sandwiches"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -210,13 +212,13 @@ const Category = () => {
               <img
                 src={Baguette_especial}
                 className={
-                  Controler5 === "Sandwiches"
+                  ProductoTipo === "Sandwiches"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Sandwiches" && (
+              {ProductoTipo === "Sandwiches" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -229,7 +231,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Sandwiches"
+                ProductoTipo === "Sandwiches"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -240,17 +242,17 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5(
-                Controler5 === "Lomopizzas" ? undefined : "Lomopizzas"
+              setProductoTipo(
+                ProductoTipo === "Lomopizzas" ? undefined : "Lomopizzas"
               ) &
-              setControler6("Almuerzos") &
+              setCollection("Almuerzos") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Lomopizzas"
+                ProductoTipo === "Lomopizzas"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -258,13 +260,13 @@ const Category = () => {
               <img
                 src={Lomopizza}
                 className={
-                  Controler5 === "Lomopizzas"
+                  ProductoTipo === "Lomopizzas"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Lomopizzas" && (
+              {ProductoTipo === "Lomopizzas" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -277,7 +279,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Lomopizzas"
+                ProductoTipo === "Lomopizzas"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -288,15 +290,17 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5(Controler5 === "Carnes" ? undefined : "Carnes") &
-              setControler6("Almuerzos") &
+              setProductoTipo(
+                ProductoTipo === "Carnes" ? undefined : "Carnes"
+              ) &
+              setCollection("Almuerzos") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Carnes"
+                ProductoTipo === "Carnes"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -304,13 +308,13 @@ const Category = () => {
               <img
                 src={Matambre_a_la_pizza}
                 className={
-                  Controler5 === "Carnes"
+                  ProductoTipo === "Carnes"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Carnes" && (
+              {ProductoTipo === "Carnes" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -323,7 +327,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Carnes"
+                ProductoTipo === "Carnes"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -334,17 +338,19 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5(
-                Controler5 === "Acompañamientos" ? undefined : "Acompañamientos"
+              setProductoTipo(
+                ProductoTipo === "Acompañamientos"
+                  ? undefined
+                  : "Acompañamientos"
               ) &
-              setControler6("Almuerzos") &
+              setCollection("Almuerzos") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Acompañamientos"
+                ProductoTipo === "Acompañamientos"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -352,13 +358,13 @@ const Category = () => {
               <img
                 src={Papas_cheddar}
                 className={
-                  Controler5 === "Acompañamientos"
+                  ProductoTipo === "Acompañamientos"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Acompañamientos" && (
+              {ProductoTipo === "Acompañamientos" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -371,7 +377,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Acompañamientos"
+                ProductoTipo === "Acompañamientos"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -382,15 +388,15 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5(Controler5 === "Café" ? undefined : "Café") &
-              setControler6("Desayunos") &
+              setProductoTipo(ProductoTipo === "Café" ? undefined : "Café") &
+              setCollection("Desayunos") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Café"
+                ProductoTipo === "Café"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -398,13 +404,13 @@ const Category = () => {
               <img
                 src={Café_con_leche}
                 className={
-                  Controler5 === "Café"
+                  ProductoTipo === "Café"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Café" && (
+              {ProductoTipo === "Café" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -417,7 +423,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Café"
+                ProductoTipo === "Café"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -428,17 +434,17 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5(
-                Controler5 === "Licuados" ? undefined : "Licuados"
+              setProductoTipo(
+                ProductoTipo === "Licuados" ? undefined : "Licuados"
               ) &
-              setControler6("Desayunos") &
+              setCollection("Desayunos") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Licuados"
+                ProductoTipo === "Licuados"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -446,13 +452,13 @@ const Category = () => {
               <img
                 src={Licuado_en_vaso}
                 className={
-                  Controler5 === "Licuados"
+                  ProductoTipo === "Licuados"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Licuados" && (
+              {ProductoTipo === "Licuados" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -465,7 +471,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Licuados"
+                ProductoTipo === "Licuados"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -476,15 +482,15 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5(Controler5 === "Té" ? undefined : "Té") &
-              setControler6("Desayunos") &
+              setProductoTipo(ProductoTipo === "Té" ? undefined : "Té") &
+              setCollection("Desayunos") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Té"
+                ProductoTipo === "Té"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -492,13 +498,13 @@ const Category = () => {
               <img
                 src={Té}
                 className={
-                  Controler5 === "Té"
+                  ProductoTipo === "Té"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Té" && (
+              {ProductoTipo === "Té" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -511,7 +517,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Té"
+                ProductoTipo === "Té"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -522,17 +528,17 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5(
-                Controler5 === "Submarino" ? undefined : "Submarino"
+              setProductoTipo(
+                ProductoTipo === "Submarino" ? undefined : "Submarino"
               ) &
-              setControler6("Desayunos") &
+              setCollection("Desayunos") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Submarino"
+                ProductoTipo === "Submarino"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -540,13 +546,13 @@ const Category = () => {
               <img
                 src={Submarino}
                 className={
-                  Controler5 === "Submarino"
+                  ProductoTipo === "Submarino"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Submarino" && (
+              {ProductoTipo === "Submarino" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -559,7 +565,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Submarino"
+                ProductoTipo === "Submarino"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -570,17 +576,17 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5(
-                Controler5 === "Capuchino" ? undefined : "Capuchino"
+              setProductoTipo(
+                ProductoTipo === "Capuchino" ? undefined : "Capuchino"
               ) &
-              setControler6("Desayunos") &
+              setCollection("Desayunos") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Capuchino"
+                ProductoTipo === "Capuchino"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -588,13 +594,13 @@ const Category = () => {
               <img
                 src={Capuchino}
                 className={
-                  Controler5 === "Capuchino"
+                  ProductoTipo === "Capuchino"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Capuchino" && (
+              {ProductoTipo === "Capuchino" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -607,7 +613,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Capuchino"
+                ProductoTipo === "Capuchino"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -618,15 +624,15 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5(Controler5 === "Jugos" ? undefined : "Jugos") &
-              setControler6("Desayunos") &
+              setProductoTipo(ProductoTipo === "Jugos" ? undefined : "Jugos") &
+              setCollection("Desayunos") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Jugos"
+                ProductoTipo === "Jugos"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -634,13 +640,13 @@ const Category = () => {
               <img
                 src={Jugo_de_naranja_en_vaso}
                 className={
-                  Controler5 === "Jugos"
+                  ProductoTipo === "Jugos"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Jugos" && (
+              {ProductoTipo === "Jugos" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -653,7 +659,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Jugos"
+                ProductoTipo === "Jugos"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -664,17 +670,17 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5(
-                Controler5 === "Panificados" ? undefined : "Panificados"
+              setProductoTipo(
+                ProductoTipo === "Panificados" ? undefined : "Panificados"
               ) &
-              setControler6("Desayunos") &
+              setCollection("Desayunos") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Panificados"
+                ProductoTipo === "Panificados"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -682,13 +688,13 @@ const Category = () => {
               <img
                 src={Panificados}
                 className={
-                  Controler5 === "Panificados"
+                  ProductoTipo === "Panificados"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Panificados" && (
+              {ProductoTipo === "Panificados" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -701,7 +707,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Panificados"
+                ProductoTipo === "Panificados"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -712,17 +718,17 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5(
-                Controler5 === "Tostadas" ? undefined : "Tostadas"
+              setProductoTipo(
+                ProductoTipo === "Tostadas" ? undefined : "Tostadas"
               ) &
-              setControler6("Desayunos") &
+              setCollection("Desayunos") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Tostadas"
+                ProductoTipo === "Tostadas"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -730,13 +736,13 @@ const Category = () => {
               <img
                 src={Tostadas}
                 className={
-                  Controler5 === "Tostadas"
+                  ProductoTipo === "Tostadas"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Tostadas" && (
+              {ProductoTipo === "Tostadas" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -749,7 +755,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Tostadas"
+                ProductoTipo === "Tostadas"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -760,15 +766,15 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Omelette") &
-              setControler6("Desayunos") &
+              setProductoTipo("Omelette") &
+              setCollection("Desayunos") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Omelette"
+                ProductoTipo === "Omelette"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -776,13 +782,13 @@ const Category = () => {
               <img
                 src={Omelette_de_jamón_y_queso}
                 className={
-                  Controler5 === "Omelette"
+                  ProductoTipo === "Omelette"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Omelette" && (
+              {ProductoTipo === "Omelette" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -795,7 +801,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Omelette"
+                ProductoTipo === "Omelette"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -806,15 +812,15 @@ const Category = () => {
           <div
             className="Category-B1B2B1"
             onClick={() =>
-              setControler5("Promociones") &
-              setControler6("Promociones") &
+              setProductoTipo("Promociones") &
+              setCollection("Promociones") &
               setLoading(false) &
-              setControler7(false)
+              setOpenPopUp4(false)
             }
           >
             <div
               className={
-                Controler5 === "Promociones"
+                ProductoTipo === "Promociones"
                   ? "Category-B1B2B1B1 Category-B1B2B1B1-selected"
                   : "Category-B1B2B1B1"
               }
@@ -822,13 +828,13 @@ const Category = () => {
               <img
                 src={Desayuno}
                 className={
-                  Controler5 === "Promociones"
+                  ProductoTipo === "Promociones"
                     ? "Category-img-1 Category-img-1-selected"
                     : "Category-img-1"
                 }
                 alt=""
               />
-              {Controler5 === "Promociones" && (
+              {ProductoTipo === "Promociones" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fillRule="currentColor"
@@ -841,7 +847,7 @@ const Category = () => {
             </div>
             <p
               className={
-                Controler5 === "Promociones"
+                ProductoTipo === "Promociones"
                   ? "Category-txt-2 Category-txt-2-selected"
                   : "Category-txt-2"
               }
@@ -851,7 +857,7 @@ const Category = () => {
           </div>
         </div>
       </div>
-      <div className="Category-B2" onClick={() => setControler7(false)}></div>
+      <div className="Category-B2" onClick={() => setOpenPopUp4(false)}></div>
     </div>
   );
 };

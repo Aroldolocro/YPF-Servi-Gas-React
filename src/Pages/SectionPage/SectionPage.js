@@ -3,47 +3,34 @@ import Café_con_leche from "../../Images/Products photos/Desayunos/Café_con_le
 import Pizza_especial from "../../Images/Products photos/Almuerzos/Pizza_especial.png";
 import Promo from "../../Images/Products photos/Almuerzos/Promo.jpg";
 import Logo1 from "../../Images/Logo1.png";
-import Logo2 from "../../Images/Logo2.png";
 import { Link, useParams } from "react-router-dom";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../AppContext/AppContext";
-import Qualifier from "../../Components/SectionPage_Components/Qualifier/Qualifier";
-import ItemDetail from "../../Components/SectionPage_Components/ItemDetail/ItemDetail";
 
 const SectionPage = () => {
   const { Path1 } = useParams();
   const {
-    Controler2,
-    setControler2,
-    Controler3,
-    setControler3,
-    setControler4,
+    setOpenPopUp1,
+    setOpenPopUp2,
+    setProductId,
+    setProductCollection,
     sectionName,
     setSectionName,
     DesayunoQualification,
     AlmuerzoQualification,
     PromocionesQualification,
+    setOpenPopUp,
+    setSectionPagePath,
+    ConditionedData2,
   } = useContext(AppContext);
-  const [data, setData] = useState([]);
   const [Loading, setLoading] = useState(false);
   const [Image, setImage] = useState();
-  const [Info, setInfo] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
-
-  useEffect(() => {
-    if (Info | Controler2 | (Controler3 !== undefined)) {
-      document.getElementById("root").className = "NoScroll";
-      document.body.className = "NoScroll";
-    } else {
-      document.getElementById("root").className = undefined;
-      document.body.className = undefined;
-    }
-  }, [Info, Controler2, Controler3]);
+    setSectionPagePath(Path1);
+  }, [setSectionPagePath, Path1]);
 
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -59,16 +46,6 @@ const SectionPage = () => {
   }, []);
 
   useEffect(() => {
-    const db = getFirestore();
-    const dbcollection = collection(db, Path1);
-    getDocs(dbcollection).then((res) =>
-      setData(
-        res.docs.map((product) => ({ id: product.id, ...product.data() }))
-      )
-    );
-  }, [Path1]);
-
-  useEffect(() => {
     if (Path1 === "Desayunos") {
       setSectionName("Desayunos y meriendas");
       setImage(Café_con_leche);
@@ -81,40 +58,42 @@ const SectionPage = () => {
     }
   }, [Path1, setSectionName]);
 
-  const SectionPagedbProducts = data
-    .sort(function (x, y) {
-      return x.Prioridad - y.Prioridad;
-    })
-    .map((Item, index) => (
-      <div
-        key={index}
-        className={
-          Loading
-            ? "SectionPagedbProducts-background"
-            : "SectionPagedbProducts-background-notdisplayed"
-        }
-        onClick={() => setControler3(Item.id) & setControler4(Item.Colección)}
-      >
-        <div className="SectionPagedbProducts-B1">
-          <p className="SectionPagedbProducts-txt-1">{Item.Nombre}</p>
-          <p className="SectionPagedbProducts-txt-2">{Item.Descripción}</p>
-          <p className="SectionPagedbProducts-txt-3">
-            {new Intl.NumberFormat("es-AR", {
-              style: "currency",
-              currency: "ARS",
-            }).format(Item.Precio)}
-          </p>
-        </div>
-        <div className="SectionPagedbProducts-B2">
-          <img
-            src={Item.Imagen}
-            className="SectionPagedbProducts-img"
-            alt=""
-            onLoad={() => setLoading(true)}
-          />
-        </div>
+  const SectionPagedbProducts = ConditionedData2.sort(function (x, y) {
+    return x.Prioridad - y.Prioridad;
+  }).map((Item, index) => (
+    <div
+      key={index}
+      className={
+        Loading
+          ? "SectionPagedbProducts-background"
+          : "SectionPagedbProducts-background-notdisplayed"
+      }
+      onClick={() =>
+        setProductId(Item.id) &
+        setProductCollection(Item.Colección) &
+        setOpenPopUp(true)
+      }
+    >
+      <div className="SectionPagedbProducts-B1">
+        <p className="SectionPagedbProducts-txt-1">{Item.Nombre}</p>
+        <p className="SectionPagedbProducts-txt-2">{Item.Descripción}</p>
+        <p className="SectionPagedbProducts-txt-3">
+          {new Intl.NumberFormat("es-AR", {
+            style: "currency",
+            currency: "ARS",
+          }).format(Item.Precio)}
+        </p>
       </div>
-    ));
+      <div className="SectionPagedbProducts-B2">
+        <img
+          src={Item.Imagen}
+          className="SectionPagedbProducts-img"
+          alt=""
+          onLoad={() => setLoading(true)}
+        />
+      </div>
+    </div>
+  ));
 
   const SectionPagedbProducts_Loader = (
     <>
@@ -218,7 +197,7 @@ const SectionPage = () => {
           </div>
           <div
             className="RenderOfSectionPageTop-B1B1B2"
-            onClick={() => setInfo(true)}
+            onClick={() => setOpenPopUp2(true)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -248,70 +227,12 @@ const SectionPage = () => {
     </div>
   );
 
-  const RenderOfInfoBottom = (
-    <div className="RenderOfInfoBottom-background">
-      <div
-        className="RenderOfInfoBottom-B1"
-        onClick={() => setInfo(false)}
-      ></div>
-      <div className="RenderOfInfoBottom-B2">
-        <div className="RenderOfInfoBottom-B2B1">
-          <div className="RenderOfInfoBottom-B2B1B1">
-            <div className="RenderOfInfoBottom-B2B1B1B1">
-              <img src={Logo2} className="RenderOfInfoBottom-img" alt="" />
-              <div className="RenderOfInfoBottom-B2B1B1B1B1">
-                <p className="RenderOfInfoBottom-txt-1">Servi Gas</p>
-                <p className="RenderOfInfoBottom-txt-2">{sectionName}</p>
-              </div>
-            </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fillRule="currentColor"
-              className="RenderOfInfoBottom-svg-1"
-              viewBox="0 0 16 16"
-              stroke="white"
-              strokeWidth={0.5}
-              onClick={() => setInfo(false)}
-            >
-              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-            </svg>
-          </div>
-        </div>
-        <div className="RenderOfInfoBottom-B2B2">
-          <div className="RenderOfInfoBottom-B2B2B1">
-            <p className="RenderOfInfoBottom-txt-1">Dirección:</p>
-            <p className="RenderOfInfoBottom-txt-2">
-              Av Kennedy y Av Mariano Moreno
-            </p>
-          </div>
-          <div className="RenderOfInfoBottom-B2B2B1">
-            <p className="RenderOfInfoBottom-txt-1">Horario de atención:</p>
-            <p className="RenderOfInfoBottom-txt-2">8:00 - 00:00</p>
-          </div>
-          <div className="RenderOfInfoBottom-B2B2B2">
-            <button
-              className="RenderOfInfoBottom-btn"
-              onClick={() => setInfo(false)}
-            >
-              Entendido
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-
   const CalificationLoader = (
     <div className="CalificationLoader-background"></div>
   );
 
   return (
     <div className="SectionPage-background">
-      {Controler3 && <ItemDetail />}
-      {Controler2 && <Qualifier />}
-      {Info && RenderOfInfoBottom}
       {scrollPosition > 200 ? RenderOfSectionPageTop : null}
       <div className="SectionPage-content">
         <div className="SectionPage-C-B1"></div>
@@ -345,7 +266,7 @@ const SectionPage = () => {
                 viewBox="0 0 16 16"
                 stroke="white"
                 strokeWidth={0.5}
-                onClick={() => setInfo(true)}
+                onClick={() => setOpenPopUp2(true)}
               >
                 <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
               </svg>
@@ -381,7 +302,7 @@ const SectionPage = () => {
               </div>
               <div
                 className="SectionPage-C-B2B1B3B2"
-                onClick={() => setControler2(true)}
+                onClick={() => setOpenPopUp1(true)}
               >
                 <p className="SectionPage-txt-3 SectionPage-txt-3-1">
                   Calificar

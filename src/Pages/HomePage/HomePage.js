@@ -2,16 +2,14 @@ import "./HomePage.css";
 import Explorer from "../../Components/HomePage_Components/Explorer/Explorer";
 import Main from "../../Components/HomePage_Components/Main/Main";
 import Filter from "../../Components/HomePage_Components/Filter/Filter";
-import ItemDetail from "../../Components/SectionPage_Components/ItemDetail/ItemDetail";
 import { AppContext } from "../../AppContext/AppContext";
 import { useContext } from "react";
 
 const HomePage = () => {
-  const { Controler5, Controler3 } = useContext(AppContext);
+  const { ProductoTipo } = useContext(AppContext);
 
   return (
     <div className="HomePage-background">
-      {Controler3 && <ItemDetail />}
       <div className="HomePage-content">
         <div className="HomePage-C-B1"></div>
         <div className="HomePage-C-B2">
@@ -38,7 +36,7 @@ const HomePage = () => {
             </div>
             <Explorer />
           </div>
-          {Controler5 ? <Filter /> : <Main />}
+          {ProductoTipo ? <Filter /> : <Main />}
         </div>
       </div>
     </div>

@@ -1,54 +1,17 @@
 import "./Qualifier.css";
 import { AppContext } from "../../../AppContext/AppContext";
 import { useContext, useEffect, useState } from "react";
-import { getFirestore, doc, updateDoc } from "firebase/firestore";
 
 const Qualifier = () => {
   const {
-    setControler2,
+    setOpenPopUp1,
     Quealificated,
-    setQuealificated,
-    sectionName,
-    DesayunoQuantity,
-    DesayunoQuality,
-    AlmuerzoQuantity,
-    AlmuerzoQuality,
-    PromocionesQuantity,
-    PromocionesQuality,
+    Calification,
+    setCalification,
+    SendCalification,
   } = useContext(AppContext);
-  const [Calification, setCalification] = useState();
-  const [Loading, setLoading] = useState(true);
 
-  const SendCalification = () => {
-    if (sectionName === "Desayunos y meriendas") {
-      const NewDoc = {
-        Cantidad: DesayunoQuantity + 1,
-        Calidad: DesayunoQuality + Calification,
-      };
-      const db = getFirestore();
-      const dbdoc = doc(db, "Calificación", "Desayuno");
-      updateDoc(dbdoc, NewDoc);
-      setQuealificated(true);
-    } else if (sectionName === "Almuerzos y cenas") {
-      const NewDoc1 = {
-        Cantidad: AlmuerzoQuantity + 1,
-        Calidad: AlmuerzoQuality + Calification,
-      };
-      const db = getFirestore();
-      const dbdoc = doc(db, "Calificación", "Almuerzos");
-      updateDoc(dbdoc, NewDoc1);
-      setQuealificated(true);
-    } else if (sectionName === "Promociones") {
-      const NewDoc2 = {
-        Cantidad: PromocionesQuantity + 1,
-        Calidad: PromocionesQuality + Calification,
-      };
-      const db = getFirestore();
-      const dbdoc = doc(db, "Calificación", "Promociones");
-      updateDoc(dbdoc, NewDoc2);
-      setQuealificated(true);
-    }
-  };
+  const [Loading, setLoading] = useState(true);
 
   const SVG = (
     <svg
@@ -93,7 +56,7 @@ const Qualifier = () => {
       </p>
       <button
         className="QuealificatedMesage-btn"
-        onClick={() => setControler2(false)}
+        onClick={() => setOpenPopUp1(false)}
       >
         Aceptar
       </button>
@@ -122,7 +85,7 @@ const Qualifier = () => {
             viewBox="0 0 16 16"
             stroke="white"
             strokeWidth={0.5}
-            onClick={() => setControler2(false)}
+            onClick={() => setOpenPopUp1(false)}
           >
             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
           </svg>
@@ -218,7 +181,7 @@ const Qualifier = () => {
 
   return (
     <div className="Qualifier-background">
-      <div className="Qualifier-B1" onClick={() => setControler2(false)}></div>
+      <div className="Qualifier-B1" onClick={() => setOpenPopUp1(false)}></div>
       <div className="Qualifier-B2">
         {Quealificated ? RenderOfQualificated : RenderOfQualificationForm}
       </div>

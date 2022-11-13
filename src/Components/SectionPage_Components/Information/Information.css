@@ -1,0 +1,141 @@
+.Information-background {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto min-content;
+  align-content: flex-end;
+}
+
+.Information-B1 {
+  height: 60vh;
+  width: 100%;
+}
+
+.Information-B2 {
+  background-color: white;
+  width: 100%;
+  border-radius: 2vh 2vh 0 0;
+  animation: Information-B2-animation 0.5s;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  align-content: flex-start;
+  justify-items: center;
+}
+
+@keyframes Information-B2-animation {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.Information-B2B1 {
+  height: auto;
+  width: 100%;
+  border-bottom: 0.2vh solid rgb(128, 128, 128, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Information-B2B1B1 {
+  height: auto;
+  width: 90%;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 3vh 0 2vh 0;
+}
+
+.Information-B2B1B1B1 {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  justify-content: flex-start;
+  grid-column-gap: 3vh;
+}
+
+.Information-img {
+  height: 3.7vh;
+  width: auto;
+}
+
+.Information-B2B1B1B1B1 {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  align-content: flex-start;
+}
+
+.Information-txt-1 {
+  line-height: normal;
+  margin: 0;
+  font-size: 4.5vw;
+  font-weight: 700;
+  color: black;
+  line-height: 100%;
+}
+
+.Information-txt-2 {
+  margin: 0;
+  font-size: 4vw;
+  font-weight: 400;
+  color: gray;
+}
+
+.Information-svg-1 {
+  height: 3vh;
+  width: auto;
+  background-color: rgb(128, 128, 128);
+  fill: white;
+  border-radius: 50%;
+}
+
+.Information-B2B2 {
+  height: auto;
+  width: 90%;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+}
+
+.Information-B2B2B1 {
+  height: auto;
+  width: 100%;
+  border-bottom: 0.2vh solid rgb(128, 128, 128, 0.2);
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-row-gap: 1vh;
+  justify-content: flex-start;
+  padding: 2vh 0 2vh 0;
+}
+
+.Information-B2B2B2 {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Information-btn {
+  background-color: #2796ff;
+  color: white;
+  font-size: 4vw;
+  font-weight: 700;
+  border: none;
+  border-radius: 3vh;
+  padding: 2vh 3vh 2vh 3vh;
+  margin: 2vh 0 2vh 0;
+}

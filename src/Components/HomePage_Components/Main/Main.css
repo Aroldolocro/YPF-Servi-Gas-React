@@ -31,11 +31,21 @@
   height: 25vh;
 }
 
+.Main-B1B1-loading {
+  height: 25vh;
+  animation: skeleton-loading 1s linear infinite alternate;
+  border-radius: 2vh;
+}
+
 .Main-img-1 {
   height: 100%;
   width: 100%;
   object-fit: cover;
   border-radius: 2vh;
+}
+
+.Main-img-1-notdisplayed {
+  display: none;
 }
 
 .Main-B1B2 {
