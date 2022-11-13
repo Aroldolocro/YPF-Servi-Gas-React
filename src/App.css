@@ -20,3 +20,7 @@ body,
   scroll-behavior: none;
   height: auto;
 }
+
+.NotDisplayed {
+  display: none;
+}

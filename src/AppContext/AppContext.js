@@ -26,18 +26,6 @@ const ConstAppContext = ({ children }) => {
 
   const [Filtered, setFiltered] = useState([]);
 
-  /*LOADER ON CONTEXT*/
-
-  const [Loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    if (!Loading) {
-      setTimeout(() => {
-        setLoading(true);
-      }, 1000);
-    }
-  }, [Loading]);
-
   /*FIREBASE DATA*/
 
   const [DesayunoQuantity, setDesayunoQuantity] = useState({});
@@ -128,6 +116,128 @@ const ConstAppContext = ({ children }) => {
     PromocionesQuality / PromocionesQuantity
   ).toFixed(2);
   const AlldbCollections = data.concat(data1, data2);
+  const DesayunosLength = data.length;
+  const AlmuerzosLength = data1.length;
+  const PromocionesLength = data2.length;
+
+  /*LOADERS*/
+
+  const [Loaded, setLoaded] = useState(false);
+  const [Loaded1, setLoaded1] = useState(false);
+  const [Loaded2, setLoaded2] = useState(false);
+  const [LoadedImg1, setLoadedImg1] = useState(false);
+  const [LoadedImg2, setLoadedImg2] = useState(false);
+  const [LoadedImg3, setLoadedImg3] = useState(false);
+  const [LoadedImg4, setLoadedImg4] = useState(false);
+  const [LoadedImg5, setLoadedImg5] = useState(false);
+  const [LoadedImg6, setLoadedImg6] = useState(false);
+  const [LoadedImg7, setLoadedImg7] = useState(false);
+  const [LoadedImg8, setLoadedImg8] = useState(false);
+  const [LoadedImg9, setLoadedImg9] = useState(false);
+  const [LoadedImg10, setLoadedImg10] = useState(false);
+  const [LoadedImg11, setLoadedImg11] = useState(false);
+  const [LoadedImg12, setLoadedImg12] = useState(false);
+  const [LoadedImg13, setLoadedImg13] = useState(false);
+  const [LoadedImg14, setLoadedImg14] = useState(false);
+  const [LoadedImg15, setLoadedImg15] = useState(false);
+  const [LoadedImg16, setLoadedImg16] = useState(false);
+  const [LoadedImg17, setLoadedImg17] = useState(false);
+  const [LoadedImg18, setLoadedImg18] = useState(false);
+  const [LoadedImg19, setLoadedImg19] = useState(false);
+  const [LoadedImg20, setLoadedImg20] = useState(false);
+  const [LoadedImg21, setLoadedImg21] = useState(false);
+  const [LoadedImg22, setLoadedImg22] = useState(false);
+  const [LoadedImg23, setLoadedImg23] = useState(false);
+  const [LoadedImg24, setLoadedImg24] = useState(false);
+  const [LoadedImg25, setLoadedImg25] = useState(false);
+  const [LoadedImg26, setLoadedImg26] = useState(false);
+
+  useEffect(() => {
+    if (
+      DesayunosLength &&
+      AlmuerzosLength &&
+      PromocionesLength &&
+      DesayunoQualification &&
+      AlmuerzoQualification &&
+      PromocionesQualification &&
+      LoadedImg1 &&
+      LoadedImg2 &&
+      LoadedImg3 &&
+      LoadedImg4 &&
+      LoadedImg5 &&
+      LoadedImg6 &&
+      LoadedImg7 &&
+      LoadedImg8
+    ) {
+      setLoaded(true);
+    }
+  }, [
+    DesayunosLength,
+    AlmuerzosLength,
+    PromocionesLength,
+    DesayunoQualification,
+    AlmuerzoQualification,
+    PromocionesQualification,
+    LoadedImg1,
+    LoadedImg2,
+    LoadedImg3,
+    LoadedImg4,
+    LoadedImg5,
+    LoadedImg6,
+    LoadedImg7,
+    LoadedImg8,
+  ]);
+
+  useEffect(() => {
+    if (ProductoTipo && LoadedImg9) {
+      setLoaded1(false);
+      setTimeout(() => {
+        setLoaded1(true);
+      }, 1000);
+    }
+  }, [ProductoTipo, LoadedImg9]);
+
+  useEffect(() => {
+    if (
+      LoadedImg10 &&
+      LoadedImg11 &&
+      LoadedImg12 &&
+      LoadedImg13 &&
+      LoadedImg14 &&
+      LoadedImg15 &&
+      LoadedImg16 &&
+      LoadedImg17 &&
+      LoadedImg18 &&
+      LoadedImg19 &&
+      LoadedImg20 &&
+      LoadedImg21 &&
+      LoadedImg22 &&
+      LoadedImg23 &&
+      LoadedImg24 &&
+      LoadedImg25 &&
+      LoadedImg26
+    ) {
+      setLoaded2(true);
+    }
+  }, [
+    LoadedImg10,
+    LoadedImg11,
+    LoadedImg12,
+    LoadedImg13,
+    LoadedImg14,
+    LoadedImg15,
+    LoadedImg16,
+    LoadedImg17,
+    LoadedImg18,
+    LoadedImg19,
+    LoadedImg20,
+    LoadedImg21,
+    LoadedImg22,
+    LoadedImg23,
+    LoadedImg24,
+    LoadedImg25,
+    LoadedImg26,
+  ]);
 
   /*SAVED ON LOCALSTORAGE*/
 
@@ -196,8 +306,6 @@ const ConstAppContext = ({ children }) => {
     }
   }, [OpenPopUp, OpenPopUp1, OpenPopUp2, OpenPopUp3, OpenPopUp4]);
 
-  console.log(Collection);
-
   return (
     <AppContext.Provider
       value={{
@@ -224,13 +332,11 @@ const ConstAppContext = ({ children }) => {
         AlmuerzoQuality,
         PromocionesQuantity,
         PromocionesQuality,
-        Loading,
-        setLoading,
         Filtered,
         setFiltered,
-        data,
-        data1,
-        data2,
+        DesayunosLength,
+        AlmuerzosLength,
+        PromocionesLength,
         data3,
         data4,
         AlldbCollections,
@@ -248,6 +354,36 @@ const ConstAppContext = ({ children }) => {
         ConditionedData2,
         OpenPopUp3,
         setOpenPopUp3,
+        setLoadedImg1,
+        setLoadedImg2,
+        setLoadedImg3,
+        setLoadedImg4,
+        setLoadedImg5,
+        setLoadedImg6,
+        setLoadedImg7,
+        setLoadedImg8,
+        LoadedImg9,
+        setLoadedImg9,
+        setLoadedImg10,
+        setLoadedImg11,
+        setLoadedImg12,
+        setLoadedImg13,
+        setLoadedImg14,
+        setLoadedImg15,
+        setLoadedImg16,
+        setLoadedImg17,
+        setLoadedImg18,
+        setLoadedImg19,
+        setLoadedImg20,
+        setLoadedImg21,
+        setLoadedImg22,
+        setLoadedImg23,
+        setLoadedImg24,
+        setLoadedImg25,
+        setLoadedImg26,
+        Loaded,
+        Loaded1,
+        Loaded2,
       }}
     >
       {children}

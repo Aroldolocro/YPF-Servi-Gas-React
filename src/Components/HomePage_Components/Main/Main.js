@@ -5,28 +5,39 @@ import { Link } from "react-router-dom";
 import Café_con_leche from "../../../Images/Products photos/Desayunos/Café_con_leche.png";
 import Pizza_especial from "../../../Images/Products photos/Almuerzos/Pizza_especial.png";
 import Promo from "../../../Images/Products photos/Almuerzos/Promo.jpg";
+import MainLoader1 from "./MainLoader";
 
 const Main = () => {
   const {
     DesayunoQualification,
     AlmuerzoQualification,
     PromocionesQualification,
-    data,
-    data1,
-    data2,
+    DesayunosLength,
+    AlmuerzosLength,
+    PromocionesLength,
+    setLoadedImg1,
+    setLoadedImg2,
+    setLoadedImg3,
+    Loaded,
   } = useContext(AppContext);
 
   return (
     <div className="Main-background">
-      <p className="Main-txt-1">Nuestro menú</p>
-      <Link to={"/Desayunos"} className="Main-B1">
+      {Loaded ? null : <MainLoader1 />}
+      <p className={Loaded ? "Main-txt-1" : "NotDisplayed"}>Nuestro menú</p>
+      <Link to={"/Desayunos"} className={Loaded ? "Main-B1" : "NotDisplayed"}>
         <div className="Main-B1B1">
-          <img src={Café_con_leche} className="Main-img-1" alt="" />
+          <img
+            src={Café_con_leche}
+            className="Main-img-1"
+            alt=""
+            onLoad={() => setLoadedImg1(true)}
+          />
         </div>
         <div className="Main-B1B2">
           <div className="Main-B1B2B1">
             <p className="Main-txt-1">Desayunos y meriendas</p>
-            <p className="Main-txt-2">Ítems ({data.length})</p>
+            <p className="Main-txt-2">Ítems ({DesayunosLength})</p>
           </div>
           <div className="Main-B1B2B2">
             <svg
@@ -43,14 +54,19 @@ const Main = () => {
           </div>
         </div>
       </Link>
-      <Link to={"/Almuerzos"} className="Main-B1">
+      <Link to={"/Almuerzos"} className={Loaded ? "Main-B1" : "NotDisplayed"}>
         <div className="Main-B1B1">
-          <img src={Pizza_especial} className="Main-img-1" alt="" />
+          <img
+            src={Pizza_especial}
+            className="Main-img-1"
+            alt=""
+            onLoad={() => setLoadedImg2(true)}
+          />
         </div>
         <div className="Main-B1B2">
           <div className="Main-B1B2B1">
             <p className="Main-txt-1">Almuerzos y cenas</p>
-            <p className="Main-txt-2">Ítems ({data1.length})</p>
+            <p className="Main-txt-2">Ítems ({AlmuerzosLength})</p>
           </div>
           <div className="Main-B1B2B2">
             <svg
@@ -67,14 +83,19 @@ const Main = () => {
           </div>
         </div>
       </Link>
-      <Link to={"/Promociones"} className="Main-B1">
+      <Link to={"/Promociones"} className={Loaded ? "Main-B1" : "NotDisplayed"}>
         <div className="Main-B1B1">
-          <img src={Promo} className="Main-img-1" alt="" />
+          <img
+            src={Promo}
+            className="Main-img-1"
+            alt=""
+            onLoad={() => setLoadedImg3(true)}
+          />
         </div>
         <div className="Main-B1B2">
           <div className="Main-B1B2B1">
             <p className="Main-txt-1">Promociones</p>
-            <p className="Main-txt-2">Ítems ({data2.length})</p>
+            <p className="Main-txt-2">Ítems ({PromocionesLength})</p>
           </div>
           <div className="Main-B1B2B2">
             <svg

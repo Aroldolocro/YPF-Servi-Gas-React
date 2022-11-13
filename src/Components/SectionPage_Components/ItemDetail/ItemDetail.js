@@ -38,11 +38,7 @@ const ItemDetail = () => {
         >
           <img
             src={data3.Imagen}
-            className={
-              Loading
-                ? "ItemDetail-img"
-                : "ItemDetail-img ItemDetail-img-notdisplayed"
-            }
+            className={Loading ? "ItemDetail-img" : "NotDisplayed"}
             alt=""
             onLoad={() => setLoading(true)}
           />

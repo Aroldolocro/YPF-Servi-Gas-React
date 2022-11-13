@@ -6,6 +6,7 @@ import Baguette_especial from "../../../Images/Products photos/Almuerzos/Baguett
 import Lomopizza from "../../../Images/Products photos/Almuerzos/Lomopizza.png";
 import { AppContext } from "../../../AppContext/AppContext";
 import { useContext } from "react";
+import { ExplorerLoader1, ExplorerLoader2 } from "./ExplorerLoader";
 
 const Explorer = () => {
   const {
@@ -13,53 +14,25 @@ const Explorer = () => {
     setProductoTipo,
     setCollection,
     setOpenPopUp4,
-    setLoading,
+    setLoadedImg4,
+    setLoadedImg5,
+    setLoadedImg6,
+    setLoadedImg7,
+    setLoadedImg8,
+    Loaded,
   } = useContext(AppContext);
-
-  const Explorer_Loader = (
-    <>
-      <div className="Explorer_Loader-background">
-        <div className="Explorer_Loader-B1"></div>
-        <div className="Explorer_Loader-B2"></div>
-      </div>
-      <div className="Explorer_Loader-background">
-        <div className="Explorer_Loader-B1"></div>
-        <div className="Explorer_Loader-B2"></div>
-      </div>
-      <div className="Explorer_Loader-background">
-        <div className="Explorer_Loader-B1"></div>
-        <div className="Explorer_Loader-B2"></div>
-      </div>
-      <div className="Explorer_Loader-background">
-        <div className="Explorer_Loader-B1"></div>
-        <div className="Explorer_Loader-B2"></div>
-      </div>
-      <div className="Explorer_Loader-background">
-        <div className="Explorer_Loader-B1"></div>
-        <div className="Explorer_Loader-B2"></div>
-      </div>
-      <div className="Explorer_Loader-background">
-        <div className="Explorer_Loader-B1"></div>
-        <div className="Explorer_Loader-B2"></div>
-      </div>
-    </>
-  );
 
   return (
     <div className="Explorer-background">
       <div className="Explorer-content">
         <div className="Explorer-C-B1">
-          {true ? null : Explorer_Loader}
+          {Loaded ? null : <ExplorerLoader1 />}
           <div
-            className={
-              true ? "Explorer-C-B1B1" : "Explorer-C-B1B1-notdisplayed"
-            }
+            className={Loaded ? "Explorer-C-B1B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Hamburguesas" ? undefined : "Hamburguesas"
-              ) &
-              setCollection("Almuerzos") &
-              setLoading(false)
+              ) & setCollection("Almuerzos")
             }
           >
             <div
@@ -77,6 +50,7 @@ const Explorer = () => {
                     : "Explorer-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg4(true)}
               />
               {ProductoTipo === "Hamburguesas" && (
                 <svg
@@ -100,15 +74,11 @@ const Explorer = () => {
             </p>
           </div>
           <div
-            className={
-              true ? "Explorer-C-B1B1" : "Explorer-C-B1B1-notdisplayed"
-            }
+            className={Loaded ? "Explorer-C-B1B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Pizzas" ? undefined : "Pizzas"
-              ) &
-              setCollection("Almuerzos") &
-              setLoading(false)
+              ) & setCollection("Almuerzos")
             }
           >
             <div
@@ -126,6 +96,7 @@ const Explorer = () => {
                     : "Explorer-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg5(true)}
               />
               {ProductoTipo === "Pizzas" && (
                 <svg
@@ -149,15 +120,11 @@ const Explorer = () => {
             </p>
           </div>
           <div
-            className={
-              true ? "Explorer-C-B1B1" : "Explorer-C-B1B1-notdisplayed"
-            }
+            className={Loaded ? "Explorer-C-B1B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Milanesas" ? undefined : "Milanesas"
-              ) &
-              setCollection("Almuerzos") &
-              setLoading(false)
+              ) & setCollection("Almuerzos")
             }
           >
             <div
@@ -175,6 +142,7 @@ const Explorer = () => {
                     : "Explorer-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg6(true)}
               />
               {ProductoTipo === "Milanesas" && (
                 <svg
@@ -198,15 +166,11 @@ const Explorer = () => {
             </p>
           </div>
           <div
-            className={
-              true ? "Explorer-C-B1B1" : "Explorer-C-B1B1-notdisplayed"
-            }
+            className={Loaded ? "Explorer-C-B1B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Sandwiches" ? undefined : "Sandwiches"
-              ) &
-              setCollection("Almuerzos") &
-              setLoading(false)
+              ) & setCollection("Almuerzos")
             }
           >
             <div
@@ -224,6 +188,7 @@ const Explorer = () => {
                     : "Explorer-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg7(true)}
               />
               {ProductoTipo === "Sandwiches" && (
                 <svg
@@ -247,15 +212,11 @@ const Explorer = () => {
             </p>
           </div>
           <div
-            className={
-              true ? "Explorer-C-B1B1" : "Explorer-C-B1B1-notdisplayed"
-            }
+            className={Loaded ? "Explorer-C-B1B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Lomopizzas" ? undefined : "Lomopizzas"
-              ) &
-              setCollection("Almuerzos") &
-              setLoading(false)
+              ) & setCollection("Almuerzos")
             }
           >
             <div
@@ -273,6 +234,7 @@ const Explorer = () => {
                     : "Explorer-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg8(true)}
               />
               {ProductoTipo === "Lomopizzas" && (
                 <svg
@@ -296,9 +258,7 @@ const Explorer = () => {
             </p>
           </div>
           <div
-            className={
-              true ? "Explorer-C-B1B2" : "Explorer-C-B1B1-notdisplayed"
-            }
+            className={Loaded ? "Explorer-C-B1B2" : "NotDisplayed"}
             onClick={() => setOpenPopUp4(true)}
           >
             <svg
@@ -320,18 +280,19 @@ const Explorer = () => {
           </div>
         </div>
         <div className="Explorer-C-B2">
+          {Loaded ? null : <ExplorerLoader2 />}
           <div
             className={
-              ProductoTipo === "Promociones"
-                ? "Explorer-C-B2B1 Explorer-C-B2B1-selected"
-                : "Explorer-C-B2B1"
+              Loaded
+                ? ProductoTipo === "Promociones"
+                  ? "Explorer-C-B2B1 Explorer-C-B2B1-selected"
+                  : "Explorer-C-B2B1"
+                : "NotDisplayed"
             }
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Promociones" ? undefined : "Promociones"
-              ) &
-              setCollection("Promociones") &
-              setLoading(false)
+              ) & setCollection("Promociones")
             }
           >
             <svg
@@ -360,18 +321,18 @@ const Explorer = () => {
           </div>
           <div
             className={
-              ProductoTipo === "Menor A Mayor Precio"
-                ? "Explorer-C-B2B1 Explorer-C-B2B1-selected"
-                : "Explorer-C-B2B1"
+              Loaded
+                ? ProductoTipo === "Menor A Mayor Precio"
+                  ? "Explorer-C-B2B1 Explorer-C-B2B1-selected"
+                  : "Explorer-C-B2B1"
+                : "NotDisplayed"
             }
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Menor A Mayor Precio"
                   ? undefined
                   : "Menor A Mayor Precio"
-              ) &
-              setCollection("asd") &
-              setLoading(false)
+              ) & setCollection("asd")
             }
           >
             <svg
@@ -402,18 +363,18 @@ const Explorer = () => {
           </div>
           <div
             className={
-              ProductoTipo === "Nuestros favoritos"
-                ? "Explorer-C-B2B1 Explorer-C-B2B1-selected"
-                : "Explorer-C-B2B1"
+              Loaded
+                ? ProductoTipo === "Nuestros favoritos"
+                  ? "Explorer-C-B2B1 Explorer-C-B2B1-selected"
+                  : "Explorer-C-B2B1"
+                : "NotDisplayed"
             }
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Nuestros favoritos"
                   ? undefined
                   : "Nuestros favoritos"
-              ) &
-              setCollection("Promociones") &
-              setLoading(false)
+              ) & setCollection("Promociones")
             }
           >
             <svg

@@ -263,10 +263,6 @@
   border-bottom: 0.2vh solid rgb(128, 128, 128, 0.1);
 }
 
-.SectionPagedbProducts-background-notdisplayed {
-  display: none;
-}
-
 .SectionPagedbProducts-B1 {
   height: 14vh;
   width: auto;
@@ -342,10 +338,6 @@
   justify-content: space-between;
   padding: 3vh 0 3vh 0;
   border-bottom: 0.2vh solid rgb(128, 128, 128, 0.1);
-}
-
-.SectionPagedbProducts_Loader-background-notdisplayed {
-  display: none;
 }
 
 .SectionPagedbProducts_Loader-B1 {

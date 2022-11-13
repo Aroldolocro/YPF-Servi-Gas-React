@@ -3,8 +3,13 @@ import { AppContext } from "../../../../AppContext/AppContext";
 import { useContext, useState } from "react";
 
 const Result = () => {
-  const { setProductId, setProductCollection, Filtered, setFiltered, setOpenPopUp } =
-    useContext(AppContext);
+  const {
+    setProductId,
+    setProductCollection,
+    Filtered,
+    setFiltered,
+    setOpenPopUp,
+  } = useContext(AppContext);
   const [Loading, setLoading] = useState(false);
 
   const RenderOfResultdbProducts = Filtered.slice(0, 5).map((value, index) => {
@@ -12,9 +17,7 @@ const Result = () => {
       <div
         key={index}
         className={
-          Loading
-            ? "RenderOfResultdbProducts-background"
-            : "RenderOfResultdbProducts-background-notdisplayed"
+          Loading ? "RenderOfResultdbProducts-background" : "NotDisplayed"
         }
         onClick={() =>
           setProductId(value.id) &
@@ -41,7 +44,7 @@ const Result = () => {
       <div
         className={
           Loading
-            ? "RenderOfResultdbProducts_Loader-background-notdisplayed"
+            ? "NotDisplayed"
             : "RenderOfResultdbProducts_Loader-background"
         }
       >
@@ -54,7 +57,7 @@ const Result = () => {
       <div
         className={
           Loading
-            ? "RenderOfResultdbProducts_Loader-background-notdisplayed"
+            ? "NotDisplayed"
             : "RenderOfResultdbProducts_Loader-background"
         }
       >
@@ -67,7 +70,7 @@ const Result = () => {
       <div
         className={
           Loading
-            ? "RenderOfResultdbProducts_Loader-background-notdisplayed"
+            ? "NotDisplayed"
             : "RenderOfResultdbProducts_Loader-background"
         }
       >
@@ -80,7 +83,7 @@ const Result = () => {
       <div
         className={
           Loading
-            ? "RenderOfResultdbProducts_Loader-background-notdisplayed"
+            ? "NotDisplayed"
             : "RenderOfResultdbProducts_Loader-background"
         }
       >
@@ -93,7 +96,7 @@ const Result = () => {
       <div
         className={
           Loading
-            ? "RenderOfResultdbProducts_Loader-background-notdisplayed"
+            ? "NotDisplayed"
             : "RenderOfResultdbProducts_Loader-background"
         }
       >

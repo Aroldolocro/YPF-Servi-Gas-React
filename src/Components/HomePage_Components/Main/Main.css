@@ -31,21 +31,11 @@
   height: 25vh;
 }
 
-.Main-B1B1-loading {
-  height: 25vh;
-  animation: skeleton-loading 1s linear infinite alternate;
-  border-radius: 2vh;
-}
-
 .Main-img-1 {
   height: 100%;
   width: 100%;
   object-fit: cover;
   border-radius: 2vh;
-}
-
-.Main-img-1-notdisplayed {
-  display: none;
 }
 
 .Main-B1B2 {
@@ -93,5 +83,66 @@
   font-size: 80%;
   font-weight: 700;
   color: black;
-  line-height: 100%;
+}
+
+/*MainLoader1*/
+
+.MainLoader1-B1 {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 5vw;
+  width: 30vw;
+  border-radius: 1vh;
+}
+
+.MainLoader1-B2 {
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-row-gap: 2vh;
+  align-content: flex-start;
+  text-decoration: none;
+}
+
+.MainLoader1-B2B1 {
+  height: 25vh;
+  animation: skeleton-loading 1s linear infinite alternate;
+  border-radius: 1vh;
+}
+
+.MainLoader1-B2B2 {
+  height: auto;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  justify-content: space-between;
+}
+
+.MainLoader1-B2B2B1 {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-row-gap: 0.5vh;
+}
+
+.MainLoader1-B2B2B1B1 {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 5vw;
+  width: 30vw;
+  border-radius: 1vh;
+}
+
+.MainLoader1-B2B2B1B2 {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 3vw;
+  width: 15vw;
+  border-radius: 1vh;
+}
+
+.MainLoader1-B2B2B2 {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 100%;
+  width: 15vw;
+  border-radius: 1vh;
 }

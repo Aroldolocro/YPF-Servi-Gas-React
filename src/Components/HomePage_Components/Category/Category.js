@@ -18,6 +18,7 @@ import Panificados from "../../../Images/Products photos/Desayunos/Panificados.p
 import Tostadas from "../../../Images/Products photos/Desayunos/Tostadas.png";
 import Omelette_de_jamón_y_queso from "../../../Images/Products photos/Desayunos/Omelette_de_jamón_y_queso.png";
 import Desayuno from "../../../Images/Products photos/Promociones/Desayuno.png";
+import CategoryLoader from "./CategoryLoader";
 
 const Category = () => {
   const {
@@ -25,7 +26,24 @@ const Category = () => {
     setProductoTipo,
     setCollection,
     setOpenPopUp4,
-    setLoading,
+    setLoadedImg10,
+    setLoadedImg11,
+    setLoadedImg12,
+    setLoadedImg13,
+    setLoadedImg14,
+    setLoadedImg15,
+    setLoadedImg16,
+    setLoadedImg17,
+    setLoadedImg18,
+    setLoadedImg19,
+    setLoadedImg20,
+    setLoadedImg21,
+    setLoadedImg22,
+    setLoadedImg23,
+    setLoadedImg24,
+    setLoadedImg25,
+    setLoadedImg26,
+    Loaded2,
   } = useContext(AppContext);
   return (
     <div className="Category-background">
@@ -47,14 +65,14 @@ const Category = () => {
           </svg>
         </div>
         <div className="Category-B1B2">
+          {!Loaded2 && <CategoryLoader />}
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Hamburguesas" ? undefined : "Hamburguesas"
               ) &
               setCollection("Almuerzos") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -73,6 +91,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg10(true)}
               />
               {ProductoTipo === "Hamburguesas" && (
                 <svg
@@ -96,13 +115,12 @@ const Category = () => {
             </p>
           </div>
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Pizzas" ? undefined : "Pizzas"
               ) &
               setCollection("Almuerzos") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -121,6 +139,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg11(true)}
               />
               {ProductoTipo === "Pizzas" && (
                 <svg
@@ -144,13 +163,12 @@ const Category = () => {
             </p>
           </div>
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Milanesas" ? undefined : "Milanesas"
               ) &
               setCollection("Almuerzos") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -169,6 +187,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg12(true)}
               />
               {ProductoTipo === "Milanesas" && (
                 <svg
@@ -192,13 +211,12 @@ const Category = () => {
             </p>
           </div>
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Sandwiches" ? undefined : "Sandwiches"
               ) &
               setCollection("Almuerzos") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -217,6 +235,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg13(true)}
               />
               {ProductoTipo === "Sandwiches" && (
                 <svg
@@ -240,13 +259,12 @@ const Category = () => {
             </p>
           </div>
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Lomopizzas" ? undefined : "Lomopizzas"
               ) &
               setCollection("Almuerzos") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -265,6 +283,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg14(true)}
               />
               {ProductoTipo === "Lomopizzas" && (
                 <svg
@@ -288,13 +307,12 @@ const Category = () => {
             </p>
           </div>
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Carnes" ? undefined : "Carnes"
               ) &
               setCollection("Almuerzos") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -313,6 +331,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg15(true)}
               />
               {ProductoTipo === "Carnes" && (
                 <svg
@@ -336,7 +355,7 @@ const Category = () => {
             </p>
           </div>
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Acompañamientos"
@@ -344,7 +363,6 @@ const Category = () => {
                   : "Acompañamientos"
               ) &
               setCollection("Almuerzos") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -363,6 +381,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg16(true)}
               />
               {ProductoTipo === "Acompañamientos" && (
                 <svg
@@ -386,11 +405,10 @@ const Category = () => {
             </p>
           </div>
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(ProductoTipo === "Café" ? undefined : "Café") &
               setCollection("Desayunos") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -409,6 +427,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg17(true)}
               />
               {ProductoTipo === "Café" && (
                 <svg
@@ -432,13 +451,12 @@ const Category = () => {
             </p>
           </div>
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Licuados" ? undefined : "Licuados"
               ) &
               setCollection("Desayunos") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -457,6 +475,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg18(true)}
               />
               {ProductoTipo === "Licuados" && (
                 <svg
@@ -480,11 +499,10 @@ const Category = () => {
             </p>
           </div>
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(ProductoTipo === "Té" ? undefined : "Té") &
               setCollection("Desayunos") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -503,6 +521,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg19(true)}
               />
               {ProductoTipo === "Té" && (
                 <svg
@@ -526,13 +545,12 @@ const Category = () => {
             </p>
           </div>
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Submarino" ? undefined : "Submarino"
               ) &
               setCollection("Desayunos") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -551,6 +569,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg20(true)}
               />
               {ProductoTipo === "Submarino" && (
                 <svg
@@ -574,13 +593,12 @@ const Category = () => {
             </p>
           </div>
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Capuchino" ? undefined : "Capuchino"
               ) &
               setCollection("Desayunos") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -599,6 +617,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg21(true)}
               />
               {ProductoTipo === "Capuchino" && (
                 <svg
@@ -622,11 +641,10 @@ const Category = () => {
             </p>
           </div>
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(ProductoTipo === "Jugos" ? undefined : "Jugos") &
               setCollection("Desayunos") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -645,6 +663,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg22(true)}
               />
               {ProductoTipo === "Jugos" && (
                 <svg
@@ -668,13 +687,12 @@ const Category = () => {
             </p>
           </div>
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Panificados" ? undefined : "Panificados"
               ) &
               setCollection("Desayunos") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -693,6 +711,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg23(true)}
               />
               {ProductoTipo === "Panificados" && (
                 <svg
@@ -716,13 +735,12 @@ const Category = () => {
             </p>
           </div>
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo(
                 ProductoTipo === "Tostadas" ? undefined : "Tostadas"
               ) &
               setCollection("Desayunos") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -741,6 +759,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg24(true)}
               />
               {ProductoTipo === "Tostadas" && (
                 <svg
@@ -764,11 +783,10 @@ const Category = () => {
             </p>
           </div>
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo("Omelette") &
               setCollection("Desayunos") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -787,6 +805,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg25(true)}
               />
               {ProductoTipo === "Omelette" && (
                 <svg
@@ -810,11 +829,10 @@ const Category = () => {
             </p>
           </div>
           <div
-            className="Category-B1B2B1"
+            className={Loaded2 ? "Category-B1B2B1" : "NotDisplayed"}
             onClick={() =>
               setProductoTipo("Promociones") &
               setCollection("Promociones") &
-              setLoading(false) &
               setOpenPopUp4(false)
             }
           >
@@ -833,6 +851,7 @@ const Category = () => {
                     : "Category-img-1"
                 }
                 alt=""
+                onLoad={() => setLoadedImg26(true)}
               />
               {ProductoTipo === "Promociones" && (
                 <svg

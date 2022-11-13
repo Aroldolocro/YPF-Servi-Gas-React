@@ -97,10 +97,6 @@
   border-radius: 2vh;
 }
 
-.ItemDetail-img-notdisplayed {
-  display: none;
-}
-
 .ItemDetail-B2B2 {
   display: grid;
   grid-template-columns: auto auto;

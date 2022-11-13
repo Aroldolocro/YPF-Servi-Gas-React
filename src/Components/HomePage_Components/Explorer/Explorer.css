@@ -37,10 +37,6 @@
   grid-template-rows: auto auto;
 }
 
-.Explorer-C-B1B1-notdisplayed {
-  display: none;
-}
-
 .Explorer-C-B1B1B1 {
   height: 8vh;
   width: 100%;
@@ -181,9 +177,9 @@
   color: rgb(39, 150, 255, 1);
 }
 
-/*Explorer_Loader*/
+/*ExplorerLoader1*/
 
-.Explorer_Loader-background {
+.ExplorerLoader1-background {
   height: auto;
   width: 10.5vh;
   display: grid;
@@ -193,15 +189,25 @@
   grid-row-gap: 1vh;
 }
 
-.Explorer_Loader-B1 {
-  margin: 0.3vh 0 0 0;
+.ExplorerLoader1-B1 {
+  margin: 0.3vh 0 0.3vh 0;
   height: 8vh;
   animation: skeleton-loading 1s linear infinite alternate;
   border-radius: 2.3vh;
 }
 
-.Explorer_Loader-B2 {
+.ExplorerLoader1-B2 {
   height: 4vw;
   animation: skeleton-loading 1s linear infinite alternate;
   border-radius: 0.7vh;
+}
+
+/*ExplorerLoader2*/
+
+.ExplorerLoader2-background {
+  border-radius: 1vh;
+  padding: 0.5vh 2vh 0.5vh 2vh;
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 3.5vw;
+  width: 30vw;
 }

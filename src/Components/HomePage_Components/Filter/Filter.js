@@ -1,18 +1,19 @@
 import "./Filter.css";
 import { AppContext } from "../../../AppContext/AppContext";
-import { useContext, useState } from "react";
+import { useContext } from "react";
+import FilterLoader from "./FilterLoader";
 
 const Filter = () => {
   const {
     setProductId,
     ProductoTipo,
-    Loading,
     setProductCollection,
     setOpenPopUp,
     ConditionedData,
     AlldbCollections,
+    setLoadedImg9,
+    Loaded1,
   } = useContext(AppContext);
-  const [InsideLoading, setInsideLoading] = useState(false);
 
   const ConditionForMapping =
     ProductoTipo === "Menor A Mayor Precio"
@@ -26,11 +27,7 @@ const Filter = () => {
   const FilterdbProducts = ConditionForMapping.map((Item, index) => (
     <div
       key={index}
-      className={
-        Loading && InsideLoading
-          ? "SectionPagedbProducts-background"
-          : "SectionPagedbProducts-background-notdisplayed"
-      }
+      className={Loaded1 ? "SectionPagedbProducts-background" : "NotDisplayed"}
       onClick={() =>
         setProductId(Item.id) &
         setProductCollection(Item.Colección) &
@@ -52,92 +49,17 @@ const Filter = () => {
           src={Item.Imagen}
           className="SectionPagedbProducts-img"
           alt=""
-          onLoad={() => setInsideLoading(true)}
+          onLoad={() => setLoadedImg9(true)}
         />
       </div>
     </div>
   ));
 
-  const SectionPagedbProducts_Loader = (
-    <>
-      <div
-        className={
-          Loading && InsideLoading
-            ? "SectionPagedbProducts_Loader-background-notdisplayed"
-            : "SectionPagedbProducts_Loader-background"
-        }
-      >
-        <div className="SectionPagedbProducts_Loader-B1">
-          <div className="SectionPagedbProducts_Loader-B1B1"></div>
-          <div className="SectionPagedbProducts_Loader-B1B2"></div>
-          <div className="SectionPagedbProducts_Loader-B1B3"></div>
-        </div>
-        <div className="SectionPagedbProducts_Loader-B2"></div>
-      </div>
-      <div
-        className={
-          Loading && InsideLoading
-            ? "SectionPagedbProducts_Loader-background-notdisplayed"
-            : "SectionPagedbProducts_Loader-background"
-        }
-      >
-        <div className="SectionPagedbProducts_Loader-B1">
-          <div className="SectionPagedbProducts_Loader-B1B1"></div>
-          <div className="SectionPagedbProducts_Loader-B1B2"></div>
-          <div className="SectionPagedbProducts_Loader-B1B3"></div>
-        </div>
-        <div className="SectionPagedbProducts_Loader-B2"></div>
-      </div>
-      <div
-        className={
-          Loading && InsideLoading
-            ? "SectionPagedbProducts_Loader-background-notdisplayed"
-            : "SectionPagedbProducts_Loader-background"
-        }
-      >
-        <div className="SectionPagedbProducts_Loader-B1">
-          <div className="SectionPagedbProducts_Loader-B1B1"></div>
-          <div className="SectionPagedbProducts_Loader-B1B2"></div>
-          <div className="SectionPagedbProducts_Loader-B1B3"></div>
-        </div>
-        <div className="SectionPagedbProducts_Loader-B2"></div>
-      </div>
-      <div
-        className={
-          Loading && InsideLoading
-            ? "SectionPagedbProducts_Loader-background-notdisplayed"
-            : "SectionPagedbProducts_Loader-background"
-        }
-      >
-        <div className="SectionPagedbProducts_Loader-B1">
-          <div className="SectionPagedbProducts_Loader-B1B1"></div>
-          <div className="SectionPagedbProducts_Loader-B1B2"></div>
-          <div className="SectionPagedbProducts_Loader-B1B3"></div>
-        </div>
-        <div className="SectionPagedbProducts_Loader-B2"></div>
-      </div>
-      <div
-        className={
-          Loading && InsideLoading
-            ? "SectionPagedbProducts_Loader-background-notdisplayed"
-            : "SectionPagedbProducts_Loader-background"
-        }
-      >
-        <div className="SectionPagedbProducts_Loader-B1">
-          <div className="SectionPagedbProducts_Loader-B1B1"></div>
-          <div className="SectionPagedbProducts_Loader-B1B2"></div>
-          <div className="SectionPagedbProducts_Loader-B1B3"></div>
-        </div>
-        <div className="SectionPagedbProducts_Loader-B2"></div>
-      </div>
-    </>
-  );
-
   return (
     <div className="Filter-background">
       <p className="Filter-txt-1">{ProductoTipo}</p>
       <div className="Filter-B1">
-        {SectionPagedbProducts_Loader}
+        {Loaded1 ? null : <FilterLoader />}
         {FilterdbProducts}
       </div>
     </div>

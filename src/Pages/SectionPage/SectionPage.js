@@ -63,11 +63,7 @@ const SectionPage = () => {
   }).map((Item, index) => (
     <div
       key={index}
-      className={
-        Loading
-          ? "SectionPagedbProducts-background"
-          : "SectionPagedbProducts-background-notdisplayed"
-      }
+      className={Loading ? "SectionPagedbProducts-background" : "NotDisplayed"}
       onClick={() =>
         setProductId(Item.id) &
         setProductCollection(Item.Colección) &
@@ -99,9 +95,7 @@ const SectionPage = () => {
     <>
       <div
         className={
-          Loading
-            ? "SectionPagedbProducts_Loader-background-notdisplayed"
-            : "SectionPagedbProducts_Loader-background"
+          Loading ? "NotDisplayed" : "SectionPagedbProducts_Loader-background"
         }
       >
         <div className="SectionPagedbProducts_Loader-B1">
@@ -113,9 +107,7 @@ const SectionPage = () => {
       </div>
       <div
         className={
-          Loading
-            ? "SectionPagedbProducts_Loader-background-notdisplayed"
-            : "SectionPagedbProducts_Loader-background"
+          Loading ? "NotDisplayed" : "SectionPagedbProducts_Loader-background"
         }
       >
         <div className="SectionPagedbProducts_Loader-B1">
@@ -127,9 +119,7 @@ const SectionPage = () => {
       </div>
       <div
         className={
-          Loading
-            ? "SectionPagedbProducts_Loader-background-notdisplayed"
-            : "SectionPagedbProducts_Loader-background"
+          Loading ? "NotDisplayed" : "SectionPagedbProducts_Loader-background"
         }
       >
         <div className="SectionPagedbProducts_Loader-B1">
@@ -141,9 +131,7 @@ const SectionPage = () => {
       </div>
       <div
         className={
-          Loading
-            ? "SectionPagedbProducts_Loader-background-notdisplayed"
-            : "SectionPagedbProducts_Loader-background"
+          Loading ? "NotDisplayed" : "SectionPagedbProducts_Loader-background"
         }
       >
         <div className="SectionPagedbProducts_Loader-B1">
@@ -155,9 +143,7 @@ const SectionPage = () => {
       </div>
       <div
         className={
-          Loading
-            ? "SectionPagedbProducts_Loader-background-notdisplayed"
-            : "SectionPagedbProducts_Loader-background"
+          Loading ? "NotDisplayed" : "SectionPagedbProducts_Loader-background"
         }
       >
         <div className="SectionPagedbProducts_Loader-B1">
