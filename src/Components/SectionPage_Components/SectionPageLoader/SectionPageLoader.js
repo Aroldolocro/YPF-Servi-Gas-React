@@ -1,11 +1,14 @@
-import "./Filter.css";
+import "./SectionPageLoader.css";
+import { AppContext } from "../../../AppContext/AppContext";
+import { useContext } from "react";
 
-import React from "react";
-
-const FilterLoader = () => {
+export const SectionPageLoader1 = () => {
+  const { Loaded3 } = useContext(AppContext);
   return (
     <>
-      <div className="SectionPageLoader1-background">
+      <div
+        className={Loaded3 ? "NotDisplayed" : "SectionPageLoader1-background"}
+      >
         <div className="SectionPageLoader1-B1">
           <div className="SectionPageLoader1-B1B1"></div>
           <div className="SectionPageLoader1-B1B2"></div>
@@ -13,7 +16,9 @@ const FilterLoader = () => {
         </div>
         <div className="SectionPageLoader1-B2"></div>
       </div>
-      <div className="SectionPageLoader1-background">
+      <div
+        className={Loaded3 ? "NotDisplayed" : "SectionPageLoader1-background"}
+      >
         <div className="SectionPageLoader1-B1">
           <div className="SectionPageLoader1-B1B1"></div>
           <div className="SectionPageLoader1-B1B2"></div>
@@ -21,7 +26,9 @@ const FilterLoader = () => {
         </div>
         <div className="SectionPageLoader1-B2"></div>
       </div>
-      <div className="SectionPageLoader1-background">
+      <div
+        className={Loaded3 ? "NotDisplayed" : "SectionPageLoader1-background"}
+      >
         <div className="SectionPageLoader1-B1">
           <div className="SectionPageLoader1-B1B1"></div>
           <div className="SectionPageLoader1-B1B2"></div>
@@ -29,7 +36,9 @@ const FilterLoader = () => {
         </div>
         <div className="SectionPageLoader1-B2"></div>
       </div>
-      <div className="SectionPageLoader1-background">
+      <div
+        className={Loaded3 ? "NotDisplayed" : "SectionPageLoader1-background"}
+      >
         <div className="SectionPageLoader1-B1">
           <div className="SectionPageLoader1-B1B1"></div>
           <div className="SectionPageLoader1-B1B2"></div>
@@ -37,7 +46,9 @@ const FilterLoader = () => {
         </div>
         <div className="SectionPageLoader1-B2"></div>
       </div>
-      <div className="SectionPageLoader1-background">
+      <div
+        className={Loaded3 ? "NotDisplayed" : "SectionPageLoader1-background"}
+      >
         <div className="SectionPageLoader1-B1">
           <div className="SectionPageLoader1-B1B1"></div>
           <div className="SectionPageLoader1-B1B2"></div>
@@ -49,4 +60,14 @@ const FilterLoader = () => {
   );
 };
 
-export default FilterLoader;
+export const SectionPageLoader2 = () => {
+  return <div className="SectionPageLoader2-background"></div>;
+};
+
+export const SectionPageLoader3 = () => {
+  return <div className="SectionPageLoader3-background"></div>;
+};
+
+export const SectionPageLoader4 = () => {
+  return <div className="SectionPageLoader4-background"></div>;
+};

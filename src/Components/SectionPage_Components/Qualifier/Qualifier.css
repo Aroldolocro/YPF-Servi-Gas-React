@@ -18,8 +18,17 @@
 .Qualifier-B2 {
   background-color: white;
   border-radius: 2vh 2vh 0 0;
-  animation: RenderOfInfoBottom-B2-animation 0.5s;
+  animation: Qualifier-B2 0.5s;
   transition: 0.5s;
+}
+
+@keyframes Qualifier-B2 {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }
 
 /*RenderOfQualificationForm*/

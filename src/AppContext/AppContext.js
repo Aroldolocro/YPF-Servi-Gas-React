@@ -125,6 +125,7 @@ const ConstAppContext = ({ children }) => {
   const [Loaded, setLoaded] = useState(false);
   const [Loaded1, setLoaded1] = useState(false);
   const [Loaded2, setLoaded2] = useState(false);
+  const [Loaded3, setLoaded3] = useState(false);
   const [LoadedImg1, setLoadedImg1] = useState(false);
   const [LoadedImg2, setLoadedImg2] = useState(false);
   const [LoadedImg3, setLoadedImg3] = useState(false);
@@ -151,6 +152,9 @@ const ConstAppContext = ({ children }) => {
   const [LoadedImg24, setLoadedImg24] = useState(false);
   const [LoadedImg25, setLoadedImg25] = useState(false);
   const [LoadedImg26, setLoadedImg26] = useState(false);
+  const [LoadedImg27, setLoadedImg27] = useState(false);
+  const [LoadedImg28, setLoadedImg28] = useState(false);
+  const [LoadedImg29, setLoadedImg29] = useState(false);
 
   useEffect(() => {
     if (
@@ -239,6 +243,24 @@ const ConstAppContext = ({ children }) => {
     LoadedImg26,
   ]);
 
+  useEffect(() => {
+    if (
+      DesayunoQualification > 0 &&
+      AlmuerzoQualification > 0 &&
+      PromocionesQualification > 0 &&
+      LoadedImg27 &&
+      LoadedImg28
+    ) {
+      setLoaded3(true);
+    }
+  }, [
+    AlmuerzoQualification,
+    DesayunoQualification,
+    PromocionesQualification,
+    LoadedImg27,
+    LoadedImg28,
+  ]);
+
   /*SAVED ON LOCALSTORAGE*/
 
   const [Quealificated, setQuealificated] = useState(false);
@@ -305,6 +327,10 @@ const ConstAppContext = ({ children }) => {
       document.body.className = undefined;
     }
   }, [OpenPopUp, OpenPopUp1, OpenPopUp2, OpenPopUp3, OpenPopUp4]);
+
+  /*SECTION PAGE*/
+
+  const [Image, setImage] = useState();
 
   return (
     <AppContext.Provider
@@ -381,9 +407,16 @@ const ConstAppContext = ({ children }) => {
         setLoadedImg24,
         setLoadedImg25,
         setLoadedImg26,
+        setLoadedImg27,
+        setLoadedImg28,
+        LoadedImg29,
+        setLoadedImg29,
         Loaded,
         Loaded1,
         Loaded2,
+        Image,
+        setImage,
+        Loaded3,
       }}
     >
       {children}

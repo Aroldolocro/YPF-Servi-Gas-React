@@ -6,6 +6,12 @@ import Logo1 from "../../Images/Logo1.png";
 import { Link, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../AppContext/AppContext";
+import Scroll from "../../Components/SectionPage_Components/Scroll/Scroll";
+import {
+  SectionPageLoader1,
+  SectionPageLoader2,
+  SectionPageLoader3,
+} from "../../Components/SectionPage_Components/SectionPageLoader/SectionPageLoader";
 
 const SectionPage = () => {
   const { Path1 } = useParams();
@@ -22,9 +28,12 @@ const SectionPage = () => {
     setOpenPopUp,
     setSectionPagePath,
     ConditionedData2,
+    Image,
+    setImage,
+    setLoadedImg27,
+    setLoadedImg28,
+    Loaded3,
   } = useContext(AppContext);
-  const [Loading, setLoading] = useState(false);
-  const [Image, setImage] = useState();
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
@@ -56,14 +65,14 @@ const SectionPage = () => {
       setSectionName("Promociones");
       setImage(Promo);
     }
-  }, [Path1, setSectionName]);
+  }, [Path1, setSectionName, setImage]);
 
   const SectionPagedbProducts = ConditionedData2.sort(function (x, y) {
     return x.Prioridad - y.Prioridad;
   }).map((Item, index) => (
     <div
       key={index}
-      className={Loading ? "SectionPagedbProducts-background" : "NotDisplayed"}
+      className={Loaded3 ? "SectionPagedbProducts-background" : "NotDisplayed"}
       onClick={() =>
         setProductId(Item.id) &
         setProductCollection(Item.Colección) &
@@ -85,147 +94,27 @@ const SectionPage = () => {
           src={Item.Imagen}
           className="SectionPagedbProducts-img"
           alt=""
-          onLoad={() => setLoading(true)}
+          onLoad={() => setLoadedImg27(true)}
         />
       </div>
     </div>
   ));
 
-  const SectionPagedbProducts_Loader = (
-    <>
-      <div
-        className={
-          Loading ? "NotDisplayed" : "SectionPagedbProducts_Loader-background"
-        }
-      >
-        <div className="SectionPagedbProducts_Loader-B1">
-          <div className="SectionPagedbProducts_Loader-B1B1"></div>
-          <div className="SectionPagedbProducts_Loader-B1B2"></div>
-          <div className="SectionPagedbProducts_Loader-B1B3"></div>
-        </div>
-        <div className="SectionPagedbProducts_Loader-B2"></div>
-      </div>
-      <div
-        className={
-          Loading ? "NotDisplayed" : "SectionPagedbProducts_Loader-background"
-        }
-      >
-        <div className="SectionPagedbProducts_Loader-B1">
-          <div className="SectionPagedbProducts_Loader-B1B1"></div>
-          <div className="SectionPagedbProducts_Loader-B1B2"></div>
-          <div className="SectionPagedbProducts_Loader-B1B3"></div>
-        </div>
-        <div className="SectionPagedbProducts_Loader-B2"></div>
-      </div>
-      <div
-        className={
-          Loading ? "NotDisplayed" : "SectionPagedbProducts_Loader-background"
-        }
-      >
-        <div className="SectionPagedbProducts_Loader-B1">
-          <div className="SectionPagedbProducts_Loader-B1B1"></div>
-          <div className="SectionPagedbProducts_Loader-B1B2"></div>
-          <div className="SectionPagedbProducts_Loader-B1B3"></div>
-        </div>
-        <div className="SectionPagedbProducts_Loader-B2"></div>
-      </div>
-      <div
-        className={
-          Loading ? "NotDisplayed" : "SectionPagedbProducts_Loader-background"
-        }
-      >
-        <div className="SectionPagedbProducts_Loader-B1">
-          <div className="SectionPagedbProducts_Loader-B1B1"></div>
-          <div className="SectionPagedbProducts_Loader-B1B2"></div>
-          <div className="SectionPagedbProducts_Loader-B1B3"></div>
-        </div>
-        <div className="SectionPagedbProducts_Loader-B2"></div>
-      </div>
-      <div
-        className={
-          Loading ? "NotDisplayed" : "SectionPagedbProducts_Loader-background"
-        }
-      >
-        <div className="SectionPagedbProducts_Loader-B1">
-          <div className="SectionPagedbProducts_Loader-B1B1"></div>
-          <div className="SectionPagedbProducts_Loader-B1B2"></div>
-          <div className="SectionPagedbProducts_Loader-B1B3"></div>
-        </div>
-        <div className="SectionPagedbProducts_Loader-B2"></div>
-      </div>
-    </>
-  );
-
-  const RenderOfSectionPageTop = (
-    <div className="RenderOfSectionPageTop-background">
-      <div className="RenderOfSectionPageTop-B1">
-        <img src={Image} className="RenderOfSectionPageTop-img" alt="" />
-        <div className="RenderOfSectionPageTop-B1B1">
-          <div className="RenderOfSectionPageTop-B1B1B1">
-            <Link to={"/"} className="RenderOfSectionPageTop-B1B1B1B1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fillRule="currentColor"
-                className="RenderOfSectionPageTop-svg-1"
-                viewBox="1 0 16 16"
-                stroke="black"
-                strokeWidth={1.5}
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-                />
-              </svg>
-            </Link>
-            <p className="RenderOfSectionPageTop-txt-1">Servi Gas Menú</p>
-          </div>
-          <div
-            className="RenderOfSectionPageTop-B1B1B2"
-            onClick={() => setOpenPopUp2(true)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fillRule="currentColor"
-              className="RenderOfSectionPageTop-svg-2"
-              viewBox="0 0 16 16"
-              stroke="white"
-              strokeWidth={0.5}
-            >
-              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-            </svg>
-          </div>
-        </div>
-      </div>
-      <div className="RenderOfSectionPageTop-B2">
-        <div className="RenderOfSectionPageTop-B2B1">
-          <p
-            className="RenderOfSectionPageTop-txt-2"
-            onClick={() => window.scrollTo(0, 0)}
-          >
-            {sectionName}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-
-  const CalificationLoader = (
-    <div className="CalificationLoader-background"></div>
-  );
-
   return (
     <div className="SectionPage-background">
-      {scrollPosition > 200 ? RenderOfSectionPageTop : null}
+      {scrollPosition > 200 ? <Scroll /> : null}
       <div className="SectionPage-content">
         <div className="SectionPage-C-B1"></div>
         <div className="SectionPage-C-B2">
           <div className="SectionPage-C-B2B1">
             <div className="SectionPage-C-B2B1B1">
-              <img src={Image} className="SectionPage-img-1" alt="" />
+              {!Loaded3 && <SectionPageLoader3 />}
+              <img
+                src={Image}
+                className={Loaded3 ? "SectionPage-img-1" : "NotDisplayed"}
+                alt=""
+                onLoad={() => setLoadedImg28(true)}
+              />
               <Link to={"/"} className="SectionPage-C-B2B1B1B1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -294,7 +183,7 @@ const SectionPage = () => {
                   Calificar
                 </p>
                 {sectionName === "Desayunos y meriendas" ? (
-                  DesayunoQualification > 0 ? (
+                  Loaded3 > 0 ? (
                     <div className="SectionPage-C-B2B1B3B2B1">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -311,11 +200,11 @@ const SectionPage = () => {
                       </p>
                     </div>
                   ) : (
-                    CalificationLoader
+                    <SectionPageLoader2 />
                   )
                 ) : null}
                 {sectionName === "Almuerzos y cenas" ? (
-                  AlmuerzoQualification > 0 ? (
+                  Loaded3 > 0 ? (
                     <div className="SectionPage-C-B2B1B3B2B1">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -332,11 +221,11 @@ const SectionPage = () => {
                       </p>
                     </div>
                   ) : (
-                    CalificationLoader
+                    <SectionPageLoader2 />
                   )
                 ) : null}
                 {sectionName === "Promociones" ? (
-                  PromocionesQualification > 0 ? (
+                  Loaded3 > 0 ? (
                     <div className="SectionPage-C-B2B1B3B2B1">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -353,7 +242,7 @@ const SectionPage = () => {
                       </p>
                     </div>
                   ) : (
-                    CalificationLoader
+                    <SectionPageLoader2 />
                   )
                 ) : null}
               </div>
@@ -364,7 +253,7 @@ const SectionPage = () => {
             </div>
           </div>
           <div className="SectionPage-C-B2B2">
-            {SectionPagedbProducts_Loader}
+            <SectionPageLoader1 />
             {SectionPagedbProducts}
           </div>
         </div>
