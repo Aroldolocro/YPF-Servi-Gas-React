@@ -1,10 +1,15 @@
 import "./Searcher.css";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AppContext } from "../../../../AppContext/AppContext";
 
 const Searcher = () => {
-  const { Filtered, setFiltered, AlldbCollections } = useContext(AppContext);
-  const [StateWord, setStateWord] = useState("");
+  const {
+    setFiltered,
+    AlldbCollections,
+    setOpenPopUp5,
+    StateWord,
+    setStateWord,
+  } = useContext(AppContext);
 
   const handeFiltered = (event) => {
     const word = event.target.value;
@@ -25,14 +30,14 @@ const Searcher = () => {
   };
 
   return (
-    <div className="Searcher-background">
+    <div className="Searcher-background" onClick={() => setOpenPopUp5(true)}>
       <input
         className="Searcher-input"
         placeholder="Buscar en Servi Gas"
         onChange={handeFiltered}
         value={StateWord}
       />
-      {Filtered.length > 0 ? (
+      {StateWord !== "" ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -42,7 +47,7 @@ const Searcher = () => {
           viewBox="-2.5 -1.5 20 20"
           stroke="#808080"
           strokeWidth={1}
-          onClick={() => setFiltered([]) & ClearInput()}
+          onClick={() => ClearInput()}
         >
           <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
         </svg>

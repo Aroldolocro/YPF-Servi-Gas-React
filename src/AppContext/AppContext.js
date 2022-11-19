@@ -25,6 +25,9 @@ const ConstAppContext = ({ children }) => {
   /*SEARCHER DATA*/
 
   const [Filtered, setFiltered] = useState([]);
+  const [StateWord, setStateWord] = useState("");
+  const [ResultInitialState, setResultInitialState] = useState(true);
+  const [ResultFound, setResultFound] = useState(false);
 
   /*FIREBASE DATA*/
 
@@ -120,12 +123,41 @@ const ConstAppContext = ({ children }) => {
   const AlmuerzosLength = data1.length;
   const PromocionesLength = data2.length;
 
+  /*POPUP*/
+
+  const [OpenPopUp, setOpenPopUp] = useState(false);
+  const [OpenPopUp1, setOpenPopUp1] = useState(false);
+  const [OpenPopUp2, setOpenPopUp2] = useState(false);
+  const [OpenPopUp3, setOpenPopUp3] = useState(false);
+  const [OpenPopUp4, setOpenPopUp4] = useState(false);
+  const [OpenPopUp5, setOpenPopUp5] = useState(false);
+
+  useEffect(() => {
+    if (
+      OpenPopUp ||
+      OpenPopUp1 ||
+      OpenPopUp2 ||
+      OpenPopUp3 ||
+      OpenPopUp4 ||
+      OpenPopUp5
+    ) {
+      document.getElementById("root").className = "NoScroll";
+      document.body.className = "NoScroll";
+    } else {
+      document.getElementById("root").className = undefined;
+      document.body.className = undefined;
+    }
+  }, [OpenPopUp, OpenPopUp1, OpenPopUp2, OpenPopUp3, OpenPopUp4, OpenPopUp5]);
+
   /*LOADERS*/
 
   const [Loaded, setLoaded] = useState(false);
   const [Loaded1, setLoaded1] = useState(false);
   const [Loaded2, setLoaded2] = useState(false);
   const [Loaded3, setLoaded3] = useState(false);
+  const [Loaded4, setLoaded4] = useState(false);
+  const [Loaded5, setLoaded5] = useState(false);
+  const [Loaded6, setLoaded6] = useState(false);
   const [LoadedImg1, setLoadedImg1] = useState(false);
   const [LoadedImg2, setLoadedImg2] = useState(false);
   const [LoadedImg3, setLoadedImg3] = useState(false);
@@ -155,6 +187,9 @@ const ConstAppContext = ({ children }) => {
   const [LoadedImg27, setLoadedImg27] = useState(false);
   const [LoadedImg28, setLoadedImg28] = useState(false);
   const [LoadedImg29, setLoadedImg29] = useState(false);
+  const [LoadedImg30, setLoadedImg30] = useState(false);
+  const [LoadedImg31, setLoadedImg31] = useState(false);
+  const [LoadedImg32, setLoadedImg32] = useState(false);
 
   useEffect(() => {
     if (
@@ -261,6 +296,47 @@ const ConstAppContext = ({ children }) => {
     LoadedImg28,
   ]);
 
+  useEffect(() => {
+    if (LoadedImg30 && data3 && OpenPopUp) {
+      setTimeout(() => {
+        setLoaded4(true);
+      }, 1000);
+    } else {
+      setLoaded4(false);
+    }
+  }, [LoadedImg30, data3, OpenPopUp]);
+
+  useEffect(() => {
+    /*Step1*/
+    if (OpenPopUp5 && StateWord === "") {
+      setResultInitialState(true);
+    } else if (OpenPopUp5 && StateWord !== "") {
+      setResultInitialState(false);
+    }
+    /*Step2*/
+    if (ResultInitialState && LoadedImg31 && AlldbCollections.length > 0) {
+      setLoaded5(false);
+      setTimeout(() => {
+        setLoaded5(true);
+      }, 1500);
+    }
+    /*Step3*/
+    if (AlldbCollections.length > 0) {
+      if (!ResultInitialState && Filtered.length > 0) {
+        setResultFound(true);
+      } else if (!ResultInitialState && Filtered.length === 0) {
+        setResultFound("Not Found");
+      }
+    }
+  }, [
+    AlldbCollections.length,
+    Filtered.length,
+    LoadedImg31,
+    OpenPopUp5,
+    ResultInitialState,
+    StateWord,
+  ]);
+
   /*SAVED ON LOCALSTORAGE*/
 
   const [Quealificated, setQuealificated] = useState(false);
@@ -309,24 +385,6 @@ const ConstAppContext = ({ children }) => {
       setQuealificated(true);
     }
   };
-
-  /*POPUP*/
-
-  const [OpenPopUp, setOpenPopUp] = useState(false);
-  const [OpenPopUp1, setOpenPopUp1] = useState(false);
-  const [OpenPopUp2, setOpenPopUp2] = useState(false);
-  const [OpenPopUp3, setOpenPopUp3] = useState(false);
-  const [OpenPopUp4, setOpenPopUp4] = useState(false);
-
-  useEffect(() => {
-    if (OpenPopUp || OpenPopUp1 || OpenPopUp2 || OpenPopUp3 || OpenPopUp4) {
-      document.getElementById("root").className = "NoScroll";
-      document.body.className = "NoScroll";
-    } else {
-      document.getElementById("root").className = undefined;
-      document.body.className = undefined;
-    }
-  }, [OpenPopUp, OpenPopUp1, OpenPopUp2, OpenPopUp3, OpenPopUp4]);
 
   /*SECTION PAGE*/
 
@@ -411,12 +469,24 @@ const ConstAppContext = ({ children }) => {
         setLoadedImg28,
         LoadedImg29,
         setLoadedImg29,
+        setLoadedImg30,
+        setLoadedImg31,
+        setLoadedImg32,
         Loaded,
         Loaded1,
         Loaded2,
         Image,
-        setImage,
         Loaded3,
+        Loaded4,
+        Loaded5,
+        Loaded6,
+        OpenPopUp5,
+        setImage,
+        setOpenPopUp5,
+        StateWord,
+        setStateWord,
+        ResultInitialState,
+        ResultFound,
       }}
     >
       {children}

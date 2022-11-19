@@ -1,18 +1,19 @@
 import "./ItemDetail.css";
 import { AppContext } from "../../../AppContext/AppContext";
-import { useContext, useState } from "react";
+import { useContext } from "react";
+import { ItemDetailLoader1, ItemDetailLoader2 } from "./ItemDetailLoader";
 
 const ItemDetail = () => {
-  const { data3, data4, setOpenPopUp } = useContext(AppContext);
-  const [Loading, setLoading] = useState(false);
+  const { data3, data4, setOpenPopUp, setLoadedImg30, Loaded4 } =
+    useContext(AppContext);
 
   return (
     <div className="ItemDetail-background">
       <div className="ItemDetail-B1">
-        {Loading ? (
+        {Loaded4 ? (
           <p className="ItemDetail-txt-1">{data3.Nombre}</p>
         ) : (
-          <div className="ItemDetail-txt-1-loading"></div>
+          <ItemDetailLoader1 />
         )}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -28,49 +29,34 @@ const ItemDetail = () => {
           <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
         </svg>
       </div>
-      <div className="ItemDetail-B2">
-        <div
-          className={
-            Loading
-              ? "ItemDetail-B2B1"
-              : "ItemDetail-B2B1 ItemDetail-B2B1-loading"
-          }
-        >
+      {!Loaded4 && <ItemDetailLoader2 />}
+      <div className={Loaded4 ? "ItemDetail-B2" : "NotDisplayed"}>
+        <div className="ItemDetail-B2B1">
           <img
             src={data3.Imagen}
-            className={Loading ? "ItemDetail-img" : "NotDisplayed"}
+            className="ItemDetail-img"
             alt=""
-            onLoad={() => setLoading(true)}
+            onLoad={() => setLoadedImg30(true)}
           />
         </div>
         <div className="ItemDetail-B2B2">
-          {Loading ? (
-            <p className="ItemDetail-txt-2">
-              {new Intl.NumberFormat("es-AR", {
-                style: "currency",
-                currency: "ARS",
-              }).format(data3.Precio)}
-            </p>
-          ) : (
-            <div className="ItemDetail-txt-2-loading"></div>
-          )}
-          {Loading ? (
-            <p className="ItemDetail-txt-3">{data3.Tipo}</p>
-          ) : (
-            <div className="ItemDetail-txt-3-loading"></div>
-          )}
+          <p className="ItemDetail-txt-2">
+            {new Intl.NumberFormat("es-AR", {
+              style: "currency",
+              currency: "ARS",
+            }).format(data3.Precio)}
+          </p>
+          <p className="ItemDetail-txt-3">{data3.Tipo}</p>
         </div>
-        {Loading ? (
-          <p className="ItemDetail-txt-4">{data3.Descripción}</p>
-        ) : (
-          <div className="ItemDetail-txt-4-loading"></div>
-        )}
-        {data4 && Loading && (
+        <p className="ItemDetail-txt-4">{data3.Descripción}</p>
+        {data4 && (
           <div className="ItemDetail-B2B3">
             <p className="ItemDetail-txt-2">Acompañamientos disponibles</p>
             <div className="ItemDetail-B2B3B1">
-              {data4.map((option) => (
-                <div className="ItemDetail-B2B3B1B1">• {option}</div>
+              {data4.map((option, index) => (
+                <div className="ItemDetail-B2B3B1B1" key={index}>
+                  • {option}
+                </div>
               ))}
             </div>
           </div>

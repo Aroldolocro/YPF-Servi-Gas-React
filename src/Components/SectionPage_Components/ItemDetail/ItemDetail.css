@@ -5,7 +5,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   align-content: flex-start;
   justify-content: center;
@@ -53,13 +53,6 @@
   -webkit-box-orient: vertical;
 }
 
-.ItemDetail-txt-1-loading {
-  height: 6vw;
-  width: 70vw;
-  border-radius: 1vh;
-  animation: skeleton-loading 1s linear infinite alternate;
-}
-
 .ItemDetail-svg-1 {
   height: 3vh;
   width: auto;
@@ -86,10 +79,6 @@
   border-radius: 2vh;
 }
 
-.ItemDetail-B2B1-loading {
-  animation: skeleton-loading 1s linear infinite alternate;
-}
-
 .ItemDetail-img {
   height: 100%;
   width: 100%;
@@ -112,20 +101,6 @@
   color: black;
 }
 
-.ItemDetail-txt-2-loading {
-  height: 5vw;
-  width: 20vw;
-  border-radius: 1vh;
-  animation: skeleton-loading 1s linear infinite alternate;
-}
-
-.ItemDetail-txt-3-loading {
-  height: 5vw;
-  width: 30vw;
-  border-radius: 1vh;
-  animation: skeleton-loading 1s linear infinite alternate;
-}
-
 .ItemDetail-txt-3 {
   margin: 0;
   font-size: 3vw;
@@ -142,13 +117,6 @@
   font-weight: 400;
   color: gray;
   text-align: justify;
-}
-
-.ItemDetail-txt-4-loading {
-  height: 15vh;
-  width: 100%;
-  border-radius: 1vh;
-  animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .ItemDetail-B2B3 {
@@ -200,4 +168,62 @@
   border: none;
   border-radius: 3vh;
   padding: 2vh 3vh 2vh 3vh;
+}
+
+/*ItemDetailLoader1*/
+
+.ItemDetailLoader1-background {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 3vh;
+  width: 50vw;
+  border-radius: 1vh;
+}
+
+/*ItemDetailLoader2*/
+
+.ItemDetailLoader2-background {
+  margin: 10vh 0 10vh 0;
+  height: fit-content;
+  width: 100%;
+  padding: 4vh 5% 4vh 5%;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto auto;
+  align-content: flex-start;
+  grid-row-gap: 4vh;
+}
+
+.ItemDetailLoader2-B1 {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 40vh;
+  width: 100%;
+  border-radius: 2vh;
+}
+
+.ItemDetailLoader2-B2 {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ItemDetailLoader2-B2B1 {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 3vh;
+  width: 25vw;
+  border-radius: 1vh;
+}
+
+.ItemDetailLoader2-B2B2 {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 3vh;
+  width: 40vw;
+  border-radius: 1vh;
+}
+
+.ItemDetailLoader2-B3 {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 10vh;
+  border-radius: 1vh;
 }
