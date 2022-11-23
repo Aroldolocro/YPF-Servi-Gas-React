@@ -123,7 +123,7 @@ const Menu = () => {
                     className="Menu-txt-3"
                     onClick={() => setOpenPopUp3(false)}
                   >
-                    Contactanos
+                    Contactános
                   </Link>
                 </div>
               </div>

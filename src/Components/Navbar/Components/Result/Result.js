@@ -100,7 +100,7 @@ const Result = () => {
         onLoad={() => setLoadedImg31(true)}
       />
       <p className="RenderOfNotFound-txt-1">
-        Oops!, no encontramos lo que estas buscando...
+        Oops! no encontramos lo que estás buscando...
       </p>
     </div>
   );

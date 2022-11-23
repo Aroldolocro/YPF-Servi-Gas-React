@@ -23,7 +23,7 @@ const Footer = () => {
       </Link>
 
       <Link to={"/Contacto"} className="Footer-txt-2">
-        Contactanos
+        Contactános
       </Link>
       <p className="Footer-txt-2">YPF Servi Gas S.R.L</p>
       <p className="Footer-txt-2">Av Kennedy y Av Mariano Moreno</p>

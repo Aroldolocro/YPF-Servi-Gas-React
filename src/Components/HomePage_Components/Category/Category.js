@@ -49,7 +49,7 @@ const Category = () => {
     <div className="Category-background">
       <div className="Category-B1">
         <div className="Category-B1B1">
-          <p className="Category-txt-1">Categorias</p>
+          <p className="Category-txt-1">Categorías</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -871,7 +871,7 @@ const Category = () => {
                   : "Category-txt-2"
               }
             >
-              Promociónes
+              Promociones
             </p>
           </div>
         </div>

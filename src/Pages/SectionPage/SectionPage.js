@@ -156,7 +156,7 @@ const SectionPage = () => {
             <div className="SectionPage-C-B2B1B3">
               <div className="SectionPage-C-B2B1B3B1">
                 <div className="SectionPage-C-B2B1B3B1B1">
-                  <p className="SectionPage-txt-3">Preparacion</p>
+                  <p className="SectionPage-txt-3">Preparación</p>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -247,7 +247,7 @@ const SectionPage = () => {
                 ) : null}
               </div>
               <div className="SectionPage-C-B2B1B3B3">
-                <p className="SectionPage-txt-3">Seccion</p>
+                <p className="SectionPage-txt-3">Sección</p>
                 <p className="SectionPage-txt-5">{sectionName}</p>
               </div>
             </div>

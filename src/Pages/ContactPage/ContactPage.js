@@ -17,7 +17,7 @@ const ContactPage = () => {
 
   return (
     <div className="ContactPage-background">
-      <p className="ContactPage-txt-1">Contactanos</p>
+      <p className="ContactPage-txt-1">Contactános</p>
       <div className="ContactPage-B1">
         <p className="ContactPage-txt-2">Servi Compras</p>
         <p className="ContactPage-txt-3">
@@ -52,10 +52,10 @@ const ContactPage = () => {
             <p className="ContactPage-txt-4">+ 54 9 3875 06-5900</p>
           </div>
         </div>
-        <p className="ContactPage-txt-2">Administracion</p>
+        <p className="ContactPage-txt-2">Administración</p>
         <p className="ContactPage-txt-3">
           Podrás contactarnos directamente a nuestras oficinas cliqueando alguno
-          de los siguientes metodos:
+          de los siguientes medios:
         </p>
         <div className="ContactPage-B1B1">
           <div className="ContactPage-B1B1B1" onClick={() => GoToPhone2()}>

@@ -271,6 +271,7 @@ const ConstAppContext = ({ children }) => {
     if (MapImage_2_Array.length === ConditionForMapping.length) {
       setMapImage_2(true);
       setMapImage_2_ArrayLength2(MapImage_2_Array.length);
+      setMapImage_2_Array([]);
     }
   };
 
@@ -282,15 +283,7 @@ const ConstAppContext = ({ children }) => {
     } else {
       setLoaded1(false);
     }
-    if (ProductoTipo) {
-      setMapImage_2_Array([]);
-    }
-  }, [
-    MapImage_2,
-    ConditionForMapping.length,
-    MapImage_2_ArrayLength2,
-    ProductoTipo,
-  ]);
+  }, [MapImage_2, ConditionForMapping.length, MapImage_2_ArrayLength2]);
 
   /*Map Images - 3*/
 
