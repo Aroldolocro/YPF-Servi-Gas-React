@@ -24,6 +24,7 @@ const ConstAppContext = ({ children }) => {
 
   /*SEARCHER DATA*/
 
+  const [SearcherOn, setSearcherOn] = useState(false);
   const [Filtered, setFiltered] = useState([]);
   const [StateWord, setStateWord] = useState("");
   const [ResultInitialState, setResultInitialState] = useState(true);
@@ -123,6 +124,17 @@ const ConstAppContext = ({ children }) => {
   const AlmuerzosLength = data1.length;
   const PromocionesLength = data2.length;
 
+  /* Condiftion For Mapping */
+
+  const ConditionForMapping =
+    ProductoTipo === "Menor A Mayor Precio"
+      ? AlldbCollections.sort(function (x, y) {
+          return x.Precio - y.Precio;
+        })
+      : ProductoTipo === "Nuestros favoritos"
+      ? AlldbCollections.filter((res) => res.Favorito === true)
+      : ConditionedData.filter((res) => res.Tipo === ProductoTipo);
+
   /*POPUP*/
 
   const [OpenPopUp, setOpenPopUp] = useState(false);
@@ -157,7 +169,11 @@ const ConstAppContext = ({ children }) => {
   const [Loaded3, setLoaded3] = useState(false);
   const [Loaded4, setLoaded4] = useState(false);
   const [Loaded5, setLoaded5] = useState(false);
-  const [Loaded6, setLoaded6] = useState(false);
+
+  const [Loader, setLoader] = useState(true);
+
+  /*LOADERS - Hardcode Images*/
+
   const [LoadedImg1, setLoadedImg1] = useState(false);
   const [LoadedImg2, setLoadedImg2] = useState(false);
   const [LoadedImg3, setLoadedImg3] = useState(false);
@@ -184,12 +200,148 @@ const ConstAppContext = ({ children }) => {
   const [LoadedImg24, setLoadedImg24] = useState(false);
   const [LoadedImg25, setLoadedImg25] = useState(false);
   const [LoadedImg26, setLoadedImg26] = useState(false);
-  const [LoadedImg27, setLoadedImg27] = useState(false);
   const [LoadedImg28, setLoadedImg28] = useState(false);
   const [LoadedImg29, setLoadedImg29] = useState(false);
   const [LoadedImg30, setLoadedImg30] = useState(false);
   const [LoadedImg31, setLoadedImg31] = useState(false);
-  const [LoadedImg32, setLoadedImg32] = useState(false);
+
+  useEffect(() => {
+    if (AlldbCollections.length > 0) {
+      setSearcherOn(true);
+    } else {
+      setSearcherOn(false);
+    }
+  }, [AlldbCollections.length]);
+
+  /*LOADERS - Map Images*/
+
+  /*Map Images - 1*/
+
+  useEffect(() => {
+    if (sectionName) {
+      setLoaded3(false);
+    }
+  }, [sectionName]);
+
+  const [MapImage_1, setMapImage_1] = useState(false);
+  const [MapImage_1_ArrayLength, setMapImage_1_ArrayLength] = useState(0);
+  const MapImage_1_Array = [];
+
+  const MapImage_1_Function = (i) => {
+    MapImage_1_Array.push(i);
+    if (MapImage_1_Array.length === ConditionedData2.length) {
+      setMapImage_1(true);
+      setMapImage_1_ArrayLength(MapImage_1_Array.length);
+    }
+  };
+
+  useEffect(() => {
+    if (
+      DesayunoQualification > 0 &&
+      AlmuerzoQualification > 0 &&
+      PromocionesQualification > 0 &&
+      LoadedImg28 &&
+      MapImage_1 &&
+      MapImage_1_ArrayLength === ConditionedData2.length
+    ) {
+      setTimeout(() => {
+        setLoaded3(true);
+      }, 1000);
+    } else {
+      setLoaded3(false);
+    }
+  }, [
+    AlmuerzoQualification,
+    DesayunoQualification,
+    PromocionesQualification,
+    LoadedImg28,
+    MapImage_1,
+    ConditionedData2.length,
+    MapImage_1_ArrayLength,
+  ]);
+
+  /*Map Images - 2*/
+
+  const [MapImage_2, setMapImage_2] = useState(false);
+  const [MapImage_2_ArrayLength2, setMapImage_2_ArrayLength2] = useState(0);
+  const [MapImage_2_Array, setMapImage_2_Array] = useState([]);
+
+  const MapImage_2_Function = (i) => {
+    MapImage_2_Array.push(i);
+    if (MapImage_2_Array.length === ConditionForMapping.length) {
+      setMapImage_2(true);
+      setMapImage_2_ArrayLength2(MapImage_2_Array.length);
+    }
+  };
+
+  useEffect(() => {
+    if (MapImage_2 && MapImage_2_ArrayLength2 === ConditionForMapping.length) {
+      setTimeout(() => {
+        setLoaded1(true);
+      }, 1000);
+    } else {
+      setLoaded1(false);
+    }
+    if (ProductoTipo) {
+      setMapImage_2_Array([]);
+    }
+  }, [
+    MapImage_2,
+    ConditionForMapping.length,
+    MapImage_2_ArrayLength2,
+    ProductoTipo,
+  ]);
+
+  /*Map Images - 3*/
+
+  const [MapImage_3, setMapImage_3] = useState(false);
+  const [MapImage_3_Array, setMapImage_3_Array] = useState([]);
+
+  const MapImage_3_Function = (i) => {
+    MapImage_3_Array.push(i);
+    if (MapImage_3_Array.length === 5) {
+      setMapImage_3(true);
+    }
+  };
+
+  useEffect(() => {
+    /*Step1*/
+    if (OpenPopUp5 && StateWord === "") {
+      setResultInitialState(true);
+    } else if (OpenPopUp5 && StateWord !== "") {
+      setResultInitialState(false);
+      setMapImage_3_Array([]);
+    }
+    /*Step2*/
+    if (MapImage_3 && OpenPopUp5 && ResultInitialState) {
+      setTimeout(() => {
+        setLoaded5(true);
+      }, 1000);
+    } else {
+      setLoaded5(false);
+    }
+    /*Step3*/
+    if (Filtered.length > 0 && !ResultInitialState) {
+      setLoader(false);
+      setResultFound(true);
+    }
+    if (Filtered.length === 0 && !ResultInitialState && LoadedImg31) {
+      setLoader(true);
+      setTimeout(() => {
+        setLoader(false);
+        setResultFound(false);
+      }, 500);
+    }
+  }, [
+    OpenPopUp5,
+    StateWord,
+    MapImage_3,
+    ResultInitialState,
+    Filtered.length,
+    LoadedImg31,
+  ]);
+
+  /*Harcode Images - 1*/
 
   useEffect(() => {
     if (
@@ -227,17 +379,11 @@ const ConstAppContext = ({ children }) => {
     LoadedImg8,
   ]);
 
-  useEffect(() => {
-    if (ProductoTipo && LoadedImg9) {
-      setLoaded1(false);
-      setTimeout(() => {
-        setLoaded1(true);
-      }, 1000);
-    }
-  }, [ProductoTipo, LoadedImg9]);
+  /*Harcode Images - 2*/
 
   useEffect(() => {
     if (
+      OpenPopUp4 &&
       LoadedImg10 &&
       LoadedImg11 &&
       LoadedImg12 &&
@@ -257,6 +403,8 @@ const ConstAppContext = ({ children }) => {
       LoadedImg26
     ) {
       setLoaded2(true);
+    } else {
+      setLoaded2(false);
     }
   }, [
     LoadedImg10,
@@ -276,24 +424,7 @@ const ConstAppContext = ({ children }) => {
     LoadedImg24,
     LoadedImg25,
     LoadedImg26,
-  ]);
-
-  useEffect(() => {
-    if (
-      DesayunoQualification > 0 &&
-      AlmuerzoQualification > 0 &&
-      PromocionesQualification > 0 &&
-      LoadedImg27 &&
-      LoadedImg28
-    ) {
-      setLoaded3(true);
-    }
-  }, [
-    AlmuerzoQualification,
-    DesayunoQualification,
-    PromocionesQualification,
-    LoadedImg27,
-    LoadedImg28,
+    OpenPopUp4,
   ]);
 
   useEffect(() => {
@@ -303,39 +434,9 @@ const ConstAppContext = ({ children }) => {
       }, 1000);
     } else {
       setLoaded4(false);
+      setLoadedImg30(false);
     }
   }, [LoadedImg30, data3, OpenPopUp]);
-
-  useEffect(() => {
-    /*Step1*/
-    if (OpenPopUp5 && StateWord === "") {
-      setResultInitialState(true);
-    } else if (OpenPopUp5 && StateWord !== "") {
-      setResultInitialState(false);
-    }
-    /*Step2*/
-    if (ResultInitialState && LoadedImg31 && AlldbCollections.length > 0) {
-      setLoaded5(false);
-      setTimeout(() => {
-        setLoaded5(true);
-      }, 1500);
-    }
-    /*Step3*/
-    if (AlldbCollections.length > 0) {
-      if (!ResultInitialState && Filtered.length > 0) {
-        setResultFound(true);
-      } else if (!ResultInitialState && Filtered.length === 0) {
-        setResultFound("Not Found");
-      }
-    }
-  }, [
-    AlldbCollections.length,
-    Filtered.length,
-    LoadedImg31,
-    OpenPopUp5,
-    ResultInitialState,
-    StateWord,
-  ]);
 
   /*SAVED ON LOCALSTORAGE*/
 
@@ -393,6 +494,7 @@ const ConstAppContext = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        data1,
         ProductId,
         setProductId,
         ProductCollection,
@@ -465,13 +567,10 @@ const ConstAppContext = ({ children }) => {
         setLoadedImg24,
         setLoadedImg25,
         setLoadedImg26,
-        setLoadedImg27,
         setLoadedImg28,
         LoadedImg29,
         setLoadedImg29,
         setLoadedImg30,
-        setLoadedImg31,
-        setLoadedImg32,
         Loaded,
         Loaded1,
         Loaded2,
@@ -479,14 +578,20 @@ const ConstAppContext = ({ children }) => {
         Loaded3,
         Loaded4,
         Loaded5,
-        Loaded6,
         OpenPopUp5,
         setImage,
         setOpenPopUp5,
         StateWord,
         setStateWord,
         ResultInitialState,
+        MapImage_1_Function,
+        MapImage_2_Function,
+        MapImage_3_Function,
+        ConditionForMapping,
         ResultFound,
+        Loader,
+        SearcherOn,
+        setLoadedImg31,
       }}
     >
       {children}

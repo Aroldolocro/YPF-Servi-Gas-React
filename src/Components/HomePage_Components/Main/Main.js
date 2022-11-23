@@ -83,7 +83,10 @@ const Main = () => {
           </div>
         </div>
       </Link>
-      <Link to={"/Promociones"} className={Loaded ? "Main-B1" : "NotDisplayed"}>
+      <Link
+        to={"/Promociones"}
+        className={Loaded ? "Main-B1" : "NotDisplayed"}
+      >
         <div className="Main-B1B1">
           <img
             src={Promo}

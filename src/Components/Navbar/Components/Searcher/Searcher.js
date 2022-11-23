@@ -9,6 +9,7 @@ const Searcher = () => {
     setOpenPopUp5,
     StateWord,
     setStateWord,
+    SearcherOn,
   } = useContext(AppContext);
 
   const handeFiltered = (event) => {
@@ -36,6 +37,7 @@ const Searcher = () => {
         placeholder="Buscar en Servi Gas"
         onChange={handeFiltered}
         value={StateWord}
+        disabled={!SearcherOn}
       />
       {StateWord !== "" ? (
         <svg

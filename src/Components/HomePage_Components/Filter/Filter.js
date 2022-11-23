@@ -9,24 +9,14 @@ const Filter = () => {
     ProductoTipo,
     setProductCollection,
     setOpenPopUp,
-    ConditionedData,
-    AlldbCollections,
-    setLoadedImg9,
     Loaded1,
+    MapImage_2_Function,
+    ConditionForMapping,
   } = useContext(AppContext);
 
-  const ConditionForMapping =
-    ProductoTipo === "Menor A Mayor Precio"
-      ? AlldbCollections.sort(function (x, y) {
-          return x.Precio - y.Precio;
-        })
-      : ProductoTipo === "Nuestros favoritos"
-      ? AlldbCollections.filter((res) => res.Favorito === true)
-      : ConditionedData.filter((res) => res.Tipo === ProductoTipo);
-
-  const FilterdbProducts = ConditionForMapping.map((Item, index) => (
+  const FilterdbProducts = ConditionForMapping.map((Item, i) => (
     <div
-      key={index}
+      key={i}
       className={Loaded1 ? "SectionPagedbProducts-background" : "NotDisplayed"}
       onClick={() =>
         setProductId(Item.id) &
@@ -49,7 +39,7 @@ const Filter = () => {
           src={Item.Imagen}
           className="SectionPagedbProducts-img"
           alt=""
-          onLoad={() => setLoadedImg9(true)}
+          onLoad={() => MapImage_2_Function(i)}
         />
       </div>
     </div>
@@ -59,7 +49,7 @@ const Filter = () => {
     <div className="Filter-background">
       <p className="Filter-txt-1">{ProductoTipo}</p>
       <div className="Filter-B1">
-        {Loaded1 ? null : <FilterLoader />}
+        {!Loaded1 && <FilterLoader />}
         {FilterdbProducts}
       </div>
     </div>

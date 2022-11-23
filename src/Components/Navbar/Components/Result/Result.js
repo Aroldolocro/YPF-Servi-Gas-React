@@ -2,6 +2,7 @@ import "./Result.css";
 import { AppContext } from "../../../../AppContext/AppContext";
 import { useContext } from "react";
 import { ResultLoader1 } from "./ResultLoader";
+import NotFound from "../../../../Images/NotFound.png";
 
 const Result = () => {
   const {
@@ -10,22 +11,20 @@ const Result = () => {
     Filtered,
     setOpenPopUp,
     setOpenPopUp5,
-    setLoadedImg31,
-    setLoadedImg32,
     Loaded5,
     ResultInitialState,
     AlldbCollections,
-    Loaded6,
+    MapImage_3_Function,
+    ResultFound,
+    Loader,
+    setLoadedImg31,
   } = useContext(AppContext);
 
-  const RenderOfInitialStatedbProducts = AlldbCollections.sort(
-    () => Math.random() - 0.5
-  )
-    .slice(0, 5)
-    .map((value, index) => {
+  const RenderOfInitialStatedbProducts = AlldbCollections.slice(0, 5).map(
+    (value, i) => {
       return (
         <div
-          key={index}
+          key={i}
           className={
             Loaded5 ? "RenderOfResultdbProducts-background" : "NotDisplayed"
           }
@@ -40,21 +39,22 @@ const Result = () => {
               src={value.Imagen}
               className="RenderOfResultdbProducts-img"
               alt=""
-              onLoad={() => setLoadedImg31(true)}
+              onLoad={() => MapImage_3_Function(i)}
             />
             <p className="RenderOfResultdbProducts-txt-1">{value.Nombre}</p>
           </div>
           <p className="RenderOfResultdbProducts-txt-2">{value.Tipo}</p>
         </div>
       );
-    });
+    }
+  );
 
-  const RenderOfResultdbProducts = Filtered.slice(0, 5).map((value, index) => {
+  const RenderOfResultdbProducts = Filtered.slice(0, 5).map((value, i) => {
     return (
       <div
-        key={index}
+        key={i}
         className={
-          Loaded6 ? "RenderOfResultdbProducts-background" : "NotDisplayed"
+          ResultFound ? "RenderOfResultdbProducts-background" : "NotDisplayed"
         }
         onClick={() =>
           setProductId(value.id) &
@@ -67,7 +67,6 @@ const Result = () => {
             src={value.Imagen}
             className="RenderOfResultdbProducts-img"
             alt=""
-            onLoad={() => setLoadedImg32(true)}
           />
           <p className="RenderOfResultdbProducts-txt-1">{value.Nombre}</p>
         </div>
@@ -88,14 +87,34 @@ const Result = () => {
     </div>
   );
 
-  const RenderOfNotFound = <div>Not Found</div>;
+  const RenderOfNotFound = (
+    <div
+      className={
+        !ResultFound && !Loader ? "RenderOfNotFound-background" : "NotDisplayed"
+      }
+    >
+      <img
+        src={NotFound}
+        className="RenderOfNotFound-img"
+        alt=""
+        onLoad={() => setLoadedImg31(true)}
+      />
+      <p className="RenderOfNotFound-txt-1">
+        Oops!, no encontramos lo que estas buscando...
+      </p>
+    </div>
+  );
 
   const RenderOfFinalState = (
     <div className="RenderOfFinalState-background">
       <div className="RenderOfFinalState-B1">
         <p className="RenderOfFinalState-txt-1">Resultado</p>
       </div>
-      <div className="RenderOfFinalState-B2"></div>
+      <div className="RenderOfFinalState-B2">
+        {Loader && <ResultLoader1 />}
+        {RenderOfResultdbProducts}
+        {RenderOfNotFound}
+      </div>
     </div>
   );
 

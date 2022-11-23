@@ -105,6 +105,31 @@
   grid-row-gap: 2vh;
 }
 
+/*RenderOfNotFound*/
+
+.RenderOfNotFound-background {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-row-gap: 3vh;
+  align-content: flex-start;
+  justify-items: center;
+  padding: 4vh;
+}
+
+.RenderOfNotFound-img {
+  height: 10vh;
+  width: auto;
+}
+
+.RenderOfNotFound-txt-1 {
+  margin: 0;
+  font-size: 4vw;
+  font-weight: 700;
+  color: black;
+  text-align: center;
+}
+
 /*RenderOfResultdbProducts*/
 
 .RenderOfResultdbProducts-background {

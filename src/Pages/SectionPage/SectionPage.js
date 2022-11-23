@@ -30,9 +30,9 @@ const SectionPage = () => {
     ConditionedData2,
     Image,
     setImage,
-    setLoadedImg27,
     setLoadedImg28,
     Loaded3,
+    MapImage_1_Function,
   } = useContext(AppContext);
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -69,9 +69,9 @@ const SectionPage = () => {
 
   const SectionPagedbProducts = ConditionedData2.sort(function (x, y) {
     return x.Prioridad - y.Prioridad;
-  }).map((Item, index) => (
+  }).map((Item, i) => (
     <div
-      key={index}
+      key={i}
       className={Loaded3 ? "SectionPagedbProducts-background" : "NotDisplayed"}
       onClick={() =>
         setProductId(Item.id) &
@@ -94,7 +94,7 @@ const SectionPage = () => {
           src={Item.Imagen}
           className="SectionPagedbProducts-img"
           alt=""
-          onLoad={() => setLoadedImg27(true)}
+          onLoad={() => MapImage_1_Function(i)}
         />
       </div>
     </div>
