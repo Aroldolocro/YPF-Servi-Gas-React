@@ -211,3 +211,43 @@
   height: 3.5vw;
   width: 30vw;
 }
+
+/*Desktop*/
+
+.Desktop-Explorer-background {
+  background-color: gainsboro;
+  height: fit-content;
+  width: 96%;
+  padding: 0 2% 0 2%;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-row-gap: 4vh;
+}
+
+.Desktop-Explorer-B1 {
+  border: 1px SOLID BLACK;
+  height: 10vh; /*fit*/
+  display: grid;
+  grid-auto-flow: column;
+  align-items: flex-start;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  grid-column-gap: 2vh;
+}
+
+.Desktop-Explorer-B1::-webkit-scrollbar {
+  display: none;
+}
+
+.tt {
+  height: 5vw;
+  width: 5vw;
+  background-color: red;
+  border: 1px solid black;
+}
+
+.Desktop-Explorer-B2 {
+  border: 1px SOLID BLACK;
+  height: 5vh;
+}

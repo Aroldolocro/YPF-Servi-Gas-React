@@ -58,3 +58,40 @@
     height: 4vw;
   }
 }
+
+/*Desktop*/
+
+.Desktop-Searcher-background {
+  height: 4.5vh;
+  width: 60vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.Desktop-Searcher-input-1 {
+  padding: 0 5vh 0 3vh;
+  height: 100%;
+  width: 100%;
+  border: none;
+  background-color: whitesmoke;
+  font-size: 90%;
+  font-weight: 500;
+  color: gray;
+  border-radius: 0.7vh;
+}
+
+.Desktop-Searcher-input-1:focus {
+  outline: none;
+}
+
+.Desktop-Searcher-svg-1 {
+  height: 2vh;
+  width: auto;
+  fill: rgb(64, 64, 64);
+  position: absolute;
+  right: 3vh;
+  cursor: pointer;
+}

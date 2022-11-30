@@ -90,8 +90,59 @@
   color: rgba(64, 64, 64);
 }
 
+/*Desktop*/
+
 .Desktop-HomePage-background {
-  height: 100vh;
+  height: auto;
   width: 100%;
-  background-color: red;
+  padding: 6vh 0 0 0;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
+  grid-row-gap: 4vh;
+}
+
+.Desktop-HomePage-B1 {
+  background: rgb(51, 148, 236);
+  background: linear-gradient(
+    52deg,
+    rgba(51, 148, 236, 0.05) 0%,
+    rgba(51, 160, 236, 0.25) 100%
+  );
+  height: fit-content;
+  padding: 1vh 2% 1vh 2%;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-row-gap: 0.3vh;
+  justify-content: flex-start;
+}
+
+.Desktop-HomePage-txt-1 {
+  margin: 0;
+  font-size: 160%;
+  font-weight: 800;
+  color: #2796ff;
+}
+
+.Desktop-HomePage-B1B1 {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  justify-content: flex-start;
+  grid-column-gap: 0.5vw;
+  align-items: center;
+}
+
+.Desktop-HomePage-svg-1 {
+  height: 1.5vh;
+  width: auto;
+  fill: rgba(64, 64, 64);
+}
+
+.Desktop-HomePage-txt-2 {
+  margin: 0;
+  font-size: 85%;
+  font-weight: 500;
+  color: rgba(64, 64, 64);
 }

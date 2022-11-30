@@ -24,5 +24,53 @@
 .Navbar-svg-1 {
   height: 3.5vh;
   width: auto;
+  fill: rgb(84, 64, 64);
+}
+
+/*Desktop*/
+
+.Desktop-Navbar-background {
+  height: 6vh;
+  width: 96%;
+  padding: 0 2% 0 2%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Desktop-Navbar-B1 {
+  height: fit-content;
+  width: fit-content;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  grid-column-gap: 1.3vw;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Desktop-Navbar-svg-1 {
+  height: 2.5vh;
+  width: auto;
   fill: rgb(64, 64, 64);
+}
+
+.Desktop-Navbar-img-1 {
+  height: 2.5vh;
+  width: auto;
+  object-fit: contain;
+}
+
+.Desktop-Navbar-txt-1 {
+  margin: 0;
+  font-size: 95%;
+  font-weight: 800;
+  color: rgb(100, 100, 100);
 }
