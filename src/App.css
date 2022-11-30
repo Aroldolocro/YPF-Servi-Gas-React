@@ -23,3 +23,7 @@ body,
 .NotDisplayed {
   display: none;
 }
+
+.NoClickEvent {
+  pointer-events: none;
+}

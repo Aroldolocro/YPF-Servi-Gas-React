@@ -11,6 +11,29 @@ import {
 export const AppContext = createContext();
 
 const ConstAppContext = ({ children }) => {
+  /*App With*/
+
+  function getWindowSize() {
+    const { innerWidth } = window;
+    return { innerWidth };
+  }
+
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
+  const Mobile = windowSize.innerWidth < 820 ? true : false;
+
   /*CONTROLERS*/
 
   const [ProductId, setProductId] = useState(" ");
@@ -45,6 +68,7 @@ const ConstAppContext = ({ children }) => {
   const [data2, setData2] = useState([]);
   const [data3, setData3] = useState({});
   const [data4, setData4] = useState([]);
+  const [data5, setData5] = useState([]);
   const [ConditionedData, setConditionedData] = useState([]);
   const [ConditionedData2, setConditionedData2] = useState([]);
 
@@ -112,6 +136,7 @@ const ConstAppContext = ({ children }) => {
     getDoc(ConditionedDocument).then((res) =>
       setData4(res.get("Acompañamientos"))
     );
+    getDoc(ConditionedDocument).then((res) => setData5(res.get("Extras")));
   }, [Collection, ProductId, ProductCollection, SectionPagePath]);
 
   const DesayunoQualification = (DesayunoQuality / DesayunoQuantity).toFixed(2);
@@ -433,23 +458,62 @@ const ConstAppContext = ({ children }) => {
 
   /*SAVED ON LOCALSTORAGE*/
 
-  const [Quealificated, setQuealificated] = useState(false);
+  const [QuealificatedDesayunos, setQuealificatedDesayunos] = useState(false);
+  const [QuealificatedAlmuerzos, setQuealificatedAlmuerzos] = useState(false);
+  const [QuealificatedPromociones, setQuealificatedPromociones] =
+    useState(false);
 
   useEffect(() => {
-    const data = window.localStorage.getItem("Quealificated_local_storage");
-    if (data !== false) setQuealificated(JSON.parse(data));
+    const data = window.localStorage.getItem(
+      "QuealificatedDesayunos_local_storage"
+    );
+    const data1 = window.localStorage.getItem(
+      "QuealificatedAlmuerzos_local_storage"
+    );
+    const data2 = window.localStorage.getItem(
+      "QuealificatedPromociones_local_storage"
+    );
+    if (data !== null) {
+      setQuealificatedDesayunos(JSON.parse(data));
+    }
+    if (data1 !== null) {
+      setQuealificatedAlmuerzos(JSON.parse(data1));
+    }
+    if (data2 !== null) {
+      setQuealificatedPromociones(JSON.parse(data2));
+    }
   }, []);
 
   useEffect(() => {
     window.localStorage.setItem(
-      "Quealificated_local_storage",
-      JSON.stringify(Quealificated)
+      "QuealificatedDesayunos_local_storage",
+      JSON.stringify(QuealificatedDesayunos)
     );
-  }, [Quealificated]);
+    window.localStorage.setItem(
+      "QuealificatedAlmuerzos_local_storage",
+      JSON.stringify(QuealificatedAlmuerzos)
+    );
+    window.localStorage.setItem(
+      "QuealificatedPromociones_local_storage",
+      JSON.stringify(QuealificatedPromociones)
+    );
+  }, [
+    QuealificatedDesayunos,
+    QuealificatedAlmuerzos,
+    QuealificatedPromociones,
+  ]);
 
   /*QUALIFIER*/
 
   const [Calification, setCalification] = useState();
+  const [Qualified, setQualified] = useState(false);
+
+  useEffect(() => {
+    if (!OpenPopUp1) {
+      setQualified(false);
+      setCalification();
+    }
+  }, [OpenPopUp1]);
 
   const SendCalification = () => {
     const db = getFirestore();
@@ -460,23 +524,25 @@ const ConstAppContext = ({ children }) => {
       };
       const dbdoc = doc(db, "Calificación", "Desayuno");
       updateDoc(dbdoc, NewDoc);
-      setQuealificated(true);
-    } else if (sectionName === "Almuerzos y cenas") {
+      setQuealificatedDesayunos(true);
+    }
+    if (sectionName === "Almuerzos y cenas") {
       const NewDoc1 = {
         Cantidad: AlmuerzoQuantity + 1,
         Calidad: AlmuerzoQuality + Calification,
       };
       const dbdoc = doc(db, "Calificación", "Almuerzos");
       updateDoc(dbdoc, NewDoc1);
-      setQuealificated(true);
-    } else if (sectionName === "Promociones") {
+      setQuealificatedAlmuerzos(true);
+    }
+    if (sectionName === "Promociones") {
       const NewDoc2 = {
         Cantidad: PromocionesQuantity + 1,
         Calidad: PromocionesQuality + Calification,
       };
       const dbdoc = doc(db, "Calificación", "Promociones");
       updateDoc(dbdoc, NewDoc2);
-      setQuealificated(true);
+      setQuealificatedPromociones(true);
     }
   };
 
@@ -487,6 +553,7 @@ const ConstAppContext = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        Mobile,
         data1,
         ProductId,
         setProductId,
@@ -498,8 +565,9 @@ const ConstAppContext = ({ children }) => {
         setCollection,
         OpenPopUp4,
         setOpenPopUp4,
-        Quealificated,
-        setQuealificated,
+        QuealificatedDesayunos,
+        QuealificatedAlmuerzos,
+        QuealificatedPromociones,
         sectionName,
         setSectionName,
         DesayunoQualification,
@@ -518,6 +586,7 @@ const ConstAppContext = ({ children }) => {
         PromocionesLength,
         data3,
         data4,
+        data5,
         AlldbCollections,
         OpenPopUp,
         setOpenPopUp,
@@ -585,6 +654,8 @@ const ConstAppContext = ({ children }) => {
         Loader,
         SearcherOn,
         setLoadedImg31,
+        Qualified,
+        setQualified,
       }}
     >
       {children}

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { setOpenPopUp3 } = useContext(AppContext);
+  const { setOpenPopUp3, OpenPopUp5 } = useContext(AppContext);
 
   const GoToContact = () => navigate("/Contacto");
 
@@ -18,7 +18,7 @@ const Navbar = () => {
           width="16"
           height="16"
           fillRule="currentColor"
-          className="Navbar-svg-1"
+          className={OpenPopUp5 ? "Navbar-svg-1 NoClickEvent" : "Navbar-svg-1"}
           viewBox="0 0 16 16"
           stroke="#404040"
           strokeWidth={0.3}
@@ -35,7 +35,7 @@ const Navbar = () => {
           width="16"
           height="16"
           fillRule="currentColor"
-          className="Navbar-svg-1"
+          className={OpenPopUp5 ? "Navbar-svg-1 NoClickEvent" : "Navbar-svg-1"}
           viewBox="-1 0 18 16"
           stroke="#404040"
           strokeWidth={0.3}

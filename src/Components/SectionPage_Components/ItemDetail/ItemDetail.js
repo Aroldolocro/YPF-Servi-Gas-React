@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { ItemDetailLoader1, ItemDetailLoader2 } from "./ItemDetailLoader";
 
 const ItemDetail = () => {
-  const { data3, data4, setOpenPopUp, setLoadedImg30, Loaded4 } =
+  const { data3, data4, data5, setOpenPopUp, setLoadedImg30, Loaded4 } =
     useContext(AppContext);
 
   return (
@@ -54,6 +54,18 @@ const ItemDetail = () => {
             <p className="ItemDetail-txt-2">Acompañamientos disponibles</p>
             <div className="ItemDetail-B2B3B1">
               {data4.map((option, index) => (
+                <div className="ItemDetail-B2B3B1B1" key={index}>
+                  • {option}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+        {data5 && (
+          <div className="ItemDetail-B2B3">
+            <p className="ItemDetail-txt-2">Extras disponibles :</p>
+            <div className="ItemDetail-B2B3B1">
+              {data5.map((option, index) => (
                 <div className="ItemDetail-B2B3B1B1" key={index}>
                   • {option}
                 </div>

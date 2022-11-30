@@ -5,13 +5,26 @@ import { useContext, useEffect, useState } from "react";
 const Qualifier = () => {
   const {
     setOpenPopUp1,
-    Quealificated,
+    QuealificatedDesayunos,
+    QuealificatedAlmuerzos,
+    QuealificatedPromociones,
     Calification,
     setCalification,
     SendCalification,
+    sectionName,
+    Qualified,
+    setQualified,
   } = useContext(AppContext);
 
   const [Loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (Qualified) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1500);
+    }
+  }, [Qualified]);
 
   const SVG = (
     <svg
@@ -28,14 +41,6 @@ const Qualifier = () => {
       <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
     </svg>
   );
-
-  useEffect(() => {
-    if (Quealificated) {
-      setTimeout(() => {
-        setLoading(false);
-      }, 1500);
-    }
-  }, [Quealificated]);
 
   const Loader = <div className="Loader"></div>;
 
@@ -170,7 +175,7 @@ const Qualifier = () => {
               ? "Qualifier-btn Qualifier-btn-disabled"
               : "Qualifier-btn"
           }
-          onClick={() => SendCalification()}
+          onClick={() => SendCalification() & setQualified(true)}
           disabled={!Calification}
         >
           Enviar
@@ -183,7 +188,21 @@ const Qualifier = () => {
     <div className="Qualifier-background">
       <div className="Qualifier-B1" onClick={() => setOpenPopUp1(false)}></div>
       <div className="Qualifier-B2">
-        {Quealificated ? RenderOfQualificated : RenderOfQualificationForm}
+        {sectionName === "Desayunos y meriendas"
+          ? QuealificatedDesayunos
+            ? RenderOfQualificated
+            : RenderOfQualificationForm
+          : null}
+        {sectionName === "Almuerzos y cenas"
+          ? QuealificatedAlmuerzos
+            ? RenderOfQualificated
+            : RenderOfQualificationForm
+          : null}
+        {sectionName === "Promociones"
+          ? QuealificatedPromociones
+            ? RenderOfQualificated
+            : RenderOfQualificationForm
+          : null}
       </div>
     </div>
   );

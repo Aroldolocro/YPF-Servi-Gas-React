@@ -89,3 +89,9 @@
   font-weight: 500;
   color: rgba(64, 64, 64);
 }
+
+.Desktop-HomePage-background {
+  height: 100vh;
+  width: 100%;
+  background-color: red;
+}
