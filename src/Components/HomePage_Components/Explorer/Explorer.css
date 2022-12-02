@@ -215,7 +215,6 @@
 /*Desktop*/
 
 .Desktop-Explorer-background {
-  background-color: gainsboro;
   height: fit-content;
   width: 96%;
   padding: 0 2% 0 2%;
@@ -226,28 +225,79 @@
 }
 
 .Desktop-Explorer-B1 {
-  border: 1px SOLID BLACK;
-  height: 10vh; /*fit*/
+  height: fit-content;
+  width: auto;
   display: grid;
   grid-auto-flow: column;
-  align-items: flex-start;
+  grid-column-gap: 0.6vw;
   overflow-y: hidden;
-  overflow-x: scroll;
-  grid-column-gap: 2vh;
+  overflow-x: auto;
+  justify-content: flex-start;
 }
 
 .Desktop-Explorer-B1::-webkit-scrollbar {
   display: none;
 }
 
-.tt {
-  height: 5vw;
-  width: 5vw;
-  background-color: red;
-  border: 1px solid black;
+.Desktop-Explorer-B1B1 {
+  height: fit-content;
+  width: 4.4rem;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-row-gap: 0.2vh;
+}
+
+.Desktop-Explorer-B1B1B1 {
+  height: 3.4rem;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.Desktop-Explorer-img-1 {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.Desktop-Explorer-txt-1 {
+  margin: 0;
+  font-size: 87%;
+  font-weight: 500;
+  color: rgb(64, 64, 64);
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .Desktop-Explorer-B2 {
   border: 1px SOLID BLACK;
-  height: 5vh;
+  height: fit-content;
+  width: auto;
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 1%;
+  overflow-y: hidden;
+  overflow-x: auto;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Desktop-Explorer-txt-2 {
+  margin: 0;
+  font-size: 100%;
+  font-weight: 800;
+  color: black;
+}
+
+.Desktop-Explorer-B2B1 {
+  height: fit-content;
+  width: fit-content;
+  border: 0.2vh solid rgb(128, 128, 128, 0.3);
+  border-radius: 1vh;
+  display: grid;
+  grid-template-columns: min-content max-content;
+  grid-template-rows: auto;
+  align-items: center;
 }

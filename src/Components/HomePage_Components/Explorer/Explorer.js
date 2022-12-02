@@ -4,6 +4,18 @@ import Pizza_de_rucula_y_jamon_crudo from "../../../Images/Products photos/Almue
 import Milanesa_cheddar from "../../../Images/Products photos/Almuerzos/Milanesa_cheddar.png";
 import Baguette_especial from "../../../Images/Products photos/Almuerzos/Baguette_especial.png";
 import Lomopizza from "../../../Images/Products photos/Almuerzos/Lomopizza.png";
+import Matambre_a_la_pizza from "../../../Images/Products photos/Almuerzos/Matambre_a_la_pizza.png";
+import Papas_cheddar from "../../../Images/Products photos/Almuerzos/Papas_cheddar.png";
+import Café_con_leche from "../../../Images/Products photos/Desayunos/Café_con_leche.png";
+import Licuado_en_vaso from "../../../Images/Products photos/Desayunos/Licuado_en_vaso.png";
+import Té from "../../../Images/Products photos/Desayunos/Té.png";
+import Submarino from "../../../Images/Products photos/Desayunos/Submarino.png";
+import Capuchino from "../../../Images/Products photos/Desayunos/Capuchino.png";
+import Jugo_de_naranja_en_vaso from "../../../Images/Products photos/Desayunos/Jugo_de_naranja_en_vaso.png";
+import Panificados from "../../../Images/Products photos/Desayunos/Panificados.png";
+import Tostadas from "../../../Images/Products photos/Desayunos/Tostadas.png";
+import Omelette_de_jamón_y_queso from "../../../Images/Products photos/Desayunos/Omelette_de_jamón_y_queso.png";
+import Desayuno from "../../../Images/Products photos/Promociones/Desayuno.png";
 import { AppContext } from "../../../AppContext/AppContext";
 import { useContext } from "react";
 import { ExplorerLoader1, ExplorerLoader2 } from "./ExplorerLoader";
@@ -414,26 +426,214 @@ const Explorer = () => {
     return (
       <div className="Desktop-Explorer-background">
         <div className="Desktop-Explorer-B1">
-          <div className="tt"></div>
-          <div className="tt"></div>
-          <div className="tt"></div>
-          <div className="tt"></div>
-          <div className="tt"></div>
-          <div className="tt"></div>
-          <div className="tt"></div>
-          <div className="tt"></div>
-          <div className="tt"></div>
-          <div className="tt"></div>
-          <div className="tt"></div>
-          <div className="tt"></div>
-          <div className="tt"></div>
-          <div className="tt"></div>
-          <div className="tt"></div>
-          <div className="tt"></div>
-          <div className="tt"></div>
-          <div className="tt"></div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img
+                src={Hamburguesa_city}
+                className="Desktop-Explorer-img-1"
+                alt=""
+              />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Hamburguesas</p>
+          </div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img
+                src={Pizza_de_rucula_y_jamon_crudo}
+                className="Desktop-Explorer-img-1"
+                alt=""
+              />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Pizzas</p>
+          </div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img
+                src={Milanesa_cheddar}
+                className="Desktop-Explorer-img-1"
+                alt=""
+              />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Milanesas</p>
+          </div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img
+                src={Baguette_especial}
+                className="Desktop-Explorer-img-1"
+                alt=""
+              />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Sandwiches</p>
+          </div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img src={Lomopizza} className="Desktop-Explorer-img-1" alt="" />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Lomopizzas</p>
+          </div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img
+                src={Matambre_a_la_pizza}
+                className="Desktop-Explorer-img-1"
+                alt=""
+              />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Carnes</p>
+          </div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img
+                src={Papas_cheddar}
+                className="Desktop-Explorer-img-1"
+                alt=""
+              />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Acompañamientos</p>
+          </div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img
+                src={Café_con_leche}
+                className="Desktop-Explorer-img-1"
+                alt=""
+              />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Café</p>
+          </div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img
+                src={Licuado_en_vaso}
+                className="Desktop-Explorer-img-1"
+                alt=""
+              />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Licuados</p>
+          </div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img src={Té} className="Desktop-Explorer-img-1" alt="" />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Té</p>
+          </div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img src={Submarino} className="Desktop-Explorer-img-1" alt="" />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Submarino</p>
+          </div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img src={Capuchino} className="Desktop-Explorer-img-1" alt="" />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Capuchino</p>
+          </div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img
+                src={Jugo_de_naranja_en_vaso}
+                className="Desktop-Explorer-img-1"
+                alt=""
+              />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Jugos</p>
+          </div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img
+                src={Panificados}
+                className="Desktop-Explorer-img-1"
+                alt=""
+              />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Panificados</p>
+          </div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img src={Tostadas} className="Desktop-Explorer-img-1" alt="" />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Tostadas</p>
+          </div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img
+                src={Omelette_de_jamón_y_queso}
+                className="Desktop-Explorer-img-1"
+                alt=""
+              />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Omelette</p>
+          </div>
+          <div className="Desktop-Explorer-B1B1">
+            <div className="Desktop-Explorer-B1B1B1">
+              <img src={Desayuno} className="Desktop-Explorer-img-1" alt="" />
+            </div>
+            <p className="Desktop-Explorer-txt-1">Promociones</p>
+          </div>
         </div>
-        <div className="Desktop-Explorer-B2"></div>
+        <div className="Desktop-Explorer-B2">
+          <p className="Desktop-Explorer-txt-2">Filtrar por: </p>
+          <div className="Desktop-Explorer-B2B1">
+            {" "}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fillRule="currentColor"
+              className={
+                ProductoTipo === "Promociones"
+                  ? "Explorer-svg-3 Explorer-svg-3-selected"
+                  : "Explorer-svg-3"
+              }
+              viewBox="0 0 16 16"
+            >
+              <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z" />
+            </svg>
+            Promociones
+          </div>
+          <div className="Desktop-Explorer-B2B1">
+            {" "}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fillRule="currentColor"
+              className={
+                ProductoTipo === "Menor A Mayor Precio"
+                  ? "Explorer-svg-3 Explorer-svg-3-selected"
+                  : "Explorer-svg-3"
+              }
+              viewBox="0 0 16 16"
+            >
+              <path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z" />
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+              <path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
+            </svg>
+            De menor a mayor precio
+          </div>
+          <div className="Desktop-Explorer-B2B1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fillRule="currentColor"
+              className={
+                ProductoTipo === "Nuestros favoritos"
+                  ? "Explorer-svg-3 Explorer-svg-3-selected"
+                  : "Explorer-svg-3"
+              }
+              viewBox="0 0 16 16"
+            >
+              <path
+                fillRule="evenodd"
+                d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+              />
+            </svg>
+            Nuestros favoritos
+          </div>
+        </div>
       </div>
     );
   }
