@@ -1,97 +1,35 @@
 .Searcher-background {
-  height: 6vh;
-  width: 100%;
+  height: 3rem;
+  width: 60vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  align-items: center;
   position: relative;
 }
 
 .Searcher-input {
   margin: 0;
-  padding: 0 5vh 0 2vh;
+  padding: 0;
+  padding: 0 2rem 0 2rem;
   height: 100%;
   width: 100%;
   border: none;
   background-color: whitesmoke;
-  font-size: 3vw;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.9rem;
   font-weight: 500;
   color: gray;
+  border-radius: 0.5rem;
 }
 
-.Searcher-svg-1 {
-  right: 2vh;
-  height: 4vw;
-  width: auto;
-  fill: rgb(128, 128, 128);
-  position: absolute;
-  animation: Searcher-svg 0.2s ease-in;
-  display: flex;
-}
-
-@keyframes Searcher-svg {
-  0% {
-    height: 0;
-    opacity: 0;
-  }
-  100% {
-    height: 3.5vw;
-  }
-}
-
-.Searcher-svg-2 {
-  right: 2vh;
-  height: 4vw;
-  width: auto;
-  fill: rgb(128, 128, 128);
-  position: absolute;
-  animation: Searcher-svg-2 0.2s ease-in;
-}
-
-@keyframes Searcher-svg-2 {
-  0% {
-    height: 0;
-    opacity: 0;
-  }
-  100% {
-    height: 4vw;
-  }
-}
-
-/*Desktop*/
-
-.Desktop-Searcher-background {
-  height: 4.5vh;
-  width: 60vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.Desktop-Searcher-input-1 {
-  padding: 0 5vh 0 3vh;
-  height: 100%;
-  width: 100%;
-  border: none;
-  background-color: whitesmoke;
-  font-size: 90%;
-  font-weight: 500;
-  color: gray;
-  border-radius: 0.7vh;
-}
-
-.Desktop-Searcher-input-1:focus {
+.Searcher-input:focus {
   outline: none;
 }
 
-.Desktop-Searcher-svg-1 {
-  height: 2vh;
+.Searcher-svg-1 {
+  right: 0.7rem;
+  height: 1.3rem;
   width: auto;
-  fill: rgb(64, 64, 64);
+  fill: #606060;
   position: absolute;
-  right: 3vh;
-  cursor: pointer;
 }

@@ -10,7 +10,6 @@ const Result = () => {
     setProductCollection,
     Filtered,
     setOpenPopUp,
-    setOpenPopUp5,
     Loaded5,
     ResultInitialState,
     AlldbCollections,
@@ -18,6 +17,7 @@ const Result = () => {
     ResultFound,
     Loader,
     setLoadedImg31,
+    PopUp5Close,
   } = useContext(AppContext);
 
   const RenderOfInitialStatedbProducts = AlldbCollections.slice(0, 5).map(
@@ -120,12 +120,13 @@ const Result = () => {
 
   return (
     <div className="Result-background">
-      <div className="Result-content">
+      <div className="Result-content" id="Result-content">
         {ResultInitialState ? RenderOfInitialState : RenderOfFinalState}
       </div>
       <div
         className="Result-content-out"
-        onClick={() => setOpenPopUp5(false)}
+        id="Result-content-out"
+        onClick={() => PopUp5Close()}
       ></div>
     </div>
   );

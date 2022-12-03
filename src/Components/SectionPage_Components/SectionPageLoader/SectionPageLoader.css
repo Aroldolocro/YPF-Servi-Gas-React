@@ -29,16 +29,6 @@
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
-@keyframes skeleton-loading {
-  0% {
-    background-color: hsl(0, 0%, 75%);
-  }
-
-  100% {
-    background-color: hsl(0, 0%, 95%);
-  }
-}
-
 .SectionPageLoader1-B1B2 {
   height: 6vh;
   width: 50vw;

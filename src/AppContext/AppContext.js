@@ -11,29 +11,6 @@ import {
 export const AppContext = createContext();
 
 const ConstAppContext = ({ children }) => {
-  /*App With*/
-
-  function getWindowSize() {
-    const { innerWidth } = window;
-    return { innerWidth };
-  }
-
-  const [windowSize, setWindowSize] = useState(getWindowSize());
-
-  useEffect(() => {
-    function handleWindowResize() {
-      setWindowSize(getWindowSize());
-    }
-
-    window.addEventListener("resize", handleWindowResize);
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
-
-  const Mobile = windowSize.innerWidth < 820 ? true : false;
-
   /*CONTROLERS*/
 
   const [ProductId, setProductId] = useState(" ");
@@ -185,6 +162,26 @@ const ConstAppContext = ({ children }) => {
       document.body.className = undefined;
     }
   }, [OpenPopUp, OpenPopUp1, OpenPopUp2, OpenPopUp3, OpenPopUp4, OpenPopUp5]);
+
+  const PopUp3Close = () => {
+    document.getElementById("Menu-Shadow").className =
+      "Menu-Shadow Menu-Shadow-v1 ";
+    document.getElementById("Menu-background").className =
+      "Menu-background Menu-background-v1";
+    setTimeout(() => {
+      setOpenPopUp3(false);
+    }, 300);
+  };
+
+  const PopUp5Close = () => {
+    document.getElementById("Result-content-out").className =
+      "Result-content-out Result-content-out-v1 ";
+    document.getElementById("Result-content").className =
+      "Result-content Result-content-v1";
+    setTimeout(() => {
+      setOpenPopUp5(false);
+    }, 300);
+  };
 
   /*LOADERS*/
 
@@ -553,7 +550,6 @@ const ConstAppContext = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
-        Mobile,
         data1,
         ProductId,
         setProductId,
@@ -656,6 +652,8 @@ const ConstAppContext = ({ children }) => {
         setLoadedImg31,
         Qualified,
         setQualified,
+        PopUp3Close,
+        PopUp5Close,
       }}
     >
       {children}
