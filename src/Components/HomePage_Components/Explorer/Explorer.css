@@ -1,213 +1,152 @@
 .Explorer-background {
-  height: auto;
-  width: 100%;
+  height: fit-content;
+  width: calc(100% - 3rem);
+  padding: 0 1.5rem 0 1.5rem;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-row-gap: 2rem;
+}
+
+.Explorer-B1 {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 0.5rem;
+  overflow-y: hidden;
+  overflow-x: auto;
+  justify-content: flex-start;
+}
+
+.Explorer-B1::-webkit-scrollbar {
+  display: none;
+}
+
+/*ExplorerMobile*/
+
+.ExplorerMobile-B1 {
+  height: 3.3rem;
+  width: 4.5rem;
+  border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.Explorer-content {
-  height: auto;
-  width: 90%;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto;
-  grid-row-gap: 4vh;
-}
-
-.Explorer-C-B1 {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: auto;
-  align-items: flex-start;
-  overflow-y: hidden;
-  overflow-x: auto;
-  grid-column-gap: 2vh;
-}
-
-.Explorer-C-B1::-webkit-scrollbar {
-  display: none;
-}
-
-.Explorer-C-B1B1 {
-  height: fit-content;
-  width: 10.5vh;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto;
-}
-
-.Explorer-C-B1B1B1 {
-  height: 8vh;
-  width: 100%;
-  border: 0.3vh solid transparent;
-  border-radius: 2.3vh;
-  position: relative;
-}
-
-.Explorer-C-B1B1B1-selected {
-  border: 0.3vh solid #2796ff;
-}
-
-.Explorer-img-1 {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 2vh;
-}
-
-.Explorer-img-1-selected {
-  opacity: 0.2;
-}
-
-.Explorer-svg {
-  position: absolute;
-  height: 4vh;
-  width: 4vh;
-  fill: #2796ff;
-  left: 3.25vh;
-  top: 2vh;
-}
-
-.Explorer-txt-1 {
-  margin: 0;
-  font-size: 4vw;
-  font-weight: 400;
-  color: rgb(44, 44, 44);
-  text-overflow: ellipsis;
-  overflow: hidden;
-  text-align: center;
-}
-
-.Explorer-txt-1-selected {
-  color: #2796ff;
-}
-
-.Explorer-C-B1B2 {
-  height: 8vh;
-  width: 10.5vh;
-  border-radius: 2.3vh;
-  margin: 0.3vh;
   box-shadow: 0px 9px 10px -5px rgba(64, 64, 64, 0.25);
   -webkit-box-shadow: 0px 9px 10px -5px rgba(64, 64, 64, 0.25);
   -moz-box-shadow: 0px 9px 10px -5px rgba(64, 64, 64, 0.25);
+}
+
+.ExplorerMobile-B1B1 {
   display: grid;
-  grid-template-columns: auto;
   grid-template-rows: auto auto;
-  align-content: center;
+  align-content: flex-start;
   justify-items: center;
 }
 
-.Explorer-svg-2 {
-  height: 2vh;
-  width: auto;
+.ExplorerMobile-svg-1 {
   background-color: #2796ff;
   border-radius: 50%;
-  fill: white;
-  padding: 0.7vh;
+  padding: 0.3rem;
 }
 
-.Explorer-txt-3 {
+.ExplorerMobile-txt-1 {
   margin: 0;
-  font-size: 3vw;
-  font-weight: 800;
   color: #2796ff;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 1; /* number of lines to show */
-  -webkit-box-orient: vertical;
-}
-
-.Explorer-C-B2 {
-  height: auto;
-  width: 100%;
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: auto;
-  grid-template-rows: auto;
-  align-items: center;
-  justify-content: flex-start;
-  overflow-y: hidden;
-  overflow-x: auto;
-  grid-column-gap: 2vh;
-}
-
-.Explorer-C-B2::-webkit-scrollbar {
-  display: none;
-}
-
-.Explorer-C-B2B1 {
-  border: 0.2vh solid rgb(128, 128, 128, 0.3);
-  border-radius: 1vh;
-  padding: 0.5vh 2vh 0.5vh 2vh;
-  height: auto;
-  width: auto;
-  display: grid;
-  grid-template-columns: min-content max-content;
-  grid-template-rows: auto;
-  grid-column-gap: 1vh;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.Explorer-C-B2B1-selected {
-  background-color: rgb(39, 150, 255, 0.15);
-  border: 0.2vh solid rgb(39, 150, 255, 1);
-}
-
-.Explorer-svg-3 {
-  fill: #ffae00;
-  height: 2vh;
-  width: auto;
-}
-
-.Explorer-svg-3-selected {
-  fill: rgb(39, 150, 255, 1);
-}
-
-.Explorer-txt-5 {
-  margin: 0;
-  font-size: 3.5vw;
+  font-size: 0.8rem;
   font-weight: 700;
-  color: black;
 }
 
-.Explorer-txt-5-selected {
-  color: rgb(39, 150, 255, 1);
-}
+/*ExplorerProductsFromDB*/
 
-/*ExplorerLoader1*/
-
-.ExplorerLoader1-background {
-  height: auto;
-  width: 10.5vh;
+.ExplorerProductsFromDB-background {
+  height: fit-content;
+  width: min-content;
   display: grid;
-  grid-template-columns: auto;
   grid-template-rows: auto auto;
-  align-items: flex-start;
-  grid-row-gap: 1vh;
+  grid-row-gap: 0.1rem;
+  cursor: pointer;
 }
 
-.ExplorerLoader1-B1 {
-  margin: 0.3vh 0 0.3vh 0;
-  height: 8vh;
-  animation: skeleton-loading 1s linear infinite alternate;
-  border-radius: 2.3vh;
+.ExplorerProductsFromDB-B1 {
+  height: 3.3rem;
+  width: 4.5rem;
+  border: 0.13rem solid transparent;
+  border-radius: 1.13rem;
+  position: relative;
 }
 
-.ExplorerLoader1-B2 {
-  height: 4vw;
-  animation: skeleton-loading 1s linear infinite alternate;
-  border-radius: 0.7vh;
+.ExplorerProductsFromDB-B1-selected {
+  border: 0.13rem solid #2796ff;
 }
 
-/*ExplorerLoader2*/
+.ExplorerProductsFromDB-img-1 {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
 
-.ExplorerLoader2-background {
-  border-radius: 1vh;
-  padding: 0.5vh 2vh 0.5vh 2vh;
+.ExplorerProductsFromDB-img-1-selected {
+  opacity: 0.2;
+}
+
+.ExplorerProductsFromDB-svg-1 {
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+}
+
+.ExplorerProductsFromDB-txt-1 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  color: rgb(94, 94, 94);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0 0.13rem 0 0.13rem;
+}
+
+.ExplorerProductsFromDB-txt-1-selected {
+  color: #2796ff;
+  font-weight: 700;
+}
+
+/*ExplorerLoader*/
+
+.ExplorerLoader-background {
+  height: fit-content;
+  width: min-content;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-row-gap: 0.3rem;
+}
+
+.ExplorerLoader-B1 {
+  height: 3.3rem;
+  width: 4.5rem;
+  border: 0.13rem solid transparent;
+  border-radius: 1.13rem;
   animation: skeleton-loading 1s linear infinite alternate;
-  height: 3.5vw;
-  width: 30vw;
+}
+
+.ExplorerLoader-B2 {
+  height: 0.9rem;
+  border-radius: 0.3rem;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@media (min-width: 1024px) {
+  .Explorer-B1::-webkit-scrollbar {
+    display: block;
+    height: 0.5rem;
+  }
+
+  .Explorer-B1::-webkit-scrollbar-track {
+    background-color: gainsboro;
+  }
+
+  .Explorer-B1::-webkit-scrollbar-thumb {
+    background-color: rgb(170, 170, 170);
+    border-radius: 1rem;
+  }
 }

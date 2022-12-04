@@ -11,6 +11,29 @@ import {
 export const AppContext = createContext();
 
 const ConstAppContext = ({ children }) => {
+  /*App With*/
+
+  function getWindowSize() {
+    const { innerWidth } = window;
+    return { innerWidth };
+  }
+
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
+  const Mobile = windowSize.innerWidth < 1024 ? true : false;
+
   /*CONTROLERS*/
 
   const [ProductId, setProductId] = useState(" ");
@@ -125,6 +148,15 @@ const ConstAppContext = ({ children }) => {
   const DesayunosLength = data.length;
   const AlmuerzosLength = data1.length;
   const PromocionesLength = data2.length;
+  const ExplorerMobileArray = AlldbCollections.filter((x) => x.ExplorerPosition)
+    .sort(function (x, y) {
+      return x.ExplorerPosition - y.ExplorerPosition;
+    })
+    .slice(0, 10);
+  const ExplorerMobileArrayForLoader = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const ExplorerDesktopArrayForLoader = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
+  ];
 
   /* Condiftion For Mapping */
 
@@ -196,14 +228,6 @@ const ConstAppContext = ({ children }) => {
 
   /*LOADERS - Hardcode Images*/
 
-  const [LoadedImg1, setLoadedImg1] = useState(false);
-  const [LoadedImg2, setLoadedImg2] = useState(false);
-  const [LoadedImg3, setLoadedImg3] = useState(false);
-  const [LoadedImg4, setLoadedImg4] = useState(false);
-  const [LoadedImg5, setLoadedImg5] = useState(false);
-  const [LoadedImg6, setLoadedImg6] = useState(false);
-  const [LoadedImg7, setLoadedImg7] = useState(false);
-  const [LoadedImg8, setLoadedImg8] = useState(false);
   const [LoadedImg9, setLoadedImg9] = useState(false);
   const [LoadedImg10, setLoadedImg10] = useState(false);
   const [LoadedImg11, setLoadedImg11] = useState(false);
@@ -356,6 +380,36 @@ const ConstAppContext = ({ children }) => {
     LoadedImg31,
   ]);
 
+  const [ExplorerMobileImages, setExplorerMobileImages] = useState(false);
+  const [ExplorerMobileImages_Array, setExplorerMobileImages_Array] = useState(
+    []
+  );
+
+  const ExplorerMobileImages_Function = (i) => {
+    ExplorerMobileImages_Array.push(i);
+    if (
+      ExplorerMobileImages_Array.length === ExplorerMobileArrayForLoader.length
+    ) {
+      setExplorerMobileImages(true);
+      setExplorerMobileImages_Array([]);
+    }
+  };
+
+  const [ExplorerDesktopImages, setExplorerDesktopImages] = useState(false);
+  const [ExplorerDesktopImages_Array, setExplorerDesktopImages_Array] =
+    useState([]);
+
+  const ExplorerDesktopImages_Function = (i) => {
+    ExplorerDesktopImages_Array.push(i);
+    if (
+      ExplorerDesktopImages_Array.length ===
+      ExplorerDesktopArrayForLoader.length
+    ) {
+      setExplorerDesktopImages(true);
+      setExplorerDesktopImages_Array([]);
+    }
+  };
+
   /*Harcode Images - 1*/
 
   useEffect(() => {
@@ -365,15 +419,7 @@ const ConstAppContext = ({ children }) => {
       PromocionesLength &&
       DesayunoQualification &&
       AlmuerzoQualification &&
-      PromocionesQualification &&
-      LoadedImg1 &&
-      LoadedImg2 &&
-      LoadedImg3 &&
-      LoadedImg4 &&
-      LoadedImg5 &&
-      LoadedImg6 &&
-      LoadedImg7 &&
-      LoadedImg8
+      PromocionesQualification
     ) {
       setLoaded(true);
     }
@@ -384,14 +430,6 @@ const ConstAppContext = ({ children }) => {
     DesayunoQualification,
     AlmuerzoQualification,
     PromocionesQualification,
-    LoadedImg1,
-    LoadedImg2,
-    LoadedImg3,
-    LoadedImg4,
-    LoadedImg5,
-    LoadedImg6,
-    LoadedImg7,
-    LoadedImg8,
   ]);
 
   /*Harcode Images - 2*/
@@ -550,6 +588,7 @@ const ConstAppContext = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        Mobile,
         data1,
         ProductId,
         setProductId,
@@ -598,14 +637,6 @@ const ConstAppContext = ({ children }) => {
         ConditionedData2,
         OpenPopUp3,
         setOpenPopUp3,
-        setLoadedImg1,
-        setLoadedImg2,
-        setLoadedImg3,
-        setLoadedImg4,
-        setLoadedImg5,
-        setLoadedImg6,
-        setLoadedImg7,
-        setLoadedImg8,
         LoadedImg9,
         setLoadedImg9,
         setLoadedImg10,
@@ -654,6 +685,13 @@ const ConstAppContext = ({ children }) => {
         setQualified,
         PopUp3Close,
         PopUp5Close,
+        ExplorerMobileImages_Function,
+        ExplorerDesktopImages_Function,
+        ExplorerMobileArray,
+        ExplorerMobileArrayForLoader,
+        ExplorerDesktopArrayForLoader,
+        ExplorerMobileImages,
+        ExplorerDesktopImages,
       }}
     >
       {children}

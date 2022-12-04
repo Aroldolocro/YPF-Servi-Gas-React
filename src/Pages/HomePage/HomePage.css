@@ -1,91 +1,46 @@
 .HomePage-background {
   height: fit-content;
   width: 100%;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.HomePage-content {
-  height: 100%;
-  width: 100%;
   display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 12vh auto;
-  padding: 0 0 4vh 0;
+  grid-template-rows: auto auto auto;
+  grid-row-gap: 2rem;
+  padding: 3.75rem 0 0 0;
 }
 
-.HomePage-C-B1 {
-  background-color: none;
-}
-
-.HomePage-C-B2 {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto;
-  align-content: flex-start;
-  justify-items: center;
-  grid-row-gap: 6vh;
-}
-
-.HomePage-C-B2B1 {
-  height: auto;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto;
-  align-content: flex-start;
-  grid-row-gap: 4vh;
-}
-
-.HomePage-C-B2B1B1 {
+.HomePage-B1 {
   background: rgb(51, 148, 236);
   background: linear-gradient(
     52deg,
     rgba(51, 148, 236, 0.05) 0%,
     rgba(51, 160, 236, 0.25) 100%
   );
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2vh 0 2vh 0;
-}
-
-.HomePage-C-B2B1B1B1 {
-  height: auto;
-  width: 90%;
+  height: fit-content;
+  width: calc(100% - 3rem);
+  padding: 0.7rem 1.5rem 0.7rem 1.5rem;
   display: grid;
-  grid-template-columns: auto;
   grid-template-rows: auto auto;
+  grid-row-gap: 0.2rem;
+  justify-items: flex-start;
 }
 
 .HomePage-txt-1 {
   margin: 0;
-  font-size: 7vw;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: #2796ff;
 }
 
-.HomePage-C-B2B1B1B1B1 {
+.HomePage-B1B1 {
   display: grid;
   grid-template-columns: auto auto;
-  grid-template-rows: auto;
+  grid-column-gap: 0.5rem;
   justify-content: flex-start;
-  grid-column-gap: 1vh;
   align-items: center;
-}
-
-.HomePage-svg-1 {
-  height: 2vh;
-  width: auto;
-  fill: rgba(64, 64, 64);
 }
 
 .HomePage-txt-2 {
   margin: 0;
-  font-size: 3.5vw;
-  font-weight: 500;
-  color: rgba(64, 64, 64);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: black;
 }

@@ -61,6 +61,7 @@
 .Menu-img-1 {
   height: 1.5rem;
   width: auto;
+  cursor: pointer;
 }
 
 .Menu-svg-1 {
@@ -69,6 +70,7 @@
   fill: white;
   background-color: rgb(112, 112, 112);
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .Menu-B2 {
@@ -130,10 +132,12 @@
 }
 
 .Menu-txt-4 {
+  width: fit-content;
   margin: 0;
   font-size: 0.9rem;
   font-weight: 500;
   color: rgb(98, 98, 98);
+  cursor: pointer;
 }
 
 @media (min-width: 1024px) {

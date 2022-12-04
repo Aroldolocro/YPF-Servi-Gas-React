@@ -32,14 +32,17 @@
   height: 1.3rem;
   width: auto;
   fill: rgb(64, 64, 64);
+  cursor: pointer;
 }
 
 .Navbar-img-1 {
   display: none;
+  cursor: pointer;
 }
 
 .Navbar-txt-1 {
   display: none;
+  cursor: pointer;
 }
 
 @media (min-width: 1024px) {
