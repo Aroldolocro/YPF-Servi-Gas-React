@@ -11,6 +11,7 @@ const ExplorerMobile = () => {
     ExplorerMobileImages_Function,
     ExplorerMobileArray,
     ExplorerMobileImages,
+    setOpenPopUp4,
   } = useContext(AppContext);
 
   const ExplorerMobileFromDB = ExplorerMobileArray.map((x, i) => (
@@ -23,7 +24,8 @@ const ExplorerMobile = () => {
       key={i}
       onClick={() =>
         setProductoTipo(ProductoTipo === x.Tipo ? undefined : x.Tipo) &
-        setCollection(x.Colección)
+        setCollection(x.Colección) &
+        window.navigator.vibrate(300)
       }
     >
       <div
@@ -71,6 +73,7 @@ const ExplorerMobile = () => {
   const VerTodosButton = (
     <div
       className={ExplorerMobileImages ? "ExplorerMobile-B1" : "NotDisplayed"}
+      onClick={() => setOpenPopUp4(true)}
     >
       <div className="ExplorerMobile-B1B1">
         <svg

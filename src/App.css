@@ -29,10 +29,10 @@ body,
 
 @keyframes skeleton-loading {
   0% {
-    background-color: hsl(0, 0%, 75%);
+    background-color: hsl(0, 0%, 75%, 0.3);
   }
 
   100% {
-    background-color: hsl(0, 0%, 95%);
+    background-color: hsl(0, 0%, 95%, 0.3);
   }
 }

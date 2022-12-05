@@ -4,7 +4,7 @@
   display: grid;
   grid-template-rows: auto auto auto;
   grid-row-gap: 2rem;
-  padding: 3.75rem 0 0 0;
+  padding: 3.75rem 0 3.75rem 0;
 }
 
 .HomePage-B1 {

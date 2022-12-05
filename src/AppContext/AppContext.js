@@ -7,6 +7,9 @@ import {
   collection,
   updateDoc,
 } from "firebase/firestore";
+import Café_con_leche from "../Images/Products photos/Desayunos/Café_con_leche.png";
+import Pizza_especial from "../Images/Products photos/Almuerzos/Pizza_especial.png";
+import Licuado from "../Images/Products photos/Promociones/Licuado.png";
 
 export const AppContext = createContext();
 
@@ -205,9 +208,19 @@ const ConstAppContext = ({ children }) => {
     }, 300);
   };
 
+  const PopUp4Close = () => {
+    document.getElementById("Category-Shadow").className =
+      "Category-Shadow Category-Shadow-v1 ";
+    document.getElementById("Category-B1").className =
+      "Category-B1 Category-B1-v1";
+    setTimeout(() => {
+      setOpenPopUp4(false);
+    }, 300);
+  };
+
   const PopUp5Close = () => {
     document.getElementById("Result-content-out").className =
-      "Result-content-out Result-content-out-v1 ";
+      "Result-content-out Result-content-out-v1";
     document.getElementById("Result-content").className =
       "Result-content Result-content-v1";
     setTimeout(() => {
@@ -225,31 +238,6 @@ const ConstAppContext = ({ children }) => {
   const [Loaded5, setLoaded5] = useState(false);
 
   const [Loader, setLoader] = useState(true);
-
-  /*LOADERS - Hardcode Images*/
-
-  const [LoadedImg9, setLoadedImg9] = useState(false);
-  const [LoadedImg10, setLoadedImg10] = useState(false);
-  const [LoadedImg11, setLoadedImg11] = useState(false);
-  const [LoadedImg12, setLoadedImg12] = useState(false);
-  const [LoadedImg13, setLoadedImg13] = useState(false);
-  const [LoadedImg14, setLoadedImg14] = useState(false);
-  const [LoadedImg15, setLoadedImg15] = useState(false);
-  const [LoadedImg16, setLoadedImg16] = useState(false);
-  const [LoadedImg17, setLoadedImg17] = useState(false);
-  const [LoadedImg18, setLoadedImg18] = useState(false);
-  const [LoadedImg19, setLoadedImg19] = useState(false);
-  const [LoadedImg20, setLoadedImg20] = useState(false);
-  const [LoadedImg21, setLoadedImg21] = useState(false);
-  const [LoadedImg22, setLoadedImg22] = useState(false);
-  const [LoadedImg23, setLoadedImg23] = useState(false);
-  const [LoadedImg24, setLoadedImg24] = useState(false);
-  const [LoadedImg25, setLoadedImg25] = useState(false);
-  const [LoadedImg26, setLoadedImg26] = useState(false);
-  const [LoadedImg28, setLoadedImg28] = useState(false);
-  const [LoadedImg29, setLoadedImg29] = useState(false);
-  const [LoadedImg30, setLoadedImg30] = useState(false);
-  const [LoadedImg31, setLoadedImg31] = useState(false);
 
   useEffect(() => {
     if (AlldbCollections.length > 0) {
@@ -286,7 +274,6 @@ const ConstAppContext = ({ children }) => {
       DesayunoQualification > 0 &&
       AlmuerzoQualification > 0 &&
       PromocionesQualification > 0 &&
-      LoadedImg28 &&
       MapImage_1 &&
       MapImage_1_ArrayLength === ConditionedData2.length
     ) {
@@ -300,7 +287,6 @@ const ConstAppContext = ({ children }) => {
     AlmuerzoQualification,
     DesayunoQualification,
     PromocionesQualification,
-    LoadedImg28,
     MapImage_1,
     ConditionedData2.length,
     MapImage_1_ArrayLength,
@@ -364,21 +350,14 @@ const ConstAppContext = ({ children }) => {
       setLoader(false);
       setResultFound(true);
     }
-    if (Filtered.length === 0 && !ResultInitialState && LoadedImg31) {
+    if (Filtered.length === 0 && !ResultInitialState) {
       setLoader(true);
       setTimeout(() => {
         setLoader(false);
         setResultFound(false);
       }, 500);
     }
-  }, [
-    OpenPopUp5,
-    StateWord,
-    MapImage_3,
-    ResultInitialState,
-    Filtered.length,
-    LoadedImg31,
-  ]);
+  }, [OpenPopUp5, StateWord, MapImage_3, ResultInitialState, Filtered.length]);
 
   const [ExplorerMobileImages, setExplorerMobileImages] = useState(false);
   const [ExplorerMobileImages_Array, setExplorerMobileImages_Array] = useState(
@@ -410,7 +389,22 @@ const ConstAppContext = ({ children }) => {
     }
   };
 
+  const [CategoryImages, setCategoryImages] = useState(false);
+  const [CategoryImages_Array, setCategoryImages_Array] = useState([]);
+
+  const CategoryImages_Function = (i) => {
+    CategoryImages_Array.push(i);
+    if (CategoryImages_Array.length === ExplorerDesktopArrayForLoader.length) {
+      setCategoryImages(true);
+      setCategoryImages_Array([]);
+    }
+  };
+
   /*Harcode Images - 1*/
+
+  const DesayunoImage = Café_con_leche;
+  const AlmuerzoImage = Pizza_especial;
+  const PromocionesImage = Licuado;
 
   useEffect(() => {
     if (
@@ -435,61 +429,23 @@ const ConstAppContext = ({ children }) => {
   /*Harcode Images - 2*/
 
   useEffect(() => {
-    if (
-      OpenPopUp4 &&
-      LoadedImg10 &&
-      LoadedImg11 &&
-      LoadedImg12 &&
-      LoadedImg13 &&
-      LoadedImg14 &&
-      LoadedImg15 &&
-      LoadedImg16 &&
-      LoadedImg17 &&
-      LoadedImg18 &&
-      LoadedImg19 &&
-      LoadedImg20 &&
-      LoadedImg21 &&
-      LoadedImg22 &&
-      LoadedImg23 &&
-      LoadedImg24 &&
-      LoadedImg25 &&
-      LoadedImg26
-    ) {
+    if (OpenPopUp4 && CategoryImages) {
       setLoaded2(true);
     } else {
       setLoaded2(false);
+      setCategoryImages(false);
     }
-  }, [
-    LoadedImg10,
-    LoadedImg11,
-    LoadedImg12,
-    LoadedImg13,
-    LoadedImg14,
-    LoadedImg15,
-    LoadedImg16,
-    LoadedImg17,
-    LoadedImg18,
-    LoadedImg19,
-    LoadedImg20,
-    LoadedImg21,
-    LoadedImg22,
-    LoadedImg23,
-    LoadedImg24,
-    LoadedImg25,
-    LoadedImg26,
-    OpenPopUp4,
-  ]);
+  }, [OpenPopUp4, CategoryImages]);
 
   useEffect(() => {
-    if (LoadedImg30 && data3 && OpenPopUp) {
+    if (data3 && OpenPopUp) {
       setTimeout(() => {
         setLoaded4(true);
       }, 1000);
     } else {
       setLoaded4(false);
-      setLoadedImg30(false);
     }
-  }, [LoadedImg30, data3, OpenPopUp]);
+  }, [data3, OpenPopUp]);
 
   /*SAVED ON LOCALSTORAGE*/
 
@@ -637,29 +593,6 @@ const ConstAppContext = ({ children }) => {
         ConditionedData2,
         OpenPopUp3,
         setOpenPopUp3,
-        LoadedImg9,
-        setLoadedImg9,
-        setLoadedImg10,
-        setLoadedImg11,
-        setLoadedImg12,
-        setLoadedImg13,
-        setLoadedImg14,
-        setLoadedImg15,
-        setLoadedImg16,
-        setLoadedImg17,
-        setLoadedImg18,
-        setLoadedImg19,
-        setLoadedImg20,
-        setLoadedImg21,
-        setLoadedImg22,
-        setLoadedImg23,
-        setLoadedImg24,
-        setLoadedImg25,
-        setLoadedImg26,
-        setLoadedImg28,
-        LoadedImg29,
-        setLoadedImg29,
-        setLoadedImg30,
         Loaded,
         Loaded1,
         Loaded2,
@@ -680,18 +613,23 @@ const ConstAppContext = ({ children }) => {
         ResultFound,
         Loader,
         SearcherOn,
-        setLoadedImg31,
         Qualified,
         setQualified,
         PopUp3Close,
+        PopUp4Close,
         PopUp5Close,
         ExplorerMobileImages_Function,
         ExplorerDesktopImages_Function,
+        CategoryImages_Function,
         ExplorerMobileArray,
         ExplorerMobileArrayForLoader,
         ExplorerDesktopArrayForLoader,
         ExplorerMobileImages,
         ExplorerDesktopImages,
+        CategoryImages,
+        DesayunoImage,
+        AlmuerzoImage,
+        PromocionesImage,
       }}
     >
       {children}

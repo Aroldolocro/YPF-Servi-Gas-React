@@ -1,148 +1,138 @@
 .Main-background {
-  height: auto;
-  width: 90%;
+  width: calc(100% - 3rem);
+  padding: 0 1.5rem 0 1.5rem;
   display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto auto auto;
-  grid-row-gap: 4vh;
+  grid-template-rows: auto auto;
+  grid-row-gap: 1rem;
+  align-content: flex-start;
 }
 
 .Main-txt-1 {
   margin: 0;
-  font-size: 5vw;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 800;
   color: black;
-  text-align: left;
-  line-height: 100%;
 }
 
 .Main-B1 {
-  height: auto;
-  width: 100%;
   display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto;
-  grid-row-gap: 2vh;
-  align-content: flex-start;
-  text-decoration: none;
+  grid-template-rows: auto auto auto;
+  grid-row-gap: 2rem;
 }
 
 .Main-B1B1 {
-  height: 25vh;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-row-gap: 0.5rem;
 }
 
 .Main-img-1 {
-  height: 100%;
+  min-height: 9.5rem;
+  height: 49vw;
+  min-width: 18rem;
   width: 100%;
   object-fit: cover;
-  border-radius: 2vh;
+  border-radius: 0.6rem;
 }
 
-.Main-B1B2 {
-  height: auto;
+.Main-B1B1B1 {
   display: grid;
   grid-template-columns: auto auto;
-  grid-template-rows: auto;
   justify-content: space-between;
+  align-content: flex-start;
 }
 
-.Main-B1B2B1 {
+.Main-B1B1B1B1 {
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: auto auto;
+  grid-column-gap: 0.7rem;
+  justify-content: flex-start;
+}
+
+.Main-logo-1 {
+  height: 2.3rem;
+  width: 2.3rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.Main-B1B1B1B1B1 {
+  display: grid;
   grid-template-rows: auto auto;
-  grid-row-gap: 0.5vh;
+  grid-row-gap: 0.5rem;
+  align-content: flex-start;
 }
 
 .Main-txt-2 {
   margin: 0;
-  font-size: 3vw;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 800;
   color: black;
+  line-height: 100%;
 }
 
-.Main-B1B2B2 {
-  height: fit-content;
-  background-color: #fff2e5;
+.Main-B1B1B1B1B1B1 {
   display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto;
-  grid-column-gap: 1vh;
-  padding: 1vh;
+  grid-auto-flow: column;
+  grid-column-gap: 0.5rem;
   align-items: center;
-  border-radius: 1vh;
-}
-
-.Main-svg-1 {
-  fill: #ffae00;
-  height: 2vh;
-  width: auto;
+  justify-content: flex-start;
 }
 
 .Main-txt-3 {
   margin: 0;
-  font-size: 80%;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: black;
+}
+
+.Main-txt-4 {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #2796ff;
+}
+
+.Main-B1B1B1B2 {
+  height: fit-content;
+  width: fit-content;
+  padding: 0.2rem 0.4rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 0.3rem;
+  align-items: center;
+  background-color: #fff2e5;
+  border-radius: 0.5rem;
+}
+
+.Main-txt-5 {
+  margin: 0;
+  font-size: 0.8rem;
   font-weight: 700;
   color: black;
 }
 
-/*MainLoader1*/
+@media (min-width: 648px) {
+  .Main-B1 {
+    grid-template-columns: auto auto;
+    grid-column-gap: 2.5rem;
+  }
 
-.MainLoader1-B1 {
-  animation: skeleton-loading 1s linear infinite alternate;
-  height: 5vw;
-  width: 30vw;
-  border-radius: 1vh;
+  .Main-img-1 {
+    height: 24vw;
+    width: 100%;
+  }
 }
 
-.MainLoader1-B2 {
-  height: auto;
-  width: 100%;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto;
-  grid-row-gap: 2vh;
-  align-content: flex-start;
-  text-decoration: none;
-}
+@media (min-width: 1024px) {
+  .Main-B1 {
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 2.5rem;
+    justify-content: flex-start;
+  }
 
-.MainLoader1-B2B1 {
-  height: 25vh;
-  animation: skeleton-loading 1s linear infinite alternate;
-  border-radius: 1vh;
-}
-
-.MainLoader1-B2B2 {
-  height: auto;
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto;
-  justify-content: space-between;
-}
-
-.MainLoader1-B2B2B1 {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto;
-  grid-row-gap: 0.5vh;
-}
-
-.MainLoader1-B2B2B1B1 {
-  animation: skeleton-loading 1s linear infinite alternate;
-  height: 5vw;
-  width: 30vw;
-  border-radius: 1vh;
-}
-
-.MainLoader1-B2B2B1B2 {
-  animation: skeleton-loading 1s linear infinite alternate;
-  height: 3vw;
-  width: 15vw;
-  border-radius: 1vh;
-}
-
-.MainLoader1-B2B2B2 {
-  animation: skeleton-loading 1s linear infinite alternate;
-  height: 100%;
-  width: 15vw;
-  border-radius: 1vh;
+  .Main-img-1 {
+    height: 12rem;
+    width: 21.5rem;
+  }
 }
