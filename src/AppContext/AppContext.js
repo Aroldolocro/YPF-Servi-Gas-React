@@ -10,6 +10,7 @@ import {
 import Café_con_leche from "../Images/Products photos/Desayunos/Café_con_leche.png";
 import Pizza_especial from "../Images/Products photos/Almuerzos/Pizza_especial.png";
 import Licuado from "../Images/Products photos/Promociones/Licuado.png";
+import Logo1 from "../Images/Logo1.png";
 
 export const AppContext = createContext();
 
@@ -161,6 +162,38 @@ const ConstAppContext = ({ children }) => {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
   ];
 
+  const DesayunoImage = Café_con_leche;
+  const AlmuerzoImage = Pizza_especial;
+  const PromocionesImage = Licuado;
+  const ServiGasLogo1 = Logo1;
+
+  const MainArray = [
+    {
+      Logo: ServiGasLogo1,
+      Image: DesayunoImage,
+      Section: "Desayunos y meriendas",
+      Time: "10 - 15 min",
+      Items: DesayunosLength,
+      Qualification: DesayunoQualification,
+    },
+    {
+      Logo: ServiGasLogo1,
+      Image: AlmuerzoImage,
+      Section: "Almuerzos y cenas",
+      Time: "20 - 25 min",
+      Items: AlmuerzosLength,
+      Qualification: AlmuerzoQualification,
+    },
+    {
+      Logo: ServiGasLogo1,
+      Image: PromocionesImage,
+      Section: "Promociones",
+      Time: "10 - 25 min",
+      Items: PromocionesLength,
+      Qualification: PromocionesQualification,
+    },
+  ];
+
   /* Condiftion For Mapping */
 
   const ConditionForMapping =
@@ -230,7 +263,85 @@ const ConstAppContext = ({ children }) => {
 
   /*LOADERS*/
 
-  const [Loaded, setLoaded] = useState(false);
+  const [ExplorerMobileImages, setExplorerMobileImages] = useState(false);
+  const [ExplorerMobileImages_Array, setExplorerMobileImages_Array] = useState(
+    []
+  );
+
+  const ExplorerMobileImages_Function = (i) => {
+    ExplorerMobileImages_Array.push(i);
+    if (
+      ExplorerMobileImages_Array.length === ExplorerMobileArrayForLoader.length
+    ) {
+      setExplorerMobileImages(true);
+      setExplorerMobileImages_Array([]);
+    }
+  };
+
+  const [ExplorerDesktopImages, setExplorerDesktopImages] = useState(false);
+  const [ExplorerDesktopImages_Array, setExplorerDesktopImages_Array] =
+    useState([]);
+
+  const ExplorerDesktopImages_Function = (i) => {
+    ExplorerDesktopImages_Array.push(i);
+    if (
+      ExplorerDesktopImages_Array.length ===
+      ExplorerDesktopArrayForLoader.length
+    ) {
+      setExplorerDesktopImages(true);
+      setExplorerDesktopImages_Array([]);
+    }
+  };
+
+  const [CategoryImages, setCategoryImages] = useState(false);
+  const [CategoryImages_Array, setCategoryImages_Array] = useState([]);
+
+  const CategoryImages_Function = (i) => {
+    CategoryImages_Array.push(i);
+    if (CategoryImages_Array.length === ExplorerDesktopArrayForLoader.length) {
+      setCategoryImages(true);
+      setCategoryImages_Array([]);
+    }
+  };
+
+  const [MainImages, setMainImages] = useState(false);
+  const [MainImages_Array, setMainImages_Array] = useState([]);
+
+  const MainImages_Function = (i) => {
+    MainImages_Array.push(i);
+    if (MainImages_Array.length === MainArray.length) {
+      setMainImages(true);
+      setMainImages_Array([]);
+    }
+  };
+
+  const [HomePageLoaded, setHomePageLoaded] = useState(false);
+
+  useEffect(() => {
+    if (
+      (ExplorerMobileImages || ExplorerDesktopImages) &&
+      MainImages &&
+      DesayunosLength &&
+      AlmuerzosLength &&
+      PromocionesLength &&
+      DesayunoQualification &&
+      AlmuerzoQualification &&
+      PromocionesQualification
+    ) {
+      setHomePageLoaded(true);
+    }
+  }, [
+    ExplorerMobileImages,
+    ExplorerDesktopImages,
+    MainImages,
+    DesayunosLength,
+    AlmuerzosLength,
+    PromocionesLength,
+    DesayunoQualification,
+    AlmuerzoQualification,
+    PromocionesQualification,
+  ]);
+
   const [Loaded1, setLoaded1] = useState(false);
   const [Loaded2, setLoaded2] = useState(false);
   const [Loaded3, setLoaded3] = useState(false);
@@ -359,73 +470,6 @@ const ConstAppContext = ({ children }) => {
     }
   }, [OpenPopUp5, StateWord, MapImage_3, ResultInitialState, Filtered.length]);
 
-  const [ExplorerMobileImages, setExplorerMobileImages] = useState(false);
-  const [ExplorerMobileImages_Array, setExplorerMobileImages_Array] = useState(
-    []
-  );
-
-  const ExplorerMobileImages_Function = (i) => {
-    ExplorerMobileImages_Array.push(i);
-    if (
-      ExplorerMobileImages_Array.length === ExplorerMobileArrayForLoader.length
-    ) {
-      setExplorerMobileImages(true);
-      setExplorerMobileImages_Array([]);
-    }
-  };
-
-  const [ExplorerDesktopImages, setExplorerDesktopImages] = useState(false);
-  const [ExplorerDesktopImages_Array, setExplorerDesktopImages_Array] =
-    useState([]);
-
-  const ExplorerDesktopImages_Function = (i) => {
-    ExplorerDesktopImages_Array.push(i);
-    if (
-      ExplorerDesktopImages_Array.length ===
-      ExplorerDesktopArrayForLoader.length
-    ) {
-      setExplorerDesktopImages(true);
-      setExplorerDesktopImages_Array([]);
-    }
-  };
-
-  const [CategoryImages, setCategoryImages] = useState(false);
-  const [CategoryImages_Array, setCategoryImages_Array] = useState([]);
-
-  const CategoryImages_Function = (i) => {
-    CategoryImages_Array.push(i);
-    if (CategoryImages_Array.length === ExplorerDesktopArrayForLoader.length) {
-      setCategoryImages(true);
-      setCategoryImages_Array([]);
-    }
-  };
-
-  /*Harcode Images - 1*/
-
-  const DesayunoImage = Café_con_leche;
-  const AlmuerzoImage = Pizza_especial;
-  const PromocionesImage = Licuado;
-
-  useEffect(() => {
-    if (
-      DesayunosLength &&
-      AlmuerzosLength &&
-      PromocionesLength &&
-      DesayunoQualification &&
-      AlmuerzoQualification &&
-      PromocionesQualification
-    ) {
-      setLoaded(true);
-    }
-  }, [
-    DesayunosLength,
-    AlmuerzosLength,
-    PromocionesLength,
-    DesayunoQualification,
-    AlmuerzoQualification,
-    PromocionesQualification,
-  ]);
-
   /*Harcode Images - 2*/
 
   useEffect(() => {
@@ -544,6 +588,7 @@ const ConstAppContext = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        HomePageLoaded,
         Mobile,
         data1,
         ProductId,
@@ -593,7 +638,6 @@ const ConstAppContext = ({ children }) => {
         ConditionedData2,
         OpenPopUp3,
         setOpenPopUp3,
-        Loaded,
         Loaded1,
         Loaded2,
         Image,
@@ -621,6 +665,7 @@ const ConstAppContext = ({ children }) => {
         ExplorerMobileImages_Function,
         ExplorerDesktopImages_Function,
         CategoryImages_Function,
+        MainImages_Function,
         ExplorerMobileArray,
         ExplorerMobileArrayForLoader,
         ExplorerDesktopArrayForLoader,
@@ -630,6 +675,7 @@ const ConstAppContext = ({ children }) => {
         DesayunoImage,
         AlmuerzoImage,
         PromocionesImage,
+        MainArray,
       }}
     >
       {children}

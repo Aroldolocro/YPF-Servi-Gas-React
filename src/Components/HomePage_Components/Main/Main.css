@@ -112,6 +112,80 @@
   color: black;
 }
 
+/*MainLoader*/
+
+.Main-txt-1-Loader {
+  height: 1.1rem;
+  width: 8rem;
+  border-radius: 0.6rem;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.MainLoader-background {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-row-gap: 0.5rem;
+}
+
+.MainLoader-B1 {
+  min-height: 9.5rem;
+  height: 49vw;
+  min-width: 18rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.6rem;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.MainLoader-B2 {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+
+.MainLoader-B2B1 {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 0.7rem;
+  justify-content: flex-start;
+}
+
+.MainLoader-B2B1B1 {
+  height: 2.3rem;
+  width: 2.3rem;
+  border-radius: 50%;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.MainLoader-B2B1B2 {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-row-gap: 0.5rem;
+  align-content: flex-start;
+}
+
+.MainLoader-B2B1B2B1 {
+  height: 1rem;
+  width: 9rem;
+  border-radius: 0.6rem;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.MainLoader-B2B1B2B2 {
+  height: 1rem;
+  width: 12rem;
+  border-radius: 0.6rem;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.MainLoader-B2B2 {
+  height: 1.5rem;
+  width: 3.5rem;
+  border-radius: 0.5rem;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
 @media (min-width: 648px) {
   .Main-B1 {
     grid-template-columns: auto auto;
@@ -119,6 +193,11 @@
   }
 
   .Main-img-1 {
+    height: 24vw;
+    width: 100%;
+  }
+
+  .MainLoader-B1 {
     height: 24vw;
     width: 100%;
   }
@@ -132,6 +211,11 @@
   }
 
   .Main-img-1 {
+    height: 12rem;
+    width: 21.5rem;
+  }
+
+  .MainLoader-B1 {
     height: 12rem;
     width: 21.5rem;
   }

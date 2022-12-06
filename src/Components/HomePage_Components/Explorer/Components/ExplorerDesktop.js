@@ -10,7 +10,7 @@ const ExplorerDesktop = () => {
     setProductoTipo,
     ProductoTipo,
     ExplorerDesktopImages_Function,
-    ExplorerDesktopImages,
+    HomePageLoaded,
   } = useContext(AppContext);
 
   const ExplorerMobileFromDB = AlldbCollections.filter(
@@ -22,9 +22,7 @@ const ExplorerDesktop = () => {
     .map((x, i) => (
       <div
         className={
-          ExplorerDesktopImages
-            ? "ExplorerProductsFromDB-background"
-            : "NotDisplayed"
+          HomePageLoaded ? "ExplorerProductsFromDB-background" : "NotDisplayed"
         }
         key={i}
         onClick={() =>
@@ -77,7 +75,7 @@ const ExplorerDesktop = () => {
   return (
     <>
       {ExplorerMobileFromDB}
-      {!ExplorerDesktopImages && <ExplorerDesktopLoader />}
+      {!HomePageLoaded && <ExplorerDesktopLoader />}
     </>
   );
 };

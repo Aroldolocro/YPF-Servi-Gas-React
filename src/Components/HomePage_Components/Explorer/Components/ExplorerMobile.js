@@ -10,16 +10,14 @@ const ExplorerMobile = () => {
     ProductoTipo,
     ExplorerMobileImages_Function,
     ExplorerMobileArray,
-    ExplorerMobileImages,
     setOpenPopUp4,
+    HomePageLoaded,
   } = useContext(AppContext);
 
   const ExplorerMobileFromDB = ExplorerMobileArray.map((x, i) => (
     <div
       className={
-        ExplorerMobileImages
-          ? "ExplorerProductsFromDB-background"
-          : "NotDisplayed"
+        HomePageLoaded ? "ExplorerProductsFromDB-background" : "NotDisplayed"
       }
       key={i}
       onClick={() =>
@@ -72,7 +70,7 @@ const ExplorerMobile = () => {
 
   const VerTodosButton = (
     <div
-      className={ExplorerMobileImages ? "ExplorerMobile-B1" : "NotDisplayed"}
+      className={HomePageLoaded ? "ExplorerMobile-B1" : "NotDisplayed"}
       onClick={() => setOpenPopUp4(true)}
     >
       <div className="ExplorerMobile-B1B1">
@@ -100,7 +98,7 @@ const ExplorerMobile = () => {
     <>
       {ExplorerMobileFromDB}
       {VerTodosButton}
-      {!ExplorerMobileImages && <ExplorerMobileLoader />}
+      {!HomePageLoaded && <ExplorerMobileLoader />}
     </>
   );
 };

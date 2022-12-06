@@ -30,3 +30,14 @@ export const ExplorerDesktopLoader = () => {
     </>
   );
 };
+
+export const SecondExplorerLoader = () => {
+  return (
+    <>
+      <div className="SecondExplorerLoader-background first"></div>
+      <div className="SecondExplorerLoader-background second"></div>
+      <div className="SecondExplorerLoader-background third"></div>
+      <div className="SecondExplorerLoader-background fourth"></div>
+    </>
+  );
+};

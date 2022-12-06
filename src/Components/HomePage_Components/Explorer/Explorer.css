@@ -35,11 +35,11 @@
   display: none;
 }
 
-.Explorer-txt-1 {
+.SecondExplorer-txt-1 {
   display: none;
 }
 
-.Explorer-B2B1 {
+.SecondExplorer-B2B1 {
   padding: 0.4rem 0.6rem 0.4rem 0.6rem;
   width: fit-content;
   display: grid;
@@ -52,27 +52,27 @@
   cursor: pointer;
 }
 
-.Explorer-B2B1-selected {
+.SecondExplorer-B2B1-selected {
   background-color: rgb(39, 150, 255, 0.15);
   border: 0.05rem solid #2796ff;
 }
 
-.Explorer-svg-1 {
+.SecondExplorer-svg-1 {
   fill: #ffae00;
 }
 
-.Explorer-svg-1-selected {
+.SecondExplorer-svg-1-selected {
   fill: #2796ff;
 }
 
-.Explorer-txt-2 {
+.SecondExplorer-txt-2 {
   margin: 0;
   font-size: 0.8rem;
   font-weight: 500;
   color: rgb(84, 84, 84);
 }
 
-.Explorer-txt-2-selected {
+.SecondExplorer-txt-2-selected {
   color: #2796ff;
   font-weight: 700;
 }
@@ -192,6 +192,30 @@
   animation: skeleton-loading 1s linear infinite alternate;
 }
 
+/*SecondExplorerLoader*/
+
+.SecondExplorerLoader-background {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 2rem;
+  border-radius: 0.6rem;
+}
+
+.first {
+  width: 6rem;
+}
+
+.second {
+  width: 8rem;
+}
+
+.third {
+  width: 12rem;
+}
+
+.fourth {
+  width: 10rem;
+}
+
 @media (min-width: 1024px) {
   .Explorer-B1::-webkit-scrollbar {
     display: block;
@@ -207,7 +231,7 @@
     border-radius: 1rem;
   }
 
-  .Explorer-txt-1 {
+  .SecondExplorer-txt-1 {
     display: block;
     margin: 0;
     font-size: 0.9rem;
@@ -215,15 +239,15 @@
     color: black;
   }
 
-  .Explorer-B2B1:hover {
+  .SecondExplorer-B2B1:hover {
     background-color: rgb(39, 150, 255, 0.15);
   }
 
-  .Explorer-B2B1:hover .Explorer-svg-1 {
+  .SecondExplorer-B2B1:hover .SecondExplorer-svg-1 {
     fill: #2796ff;
   }
 
-  .Explorer-B2B1:hover .Explorer-txt-2 {
+  .SecondExplorer-B2B1:hover .SecondExplorer-txt-2 {
     color: #2796ff;
   }
 }
