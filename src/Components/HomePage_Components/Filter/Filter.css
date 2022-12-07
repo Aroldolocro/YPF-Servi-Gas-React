@@ -1,24 +1,150 @@
 .Filter-background {
-  height: auto;
-  width: 90%;
+  width: calc(100% - 3rem);
+  padding: 0 1.5rem 0 1.5rem;
   display: grid;
-  grid-template-columns: auto;
   grid-template-rows: auto auto;
+  grid-row-gap: 1rem;
   align-content: flex-start;
-  grid-row-gap: 4vh;
 }
 
 .Filter-txt-1 {
   margin: 0;
-  font-size: 5vw;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 800;
   color: black;
-  text-align: left;
-  line-height: 100%;
 }
 
 .Filter-B1 {
   display: grid;
   grid-auto-flow: row;
-  grid-auto-rows: auto;
+  grid-row-gap: 1rem;
+}
+
+.FilterdbProducts-background {
+  padding: 1rem 0 1rem 0;
+  border-bottom: 0.05rem solid rgb(128, 128, 128, 0.2);
+  height: auto;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 1.5rem;
+  justify-content: space-between;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.FilterdbProducts-background:hover {
+  transform: scale(1.05);
+}
+
+.FilterdbProducts-B1 {
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 0.5rem;
+  align-content: flex-start;
+}
+
+.FilterdbProducts-txt-1 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: black;
+}
+
+.FilterdbProducts-txt-2 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: gray;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.4rem;
+}
+
+.FilterdbProducts-txt-3 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: black;
+}
+
+.FilterdbProducts-img-1 {
+  height: 6rem;
+  width: auto;
+  object-fit: cover;
+  border-radius: 1.6rem;
+  border: 0.1rem solid white;
+  box-shadow: 0px 5px 10px -5px rgba(80, 80, 80, 0.5);
+  -webkit-box-shadow: 0px 5px 10px -5px rgba(80, 80, 80, 0.5);
+  -moz-box-shadow: 0px 5px 10px -5px rgba(80, 80, 80, 0.5);
+}
+
+/*FilterLoader*/
+
+.FilterLoader-background {
+  padding: 1rem 0 1rem 0;
+  border-bottom: 0.05rem solid rgb(128, 128, 128, 0.2);
+  height: auto;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.FilterLoader-B1 {
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 0.5rem;
+  align-content: flex-start;
+}
+
+.FilterLoader-B1B1 {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 1.1rem;
+  width: 7rem;
+  border-radius: 0.6rem;
+}
+
+.FilterLoader-B1B2 {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 1rem;
+  width: 12rem;
+  border-radius: 0.6rem;
+}
+
+.FilterLoader-B1B3 {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 1rem;
+  width: 10rem;
+  border-radius: 0.6rem;
+}
+
+.FilterLoader-B1B4 {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 1rem;
+  width: 5rem;
+  border-radius: 0.6rem;
+}
+
+.FilterLoader-B2 {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 6.1rem;
+  width: 6.1rem;
+  border-radius: 1.6rem;
+}
+
+@media (min-width: 648px) {
+  .Filter-B1 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Filter-B1 {
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 2.5rem;
+  }
 }

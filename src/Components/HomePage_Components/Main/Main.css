@@ -24,6 +24,12 @@
   display: grid;
   grid-template-rows: auto auto;
   grid-row-gap: 0.5rem;
+  transition: 0.5s;
+  text-decoration: none;
+}
+
+.Main-B1B1:hover {
+  transform: scale(1.05);
 }
 
 .Main-img-1 {

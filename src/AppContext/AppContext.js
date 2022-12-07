@@ -67,9 +67,10 @@ const ConstAppContext = ({ children }) => {
   const [PromocionesQuality, setPromocionesQuality] = useState({});
 
   const [SectionPagePath, setSectionPagePath] = useState(" ");
-  const [data, setData] = useState([]);
-  const [data1, setData1] = useState([]);
-  const [data2, setData2] = useState([]);
+
+  const [Desayunos, setDesayunos] = useState([]);
+  const [Almuerzos, setAlmuerzos] = useState([]);
+  const [Promociones, setPromociones] = useState([]);
   const [data3, setData3] = useState({});
   const [data4, setData4] = useState([]);
   const [data5, setData5] = useState([]);
@@ -81,9 +82,9 @@ const ConstAppContext = ({ children }) => {
     const dbQualificationDesayuno = doc(db, "Calificación", "Desayuno");
     const dbQualificationAlmuerzos = doc(db, "Calificación", "Almuerzos");
     const dbQualificationPromociones = doc(db, "Calificación", "Promociones");
-    const dbcollection = collection(db, "Desayunos");
-    const dbcollection1 = collection(db, "Almuerzos");
-    const dbcollection2 = collection(db, "Promociones");
+    const dbDesayunosCollection = collection(db, "Desayunos");
+    const dbAlmuerzosCollection = collection(db, "Almuerzos");
+    const dbPromocionesCollection = collection(db, "Promociones");
     const ConditionedCollection = collection(db, Collection);
     const ConditionedCollection2 = collection(db, SectionPagePath);
     const ConditionedDocument = doc(db, ProductCollection, ProductId);
@@ -105,18 +106,18 @@ const ConstAppContext = ({ children }) => {
     getDoc(dbQualificationPromociones).then((res) =>
       setPromocionesQuality(res.get("Calidad"))
     );
-    getDocs(dbcollection).then((res) =>
-      setData(
+    getDocs(dbDesayunosCollection).then((res) =>
+      setDesayunos(
         res.docs.map((product) => ({ id: product.id, ...product.data() }))
       )
     );
-    getDocs(dbcollection1).then((res) =>
-      setData1(
+    getDocs(dbAlmuerzosCollection).then((res) =>
+      setAlmuerzos(
         res.docs.map((product) => ({ id: product.id, ...product.data() }))
       )
     );
-    getDocs(dbcollection2).then((res) =>
-      setData2(
+    getDocs(dbPromocionesCollection).then((res) =>
+      setPromociones(
         res.docs.map((product) => ({ id: product.id, ...product.data() }))
       )
     );
@@ -148,10 +149,10 @@ const ConstAppContext = ({ children }) => {
   const PromocionesQualification = (
     PromocionesQuality / PromocionesQuantity
   ).toFixed(2);
-  const AlldbCollections = data.concat(data1, data2);
-  const DesayunosLength = data.length;
-  const AlmuerzosLength = data1.length;
-  const PromocionesLength = data2.length;
+  const AlldbCollections = Desayunos.concat(Almuerzos, Promociones);
+  const DesayunosLength = Desayunos.length;
+  const AlmuerzosLength = Almuerzos.length;
+  const PromocionesLength = Promociones.length;
   const ExplorerMobileArray = AlldbCollections.filter((x) => x.ExplorerPosition)
     .sort(function (x, y) {
       return x.ExplorerPosition - y.ExplorerPosition;
@@ -161,6 +162,7 @@ const ConstAppContext = ({ children }) => {
   const ExplorerDesktopArrayForLoader = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
   ];
+  const FilterArrayForLoader = [1, 2, 3, 4, 5];
 
   const DesayunoImage = Café_con_leche;
   const AlmuerzoImage = Pizza_especial;
@@ -175,6 +177,7 @@ const ConstAppContext = ({ children }) => {
       Time: "10 - 15 min",
       Items: DesayunosLength,
       Qualification: DesayunoQualification,
+      Url: "Desayunos",
     },
     {
       Logo: ServiGasLogo1,
@@ -183,6 +186,7 @@ const ConstAppContext = ({ children }) => {
       Time: "20 - 25 min",
       Items: AlmuerzosLength,
       Qualification: AlmuerzoQualification,
+      Url: "Almuerzos",
     },
     {
       Logo: ServiGasLogo1,
@@ -191,6 +195,7 @@ const ConstAppContext = ({ children }) => {
       Time: "10 - 25 min",
       Items: PromocionesLength,
       Qualification: PromocionesQualification,
+      Url: "Promociones",
     },
   ];
 
@@ -203,7 +208,9 @@ const ConstAppContext = ({ children }) => {
         })
       : ProductoTipo === "Nuestros favoritos"
       ? AlldbCollections.filter((res) => res.Favorito === true)
-      : ConditionedData.filter((res) => res.Tipo === ProductoTipo);
+      : ProductoTipo === "Promociones"
+      ? Promociones
+      : AlldbCollections.filter((x) => x.Tipo === ProductoTipo);
 
   /*POPUP*/
 
@@ -314,6 +321,17 @@ const ConstAppContext = ({ children }) => {
       setMainImages_Array([]);
     }
   };
+
+  const [FilterImages, setFilterImages] = useState(false);
+  const [FilterImages_Array, setFilterImages_Array] = useState([]);
+
+  function FilterImages_Function(i) {
+    FilterImages_Array.push(i);
+    if (FilterImages_Array.length === ConditionForMapping.length) {
+      setFilterImages(true);
+      setFilterImages_Array([]);
+    }
+  }
 
   const [HomePageLoaded, setHomePageLoaded] = useState(false);
 
@@ -590,7 +608,6 @@ const ConstAppContext = ({ children }) => {
       value={{
         HomePageLoaded,
         Mobile,
-        data1,
         ProductId,
         setProductId,
         ProductCollection,
@@ -666,11 +683,14 @@ const ConstAppContext = ({ children }) => {
         ExplorerDesktopImages_Function,
         CategoryImages_Function,
         MainImages_Function,
+        FilterImages_Function,
         ExplorerMobileArray,
         ExplorerMobileArrayForLoader,
         ExplorerDesktopArrayForLoader,
+        FilterArrayForLoader,
         ExplorerMobileImages,
         ExplorerDesktopImages,
+        FilterImages,
         CategoryImages,
         DesayunoImage,
         AlmuerzoImage,

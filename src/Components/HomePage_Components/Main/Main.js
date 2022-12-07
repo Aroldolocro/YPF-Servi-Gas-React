@@ -2,13 +2,18 @@ import "./Main.css";
 import { useContext } from "react";
 import { AppContext } from "../../../AppContext/AppContext";
 import MainLoader from "./MainLoader";
+import { Link } from "react-router-dom";
 
 const Main = () => {
   const { MainArray, MainImages_Function, HomePageLoaded } =
     useContext(AppContext);
 
   const RenderOfMainArray = MainArray.map((x, i) => (
-    <div className={HomePageLoaded ? "Main-B1B1" : "NotDisplayed"} key={i}>
+    <Link
+      to={x.Url}
+      className={HomePageLoaded ? "Main-B1B1" : "NotDisplayed"}
+      key={i}
+    >
       <img
         src={x.Image}
         className="Main-img-1"
@@ -53,7 +58,7 @@ const Main = () => {
           <p className="Main-txt-5">{x.Qualification}</p>
         </div>
       </div>
-    </div>
+    </Link>
   ));
 
   return (

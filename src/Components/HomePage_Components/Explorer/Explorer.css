@@ -4,10 +4,11 @@
   padding: 0 1.5rem 0 1.5rem;
   display: grid;
   grid-template-rows: auto auto;
-  grid-row-gap: 2rem;
+  grid-row-gap: 1.5rem;
 }
 
 .Explorer-B1 {
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   display: grid;
   grid-auto-flow: column;
   grid-column-gap: 0.5rem;
@@ -86,9 +87,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 9px 10px -5px rgba(64, 64, 64, 0.25);
-  -webkit-box-shadow: 0px 9px 10px -5px rgba(64, 64, 64, 0.25);
-  -moz-box-shadow: 0px 9px 10px -5px rgba(64, 64, 64, 0.25);
+  box-shadow: 0px 5px 10px -5px rgba(80, 80, 80, 0.5);
+  -webkit-box-shadow: 0px 5px 10px -5px rgba(80, 80, 80, 0.5);
+  -moz-box-shadow: 0px 5px 10px -5px rgba(80, 80, 80, 0.5);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.ExplorerMobile-B1:hover {
+  transform: scale(1.08);
 }
 
 .ExplorerMobile-B1B1 {
@@ -120,6 +127,11 @@
   grid-template-rows: auto auto;
   grid-row-gap: 0.1rem;
   cursor: pointer;
+  transition: 0.5s;
+}
+
+.ExplorerProductsFromDB-background:hover {
+  transform: scale(1.08);
 }
 
 .ExplorerProductsFromDB-B1 {

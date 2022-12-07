@@ -22,8 +22,7 @@ const ExplorerMobile = () => {
       key={i}
       onClick={() =>
         setProductoTipo(ProductoTipo === x.Tipo ? undefined : x.Tipo) &
-        setCollection(x.Colección) &
-        window.navigator.vibrate(300)
+        setCollection(x.Colección)
       }
     >
       <div

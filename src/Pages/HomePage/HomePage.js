@@ -1,12 +1,12 @@
 import "./HomePage.css";
 import Explorer from "../../Components/HomePage_Components/Explorer/Explorer";
-// import Main from "../../Components/HomePage_Components/Main/Main";
+import Main from "../../Components/HomePage_Components/Main/Main";
 import Filter from "../../Components/HomePage_Components/Filter/Filter";
-// import { AppContext } from "../../AppContext/AppContext";
-// import { useContext } from "react";
+import { AppContext } from "../../AppContext/AppContext";
+import { useContext } from "react";
 
 const HomePage = () => {
-  // const { ProductoTipo } = useContext(AppContext);
+  const { ProductoTipo } = useContext(AppContext);
 
   return (
     <div className="HomePage-background">
@@ -26,8 +26,7 @@ const HomePage = () => {
         </div>
       </div>
       <Explorer />
-      {/* <Main /> */}
-      <Filter />
+      {ProductoTipo ? <Filter /> : <Main />}
     </div>
   );
 };

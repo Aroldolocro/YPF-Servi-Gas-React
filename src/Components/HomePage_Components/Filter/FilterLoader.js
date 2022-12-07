@@ -1,50 +1,22 @@
 import "./Filter.css";
-
-import React from "react";
+import { AppContext } from "../../../AppContext/AppContext";
+import { useContext } from "react";
 
 const FilterLoader = () => {
+  const { FilterArrayForLoader } = useContext(AppContext);
   return (
     <>
-      <div className="SectionPageLoader1-background">
-        <div className="SectionPageLoader1-B1">
-          <div className="SectionPageLoader1-B1B1"></div>
-          <div className="SectionPageLoader1-B1B2"></div>
-          <div className="SectionPageLoader1-B1B3"></div>
+      {FilterArrayForLoader.map((x, i) => (
+        <div key={i} className="FilterLoader-background">
+          <div className="FilterLoader-B1">
+            <div className="FilterLoader-B1B1"></div>
+            <div className="FilterLoader-B1B2"></div>
+            <div className="FilterLoader-B1B3"></div>
+            <div className="FilterLoader-B1B4"></div>
+          </div>
+          <div className="FilterLoader-B2"></div>
         </div>
-        <div className="SectionPageLoader1-B2"></div>
-      </div>
-      <div className="SectionPageLoader1-background">
-        <div className="SectionPageLoader1-B1">
-          <div className="SectionPageLoader1-B1B1"></div>
-          <div className="SectionPageLoader1-B1B2"></div>
-          <div className="SectionPageLoader1-B1B3"></div>
-        </div>
-        <div className="SectionPageLoader1-B2"></div>
-      </div>
-      <div className="SectionPageLoader1-background">
-        <div className="SectionPageLoader1-B1">
-          <div className="SectionPageLoader1-B1B1"></div>
-          <div className="SectionPageLoader1-B1B2"></div>
-          <div className="SectionPageLoader1-B1B3"></div>
-        </div>
-        <div className="SectionPageLoader1-B2"></div>
-      </div>
-      <div className="SectionPageLoader1-background">
-        <div className="SectionPageLoader1-B1">
-          <div className="SectionPageLoader1-B1B1"></div>
-          <div className="SectionPageLoader1-B1B2"></div>
-          <div className="SectionPageLoader1-B1B3"></div>
-        </div>
-        <div className="SectionPageLoader1-B2"></div>
-      </div>
-      <div className="SectionPageLoader1-background">
-        <div className="SectionPageLoader1-B1">
-          <div className="SectionPageLoader1-B1B1"></div>
-          <div className="SectionPageLoader1-B1B2"></div>
-          <div className="SectionPageLoader1-B1B3"></div>
-        </div>
-        <div className="SectionPageLoader1-B2"></div>
-      </div>
+      ))}
     </>
   );
 };
