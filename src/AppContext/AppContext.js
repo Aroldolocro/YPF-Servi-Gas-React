@@ -71,9 +71,9 @@ const ConstAppContext = ({ children }) => {
   const [Desayunos, setDesayunos] = useState([]);
   const [Almuerzos, setAlmuerzos] = useState([]);
   const [Promociones, setPromociones] = useState([]);
-  const [data3, setData3] = useState({});
-  const [data4, setData4] = useState([]);
-  const [data5, setData5] = useState([]);
+  const [SelectedProduct, setSelectedProduct] = useState({});
+  const [Acompañamientos, setAcompañamientos] = useState([]);
+  const [Extras, setExtras] = useState([]);
   const [ConditionedData, setConditionedData] = useState([]);
   const [ConditionedData2, setConditionedData2] = useState([]);
 
@@ -85,9 +85,10 @@ const ConstAppContext = ({ children }) => {
     const dbDesayunosCollection = collection(db, "Desayunos");
     const dbAlmuerzosCollection = collection(db, "Almuerzos");
     const dbPromocionesCollection = collection(db, "Promociones");
+    const dbSelectedProduct = doc(db, ProductCollection, ProductId);
+
     const ConditionedCollection = collection(db, Collection);
     const ConditionedCollection2 = collection(db, SectionPagePath);
-    const ConditionedDocument = doc(db, ProductCollection, ProductId);
     getDoc(dbQualificationAlmuerzos).then((res) =>
       setAlmuerzoQuantity(res.get("Cantidad"))
     );
@@ -121,6 +122,14 @@ const ConstAppContext = ({ children }) => {
         res.docs.map((product) => ({ id: product.id, ...product.data() }))
       )
     );
+    getDoc(dbSelectedProduct).then((res) =>
+      setSelectedProduct({ id: res.id, ...res.data() })
+    );
+    getDoc(dbSelectedProduct).then((res) =>
+      setAcompañamientos(res.get("Acompañamientos"))
+    );
+    getDoc(dbSelectedProduct).then((res) => setExtras(res.get("Extras")));
+
     if (Collection !== " ") {
       getDocs(ConditionedCollection).then((res) =>
         setConditionedData(
@@ -135,13 +144,6 @@ const ConstAppContext = ({ children }) => {
         )
       );
     }
-    getDoc(ConditionedDocument).then((res) =>
-      setData3({ id: res.id, ...res.data() })
-    );
-    getDoc(ConditionedDocument).then((res) =>
-      setData4(res.get("Acompañamientos"))
-    );
-    getDoc(ConditionedDocument).then((res) => setData5(res.get("Extras")));
   }, [Collection, ProductId, ProductCollection, SectionPagePath]);
 
   const DesayunoQualification = (DesayunoQuality / DesayunoQuantity).toFixed(2);
@@ -238,11 +240,21 @@ const ConstAppContext = ({ children }) => {
     }
   }, [OpenPopUp, OpenPopUp1, OpenPopUp2, OpenPopUp3, OpenPopUp4, OpenPopUp5]);
 
+  const PopUpClose = () => {
+    document.getElementById("ItemDetail-shadow").className =
+      "ItemDetail-shadow ItemDetail-shadow-v1 ";
+    document.getElementById("ItemDetail-content").className =
+      "ItemDetail-content ItemDetail-content-v1";
+    setTimeout(() => {
+      setOpenPopUp(false);
+    }, 300);
+  };
+
   const PopUp3Close = () => {
     document.getElementById("Menu-Shadow").className =
       "Menu-Shadow Menu-Shadow-v1 ";
-    document.getElementById("Menu-background").className =
-      "Menu-background Menu-background-v1";
+    document.getElementById("Menu-content").className =
+      "Menu-content Menu-content-v1";
     setTimeout(() => {
       setOpenPopUp3(false);
     }, 300);
@@ -360,10 +372,23 @@ const ConstAppContext = ({ children }) => {
     PromocionesQualification,
   ]);
 
+  const [ItemDetailLoaded, setItemDetailLoaded] = useState(false);
+  const [ItemDetailImage, setItemDetailImage] = useState(false);
+
+  useEffect(() => {
+    if (ItemDetailImage && OpenPopUp) {
+      setTimeout(() => {
+        setItemDetailLoaded(true);
+      }, 1000);
+    } else {
+      setItemDetailImage(false);
+      setItemDetailLoaded(false);
+    }
+  }, [ItemDetailImage, OpenPopUp]);
+
   const [Loaded1, setLoaded1] = useState(false);
   const [Loaded2, setLoaded2] = useState(false);
   const [Loaded3, setLoaded3] = useState(false);
-  const [Loaded4, setLoaded4] = useState(false);
   const [Loaded5, setLoaded5] = useState(false);
 
   const [Loader, setLoader] = useState(true);
@@ -499,16 +524,6 @@ const ConstAppContext = ({ children }) => {
     }
   }, [OpenPopUp4, CategoryImages]);
 
-  useEffect(() => {
-    if (data3 && OpenPopUp) {
-      setTimeout(() => {
-        setLoaded4(true);
-      }, 1000);
-    } else {
-      setLoaded4(false);
-    }
-  }, [data3, OpenPopUp]);
-
   /*SAVED ON LOCALSTORAGE*/
 
   const [QuealificatedDesayunos, setQuealificatedDesayunos] = useState(false);
@@ -606,6 +621,8 @@ const ConstAppContext = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        setItemDetailImage,
+        ItemDetailLoaded,
         HomePageLoaded,
         Mobile,
         ProductId,
@@ -637,9 +654,9 @@ const ConstAppContext = ({ children }) => {
         DesayunosLength,
         AlmuerzosLength,
         PromocionesLength,
-        data3,
-        data4,
-        data5,
+        SelectedProduct,
+        Acompañamientos,
+        Extras,
         AlldbCollections,
         OpenPopUp,
         setOpenPopUp,
@@ -659,7 +676,6 @@ const ConstAppContext = ({ children }) => {
         Loaded2,
         Image,
         Loaded3,
-        Loaded4,
         Loaded5,
         OpenPopUp5,
         setImage,
@@ -676,6 +692,7 @@ const ConstAppContext = ({ children }) => {
         SearcherOn,
         Qualified,
         setQualified,
+        PopUpClose,
         PopUp3Close,
         PopUp4Close,
         PopUp5Close,

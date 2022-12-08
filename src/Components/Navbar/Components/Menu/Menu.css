@@ -1,27 +1,25 @@
-.Menu-Shadow {
+.Menu-background {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: flex-start;
-  background-color: rgb(44, 44, 44, 0.5);
+  z-index: 2;
 }
 
-.Menu-background {
+.Menu-content {
   height: 100%;
   width: 100%;
   background-color: white;
   display: grid;
   grid-template-rows: auto auto auto;
   align-content: flex-start;
-  animation: Menu-background-animation ease-in 0.4s;
+  animation: Menu-content-animation ease 0.4s;
 }
 
-@keyframes Menu-background-animation {
+@keyframes Menu-content-animation {
   0% {
     transform: translateX(-100%);
   }
@@ -30,15 +28,11 @@
   }
 }
 
-.Menu-Shadow-v1 {
-  background: transparent;
+.Menu-content-v1 {
+  animation: Menu-content-v1-animation ease 0.4s;
 }
 
-.Menu-background-v1 {
-  animation: Menu-background-v1-animation ease-out 0.4s;
-}
-
-@keyframes Menu-background-v1-animation {
+@keyframes Menu-content-v1-animation {
   0% {
     transform: translateX(0%);
   }
@@ -140,9 +134,22 @@
   cursor: pointer;
 }
 
+.Menu-Shadow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(44, 44, 44, 0.5);
+}
+
+.Menu-Shadow-v1 {
+  background: transparent;
+}
+
 @media (min-width: 1024px) {
-  .Menu-background {
+  .Menu-content {
     width: 17.5rem;
-    left: 0;
   }
 }

@@ -10,8 +10,8 @@ const Menu = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="Menu-Shadow" id="Menu-Shadow">
-      <div className="Menu-background" id="Menu-background">
+    <div className="Menu-background">
+      <div className="Menu-content" id="Menu-content">
         <div className="Menu-B1">
           <img
             src={Logo2}
@@ -118,6 +118,11 @@ const Menu = () => {
           </p>
         </div>
       </div>
+      <div
+        className="Menu-Shadow"
+        id="Menu-Shadow"
+        onClick={() => PopUp3Close()}
+      ></div>
     </div>
   );
 };

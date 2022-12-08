@@ -1,7 +1,7 @@
 import "./Filter.css";
 import { AppContext } from "../../../AppContext/AppContext";
-import { useContext } from "react";
 import FilterLoader from "./FilterLoader";
+import { useContext } from "react";
 
 const Filter = () => {
   const {
@@ -9,12 +9,20 @@ const Filter = () => {
     ConditionForMapping,
     FilterImages_Function,
     FilterImages,
+    setOpenPopUp,
+    setProductId,
+    setProductCollection,
   } = useContext(AppContext);
 
   const FilterdbProducts = ConditionForMapping.map((x, i) => (
     <div
       key={i}
       className={FilterImages ? "FilterdbProducts-background" : "NotDisplayed"}
+      onClick={() =>
+        setProductId(x.id) &
+        setProductCollection(x.Colección) &
+        setOpenPopUp(true)
+      }
     >
       <div className="FilterdbProducts-B1">
         <p className="FilterdbProducts-txt-1">{x.Nombre}</p>

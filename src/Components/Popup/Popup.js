@@ -1,4 +1,4 @@
-import ItemDetail from "../SectionPage_Components/ItemDetail/ItemDetail";
+import ItemDetail from "../ItemDetail/ItemDetail";
 import Qualifier from "../SectionPage_Components/Qualifier/Qualifier";
 import Information from "../SectionPage_Components/Information/Information";
 import Menu from "../Navbar/Components/Menu/Menu";
