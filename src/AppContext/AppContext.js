@@ -47,7 +47,8 @@ const ConstAppContext = ({ children }) => {
 
   /*CONDITIONAL DATA*/
 
-  const [sectionName, setSectionName] = useState();
+  const [SectionPagePath, setSectionPagePath] = useState(" ");
+  const [SectionData, setSectionData] = useState({});
 
   /*SEARCHER DATA*/
 
@@ -65,9 +66,6 @@ const ConstAppContext = ({ children }) => {
   const [AlmuerzoQuality, setAlmuerzoQuality] = useState({});
   const [PromocionesQuantity, setPromocionesQuantity] = useState({});
   const [PromocionesQuality, setPromocionesQuality] = useState({});
-
-  const [SectionPagePath, setSectionPagePath] = useState(" ");
-
   const [Desayunos, setDesayunos] = useState([]);
   const [Almuerzos, setAlmuerzos] = useState([]);
   const [Promociones, setPromociones] = useState([]);
@@ -200,6 +198,60 @@ const ConstAppContext = ({ children }) => {
       Url: "Promociones",
     },
   ];
+
+  useEffect(() => {
+    const NewArr = [
+      {
+        Logo: ServiGasLogo1,
+        Restaurant: "Servi Gas",
+        Location: "Av Kennedy y Av Mariano Moreno",
+        Image: DesayunoImage,
+        Section: "Desayunos y meriendas",
+        Time: "10 - 15 min",
+        Items: DesayunosLength,
+        Qualification: DesayunoQualification,
+      },
+      {
+        Logo: ServiGasLogo1,
+        Restaurant: "Servi Gas",
+        Location: "Av Kennedy y Av Mariano Moreno",
+        Image: AlmuerzoImage,
+        Section: "Almuerzos y cenas",
+        Time: "20 - 25 min",
+        Items: AlmuerzosLength,
+        Qualification: AlmuerzoQualification,
+      },
+      {
+        Logo: ServiGasLogo1,
+        Restaurant: "Servi Gas",
+        Location: "Av Kennedy y Av Mariano Moreno",
+        Image: PromocionesImage,
+        Section: "Promociones",
+        Time: "10 - 25 min",
+        Items: PromocionesLength,
+        Qualification: PromocionesQualification,
+      },
+    ];
+    if (SectionPagePath === "Desayunos") {
+      setSectionData(NewArr[0]);
+    } else if (SectionPagePath === "Almuerzos") {
+      setSectionData(NewArr[1]);
+    } else if (SectionPagePath === "Promociones") {
+      setSectionData(NewArr[2]);
+    }
+  }, [
+    SectionPagePath,
+    DesayunoImage,
+    AlmuerzoImage,
+    PromocionesImage,
+    DesayunoQualification,
+    AlmuerzoQualification,
+    PromocionesQualification,
+    DesayunosLength,
+    AlmuerzosLength,
+    PromocionesLength,
+    ServiGasLogo1,
+  ]);
 
   /* Condiftion For Mapping */
 
@@ -386,9 +438,7 @@ const ConstAppContext = ({ children }) => {
     }
   }, [ItemDetailImage, OpenPopUp]);
 
-  const [Loaded1, setLoaded1] = useState(false);
   const [Loaded2, setLoaded2] = useState(false);
-  const [Loaded3, setLoaded3] = useState(false);
   const [Loaded5, setLoaded5] = useState(false);
 
   const [Loader, setLoader] = useState(true);
@@ -402,74 +452,6 @@ const ConstAppContext = ({ children }) => {
   }, [AlldbCollections.length]);
 
   /*LOADERS - Map Images*/
-
-  /*Map Images - 1*/
-
-  useEffect(() => {
-    if (sectionName) {
-      setLoaded3(false);
-    }
-  }, [sectionName]);
-
-  const [MapImage_1, setMapImage_1] = useState(false);
-  const [MapImage_1_ArrayLength, setMapImage_1_ArrayLength] = useState(0);
-  const MapImage_1_Array = [];
-
-  const MapImage_1_Function = (i) => {
-    MapImage_1_Array.push(i);
-    if (MapImage_1_Array.length === ConditionedData2.length) {
-      setMapImage_1(true);
-      setMapImage_1_ArrayLength(MapImage_1_Array.length);
-    }
-  };
-
-  useEffect(() => {
-    if (
-      DesayunoQualification > 0 &&
-      AlmuerzoQualification > 0 &&
-      PromocionesQualification > 0 &&
-      MapImage_1 &&
-      MapImage_1_ArrayLength === ConditionedData2.length
-    ) {
-      setTimeout(() => {
-        setLoaded3(true);
-      }, 1000);
-    } else {
-      setLoaded3(false);
-    }
-  }, [
-    AlmuerzoQualification,
-    DesayunoQualification,
-    PromocionesQualification,
-    MapImage_1,
-    ConditionedData2.length,
-    MapImage_1_ArrayLength,
-  ]);
-
-  /*Map Images - 2*/
-
-  const [MapImage_2, setMapImage_2] = useState(false);
-  const [MapImage_2_ArrayLength2, setMapImage_2_ArrayLength2] = useState(0);
-  const [MapImage_2_Array, setMapImage_2_Array] = useState([]);
-
-  const MapImage_2_Function = (i) => {
-    MapImage_2_Array.push(i);
-    if (MapImage_2_Array.length === ConditionForMapping.length) {
-      setMapImage_2(true);
-      setMapImage_2_ArrayLength2(MapImage_2_Array.length);
-      setMapImage_2_Array([]);
-    }
-  };
-
-  useEffect(() => {
-    if (MapImage_2 && MapImage_2_ArrayLength2 === ConditionForMapping.length) {
-      setTimeout(() => {
-        setLoaded1(true);
-      }, 1000);
-    } else {
-      setLoaded1(false);
-    }
-  }, [MapImage_2, ConditionForMapping.length, MapImage_2_ArrayLength2]);
 
   /*Map Images - 3*/
 
@@ -585,7 +567,7 @@ const ConstAppContext = ({ children }) => {
 
   const SendCalification = () => {
     const db = getFirestore();
-    if (sectionName === "Desayunos y meriendas") {
+    if (SectionPagePath === "Desayunos y meriendas") {
       const NewDoc = {
         Cantidad: DesayunoQuantity + 1,
         Calidad: DesayunoQuality + Calification,
@@ -594,7 +576,7 @@ const ConstAppContext = ({ children }) => {
       updateDoc(dbdoc, NewDoc);
       setQuealificatedDesayunos(true);
     }
-    if (sectionName === "Almuerzos y cenas") {
+    if (SectionPagePath === "Almuerzos y cenas") {
       const NewDoc1 = {
         Cantidad: AlmuerzoQuantity + 1,
         Calidad: AlmuerzoQuality + Calification,
@@ -603,7 +585,7 @@ const ConstAppContext = ({ children }) => {
       updateDoc(dbdoc, NewDoc1);
       setQuealificatedAlmuerzos(true);
     }
-    if (sectionName === "Promociones") {
+    if (SectionPagePath === "Promociones") {
       const NewDoc2 = {
         Cantidad: PromocionesQuantity + 1,
         Calidad: PromocionesQuality + Calification,
@@ -621,6 +603,7 @@ const ConstAppContext = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        SectionData,
         setItemDetailImage,
         ItemDetailLoaded,
         HomePageLoaded,
@@ -638,8 +621,6 @@ const ConstAppContext = ({ children }) => {
         QuealificatedDesayunos,
         QuealificatedAlmuerzos,
         QuealificatedPromociones,
-        sectionName,
-        setSectionName,
         DesayunoQualification,
         AlmuerzoQualification,
         PromocionesQualification,
@@ -672,10 +653,8 @@ const ConstAppContext = ({ children }) => {
         ConditionedData2,
         OpenPopUp3,
         setOpenPopUp3,
-        Loaded1,
         Loaded2,
         Image,
-        Loaded3,
         Loaded5,
         OpenPopUp5,
         setImage,
@@ -683,8 +662,6 @@ const ConstAppContext = ({ children }) => {
         StateWord,
         setStateWord,
         ResultInitialState,
-        MapImage_1_Function,
-        MapImage_2_Function,
         MapImage_3_Function,
         ConditionForMapping,
         ResultFound,

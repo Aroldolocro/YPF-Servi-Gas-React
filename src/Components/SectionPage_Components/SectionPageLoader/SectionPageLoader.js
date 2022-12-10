@@ -1,9 +1,8 @@
 import "./SectionPageLoader.css";
-import { AppContext } from "../../../AppContext/AppContext";
-import { useContext } from "react";
+
 
 export const SectionPageLoader1 = () => {
-  const { Loaded3 } = useContext(AppContext);
+
   return (
     <>
       <div

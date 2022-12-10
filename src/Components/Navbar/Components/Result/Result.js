@@ -16,7 +16,6 @@ const Result = () => {
     MapImage_3_Function,
     ResultFound,
     Loader,
-    setLoadedImg31,
     PopUp5Close,
   } = useContext(AppContext);
 
@@ -93,12 +92,7 @@ const Result = () => {
         !ResultFound && !Loader ? "RenderOfNotFound-background" : "NotDisplayed"
       }
     >
-      <img
-        src={NotFound}
-        className="RenderOfNotFound-img"
-        alt=""
-        onLoad={() => setLoadedImg31(true)}
-      />
+      <img src={NotFound} className="RenderOfNotFound-img" alt="" />
       <p className="RenderOfNotFound-txt-1">
         Oops! no encontramos lo que estás buscando...
       </p>
