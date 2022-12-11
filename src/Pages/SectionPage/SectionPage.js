@@ -2,6 +2,8 @@ import "./SectionPage.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { AppContext } from "../../AppContext/AppContext";
+import RestaurantData from "../../Components/SectionPage_Components/RestaurantData/RestaurantData";
+import Products from "../../Components/SectionPage_Components/Products/Products";
 // import Scroll from "../../Components/SectionPage_Components/Scroll/Scroll";
 
 const SectionPage = () => {
@@ -49,13 +51,34 @@ const SectionPage = () => {
         </div>
         <div className="SectionPage-B1B2">
           <img src={SectionData.Logo} className="SectionPage-img-2" alt="" />
-          <p className="SectionPage-txt-1">{SectionData.Restaurant}</p>
-          <p className="SectionPage-txt-2">{SectionData.Location}</p>
-          <p className="SectionPage-txt-2">{SectionData.Section}</p>
+          <div className="SectionPage-B1B2B1">
+            <p className="SectionPage-txt-1">{SectionData.Restaurant}</p>
+            <p className="SectionPage-txt-2">{SectionData.Location}</p>
+            <p className="SectionPage-txt-2">{SectionData.Section}</p>
+          </div>
         </div>
+        <RestaurantData />
         <div className="SectionPage-B1B3"></div>
       </div>
-      <div className="SectionPage-B2"></div>
+      <div className="SectionPage-B2">
+        <div className="SectionPage-B2B1">
+          <p className="SectionPage-txt-3">Servi Gas</p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="9"
+            height="13"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fillRule="evenodd"
+              d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+            />
+          </svg>
+          <p className="SectionPage-txt-3">{SectionData.Section}</p>
+        </div>
+        <Products />
+      </div>
     </div>
   );
 };

@@ -72,8 +72,7 @@ const ConstAppContext = ({ children }) => {
   const [SelectedProduct, setSelectedProduct] = useState({});
   const [Acompañamientos, setAcompañamientos] = useState([]);
   const [Extras, setExtras] = useState([]);
-  const [ConditionedData, setConditionedData] = useState([]);
-  const [ConditionedData2, setConditionedData2] = useState([]);
+  const [ProductsBySectionPath, setProductsBySectionPath] = useState([]);
 
   useEffect(() => {
     const db = getFirestore();
@@ -84,9 +83,7 @@ const ConstAppContext = ({ children }) => {
     const dbAlmuerzosCollection = collection(db, "Almuerzos");
     const dbPromocionesCollection = collection(db, "Promociones");
     const dbSelectedProduct = doc(db, ProductCollection, ProductId);
-
-    const ConditionedCollection = collection(db, Collection);
-    const ConditionedCollection2 = collection(db, SectionPagePath);
+    const dbProductsBySectionPathCollection = collection(db, SectionPagePath);
     getDoc(dbQualificationAlmuerzos).then((res) =>
       setAlmuerzoQuantity(res.get("Cantidad"))
     );
@@ -127,17 +124,9 @@ const ConstAppContext = ({ children }) => {
       setAcompañamientos(res.get("Acompañamientos"))
     );
     getDoc(dbSelectedProduct).then((res) => setExtras(res.get("Extras")));
-
-    if (Collection !== " ") {
-      getDocs(ConditionedCollection).then((res) =>
-        setConditionedData(
-          res.docs.map((product) => ({ id: product.id, ...product.data() }))
-        )
-      );
-    }
     if (SectionPagePath !== " ") {
-      getDocs(ConditionedCollection2).then((res) =>
-        setConditionedData2(
+      getDocs(dbProductsBySectionPathCollection).then((res) =>
+        setProductsBySectionPath(
           res.docs.map((product) => ({ id: product.id, ...product.data() }))
         )
       );
@@ -645,12 +634,11 @@ const ConstAppContext = ({ children }) => {
         setOpenPopUp1,
         OpenPopUp2,
         setOpenPopUp2,
-        ConditionedData,
         Calification,
         setCalification,
         SendCalification,
         setSectionPagePath,
-        ConditionedData2,
+        ProductsBySectionPath,
         OpenPopUp3,
         setOpenPopUp3,
         Loaded2,

@@ -2,14 +2,14 @@
   padding: 3.75rem 0 3.75rem 0;
   display: grid;
   grid-template-rows: auto auto;
-  grid-row-gap: 4rem;
+  grid-row-gap: 1rem;
   align-content: flex-start;
 }
 
 .SectionPage-B1 {
   display: grid;
   grid-auto-flow: row;
-  grid-row-gap: 1.3rem;
+  grid-row-gap: 1rem;
   align-content: flex-start;
 }
 
@@ -51,33 +51,35 @@
 }
 
 .SectionPage-B1B2 {
-  width: calc(auto - 5.7rem);
-  margin: 0rem 1.5rem 0rem 4.2rem;
-  position: relative;
+  width: calc(100% - 3rem);
+  padding: 0 1.5rem 0 1.5rem;
   display: grid;
-  grid-auto-flow: row;
-  grid-row-gap: 0.6rem;
+  grid-auto-flow: column;
+  grid-column-gap: 0.65rem;
+  justify-content: flex-start;
 }
 
 .SectionPage-img-2 {
-  margin: -0.3rem 0 0 calc(-4.2rem - -1.5rem);
   height: 2rem;
   width: 2rem;
   border-radius: 50%;
   object-fit: cover;
-  position: absolute;
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.13);
   -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.13);
   -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.13);
 }
 
+.SectionPage-B1B2B1 {
+  display: grid;
+  grid-auto-flow: row;
+}
+
 .SectionPage-txt-1 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 800;
   color: black;
   text-align: left;
-  line-height: 100%;
 }
 
 .SectionPage-txt-2 {
@@ -86,19 +88,41 @@
   font-weight: 500;
   color: black;
   text-align: left;
-  line-height: 100%;
+  line-height: 1.45rem;
 }
 
 .SectionPage-B1B3 {
-  border: 0.05rem solid rgb(128, 128, 128, 0.2);
-  border-radius: 1rem;
+  width: calc(100% - 3rem);
+  padding: 0 1.5rem 0 1.5rem;
   height: 3rem;
-  margin: 0 1.5rem;
+  border-top: 0.05rem solid rgb(128, 128, 128, 0.2);
+  border-bottom: 0.05rem solid rgb(128, 128, 128, 0.2);
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.SectionPage-B1B3::-webkit-scrollbar {
+  display: none;
 }
 
 .SectionPage-B2 {
-  height: 10rem;
-  background-color: lightblue;
+  width: calc(100% - 3rem);
+  padding: 0 1.5rem 0 1.5rem;
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 2rem;
+  align-content: flex-start;
+}
+
+.SectionPage-B2B1 {
+  display: none;
+}
+
+.SectionPage-txt-3 {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: gray;
 }
 
 @media (max-width: 360px) {
@@ -118,12 +142,26 @@
 
   .SectionPage-B1B2 {
     width: calc(auto - 3rem);
-    margin: 2rem 1.5rem 0rem 1.5rem;
+    grid-auto-flow: row;
+    grid-row-gap: 0.7rem;
   }
 
   .SectionPage-img-2 {
-    margin: -4.3rem 0 0 0;
+    margin: -2.3rem 0 0 0;
     height: 3.5rem;
     width: 3.5rem;
+    z-index: 1;
+  }
+
+  .SectionPage-B2 {
+    padding: 1rem 1.5rem 0 1.5rem;
+  }
+
+  .SectionPage-B2B1 {
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 0.4rem;
+    justify-content: flex-start;
+    align-items: center;
   }
 }
