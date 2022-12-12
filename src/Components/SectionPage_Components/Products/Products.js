@@ -8,6 +8,7 @@ const Products = () => {
     setOpenPopUp,
     setProductId,
     setProductCollection,
+    refs,
   } = useContext(AppContext);
 
   const SectionPageProducts = ProductsBySectionPath.sort(function (x, y) {
@@ -20,14 +21,24 @@ const Products = () => {
           ? "SectionPageProducts-background ColumnBreak"
           : "SectionPageProducts-background HardPadding"
       }
-      onClick={() =>
-        setProductId(x.id) &
-        setProductCollection(x.Colección) &
-        setOpenPopUp(true)
-      }
     >
-      {x.Titulo && <p className="SectionPageProducts-txt-1">{x.Titulo}</p>}
-      <div className="SectionPageProducts-B1">
+      {x.Titulo && (
+        <p
+          className="SectionPageProducts-txt-1"
+          ref={refs[x.Titulo]}
+          id="targetElement"
+        >
+          {x.Titulo}
+        </p>
+      )}
+      <div
+        className="SectionPageProducts-B1"
+        onClick={() =>
+          setProductId(x.id) &
+          setProductCollection(x.Colección) &
+          setOpenPopUp(true)
+        }
+      >
         <div className="SectionPageProducts-B1B1">
           <p className="SectionPageProducts-txt-2">{x.Nombre}</p>
           <p className="SectionPageProducts-txt-3">{x.Descripción}</p>

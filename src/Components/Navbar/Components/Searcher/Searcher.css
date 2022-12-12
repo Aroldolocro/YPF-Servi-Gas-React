@@ -20,6 +20,8 @@
   font-weight: 500;
   color: gray;
   border-radius: 0.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .Searcher-input:focus {

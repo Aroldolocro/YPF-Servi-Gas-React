@@ -9,11 +9,43 @@ import Products from "../../Components/SectionPage_Components/Products/Products"
 const SectionPage = () => {
   const { Path1 } = useParams();
   const navigate = useNavigate();
-  const { setSectionPagePath, SectionData } = useContext(AppContext);
+  const {
+    setSectionPagePath,
+    SectionData,
+    ProductsBySectionPath,
+    handleClick,
+  } = useContext(AppContext);
 
   useEffect(() => {
     setSectionPagePath(Path1);
   }, [setSectionPagePath, Path1]);
+
+  const TitulosArray = ProductsBySectionPath.filter((x) => x.Titulo).map(
+    (x, i) => (
+      <div
+        key={i}
+        onClick={() => handleClick(x.Titulo)}
+        className="TitulosArray-background"
+      >
+        <p className="TitulosArray-txt-1">{x.Titulo}</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="9"
+          height="9"
+          fill="black"
+          viewBox="0 0 16 16"
+          className="TitulosArray-svg-1"
+          stroke="black"
+          strokeWidth={0.5}
+        >
+          <path
+            fillRule="evenodd"
+            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+          />
+        </svg>
+      </div>
+    )
+  );
 
   return (
     <div className="SectionPage-background">
@@ -58,11 +90,16 @@ const SectionPage = () => {
           </div>
         </div>
         <RestaurantData />
-        <div className="SectionPage-B1B3"></div>
+        <div className="SectionPage-B1B3">{TitulosArray}</div>
       </div>
       <div className="SectionPage-B2">
         <div className="SectionPage-B2B1">
-          <p className="SectionPage-txt-3">Servi Gas</p>
+          <p
+            className="SectionPage-txt-3 pointer"
+            onClick={() => navigate("/")}
+          >
+            Servi Gas
+          </p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="9"

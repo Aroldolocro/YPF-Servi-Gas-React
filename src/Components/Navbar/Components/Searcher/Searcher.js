@@ -34,7 +34,7 @@ const Searcher = () => {
     <div className="Searcher-background" onClick={() => setOpenPopUp5(true)}>
       <input
         className="Searcher-input"
-        placeholder="Buscar en Servi Gas..."
+        placeholder="Buscar en Servi Gas"
         onChange={handeFiltered}
         value={StateWord}
         disabled={!SearcherOn}

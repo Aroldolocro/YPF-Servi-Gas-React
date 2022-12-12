@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import React from "react";
 import {
   getFirestore,
   doc,
@@ -589,9 +590,30 @@ const ConstAppContext = ({ children }) => {
 
   const [Image, setImage] = useState();
 
+  /*Section - ScrollToRef*/
+
+  const refs = ProductsBySectionPath.reduce((acc, value) => {
+    acc[value.Titulo] = React.createRef();
+    return acc;
+  }, {});
+
+  const handleClick = (titulo) => {
+    var element = refs[titulo].current;
+    var headerOffset = 70;
+    var elementPosition = element.getBoundingClientRect().top;
+    var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <AppContext.Provider
       value={{
+        handleClick,
+        refs,
         SectionData,
         setItemDetailImage,
         ItemDetailLoaded,
