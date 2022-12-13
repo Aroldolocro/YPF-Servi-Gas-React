@@ -39,6 +39,23 @@ const ConstAppContext = ({ children }) => {
 
   const Mobile = windowSize.innerWidth < 1024 ? true : false;
 
+  /*App Scroll*/
+
+  const [Scroll, setScroll] = useState(0);
+
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScroll(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   /*CONTROLERS*/
 
   const [ProductId, setProductId] = useState(" ");
@@ -200,6 +217,7 @@ const ConstAppContext = ({ children }) => {
         Time: "10 - 15 min",
         Items: DesayunosLength,
         Qualification: DesayunoQualification,
+        Hours: "8:00 - 00:00",
       },
       {
         Logo: ServiGasLogo1,
@@ -210,6 +228,7 @@ const ConstAppContext = ({ children }) => {
         Time: "20 - 25 min",
         Items: AlmuerzosLength,
         Qualification: AlmuerzoQualification,
+        Hours: "8:00 - 00:00",
       },
       {
         Logo: ServiGasLogo1,
@@ -220,6 +239,7 @@ const ConstAppContext = ({ children }) => {
         Time: "10 - 25 min",
         Items: PromocionesLength,
         Qualification: PromocionesQualification,
+        Hours: "8:00 - 00:00",
       },
     ];
     if (SectionPagePath === "Desayunos") {
@@ -284,7 +304,7 @@ const ConstAppContext = ({ children }) => {
 
   const PopUpClose = () => {
     document.getElementById("ItemDetail-shadow").className =
-      "ItemDetail-shadow ItemDetail-shadow-v1 ";
+      "ItemDetail-shadow ItemDetail-shadow-v1";
     document.getElementById("ItemDetail-content").className =
       "ItemDetail-content ItemDetail-content-v1";
     setTimeout(() => {
@@ -292,9 +312,19 @@ const ConstAppContext = ({ children }) => {
     }, 300);
   };
 
+  const PopUp2Close = () => {
+    document.getElementById("Information-shadow").className =
+      "Information-shadow Information-shadow-v1";
+    document.getElementById("Information-content").className =
+      "Information-content Information-content-v1";
+    setTimeout(() => {
+      setOpenPopUp2(false);
+    }, 300);
+  };
+
   const PopUp3Close = () => {
     document.getElementById("Menu-Shadow").className =
-      "Menu-Shadow Menu-Shadow-v1 ";
+      "Menu-Shadow Menu-Shadow-v1";
     document.getElementById("Menu-content").className =
       "Menu-content Menu-content-v1";
     setTimeout(() => {
@@ -304,7 +334,7 @@ const ConstAppContext = ({ children }) => {
 
   const PopUp4Close = () => {
     document.getElementById("Category-Shadow").className =
-      "Category-Shadow Category-Shadow-v1 ";
+      "Category-Shadow Category-Shadow-v1";
     document.getElementById("Category-B1").className =
       "Category-B1 Category-B1-v1";
     setTimeout(() => {
@@ -599,7 +629,7 @@ const ConstAppContext = ({ children }) => {
 
   const handleClick = (titulo) => {
     var element = refs[titulo].current;
-    var headerOffset = 70;
+    var headerOffset = 184;
     var elementPosition = element.getBoundingClientRect().top;
     var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -612,6 +642,7 @@ const ConstAppContext = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        Scroll,
         handleClick,
         refs,
         SectionData,
@@ -680,6 +711,7 @@ const ConstAppContext = ({ children }) => {
         Qualified,
         setQualified,
         PopUpClose,
+        PopUp2Close,
         PopUp3Close,
         PopUp4Close,
         PopUp5Close,

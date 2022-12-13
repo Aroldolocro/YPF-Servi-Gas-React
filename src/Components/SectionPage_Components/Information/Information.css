@@ -1,141 +1,178 @@
 .Information-background {
   height: 100%;
   width: 100%;
-  background-color: rgb(0, 0, 0, 0.5);
-  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto min-content;
-  align-content: flex-end;
-}
-
-.Information-B1 {
-  height: 60vh;
-  width: 100%;
-}
-
-.Information-B2 {
-  background-color: white;
-  width: 100%;
-  border-radius: 2vh 2vh 0 0;
-  animation: Information-B2-animation 0.5s;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto;
-  align-content: flex-start;
-  justify-items: center;
-}
-
-@keyframes Information-B2-animation {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
-}
-
-.Information-B2B1 {
-  height: auto;
-  width: 100%;
-  border-bottom: 0.2vh solid rgb(128, 128, 128, 0.3);
+  z-index: 2;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 }
 
-.Information-B2B1B1 {
-  height: auto;
-  width: 90%;
+.Information-content {
+  width: 100%;
+  background-color: white;
   display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto;
+  grid-auto-flow: row;
+  align-content: flex-start;
+  border-radius: 0.5rem 0.5rem 0 0;
+  animation: Information-content-animation ease 0.4s;
+}
+
+@keyframes Information-content-animation {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.Information-content-v1 {
+  animation: Information-content-v1-animation ease 0.4s;
+}
+
+@keyframes Information-content-v1-animation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+.Information-B1 {
+  padding: 1rem 1.5rem;
+  display: grid;
+  grid-auto-flow: column;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 3vh 0 2vh 0;
+  border-bottom: 0.05rem solid rgb(128, 128, 128, 0.2);
 }
 
-.Information-B2B1B1B1 {
+.Information-B1B1 {
   display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto;
+  grid-auto-flow: column;
+  grid-column-gap: 1rem;
   justify-content: flex-start;
-  grid-column-gap: 3vh;
 }
 
-.Information-img {
-  height: 3.7vh;
-  width: auto;
+.Information-img-1 {
+  height: 3.4rem;
+  width: 3.4rem;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-.Information-B2B1B1B1B1 {
+.Information-B1B1B1 {
+  height: fit-content;
   display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto;
+  grid-auto-flow: row;
   align-content: flex-start;
 }
 
 .Information-txt-1 {
-  line-height: normal;
   margin: 0;
-  font-size: 4.5vw;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 800;
   color: black;
-  line-height: 100%;
 }
 
 .Information-txt-2 {
   margin: 0;
-  font-size: 4vw;
-  font-weight: 400;
+  font-size: 0.9rem;
+  font-weight: 500;
   color: gray;
 }
 
-.Information-svg-1 {
-  height: 3vh;
-  width: auto;
-  background-color: rgb(128, 128, 128);
-  fill: white;
-  border-radius: 50%;
+.Information-B2 {
+  padding: 1rem 1.5rem;
+  display: grid;
+  grid-row-gap: 1rem;
+  grid-auto-flow: row;
 }
 
-.Information-B2B2 {
-  height: auto;
-  width: 90%;
+.Information-B2B1 {
   display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto;
-}
-
-.Information-B2B2B1 {
-  height: auto;
-  width: 100%;
-  border-bottom: 0.2vh solid rgb(128, 128, 128, 0.2);
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto;
-  grid-row-gap: 1vh;
   justify-content: flex-start;
-  padding: 2vh 0 2vh 0;
+  padding: 0.5rem 0;
+  grid-auto-flow: row;
+  grid-row-gap: 0.3rem;
+  border-bottom: 0.05rem solid rgb(128, 128, 128, 0.2);
 }
 
-.Information-B2B2B2 {
-  height: auto;
-  width: 100%;
+.NoBorder {
+  border: none;
+}
+
+.Information-txt-3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  color: black;
+}
+
+.Information-txt-4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: gray;
+}
+
+.Information-B3 {
+  padding: 1rem 1.5rem;
   display: flex;
   justify-content: flex-end;
+  border-top: 0.05rem solid rgb(128, 128, 128, 0.2);
 }
 
-.Information-btn {
+.Information-B3B1 {
   background-color: #2796ff;
+  display: flex;
+  padding: 0.8rem 1.5rem;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+
+.Information-txt-5 {
+  margin: 0;
   color: white;
-  font-size: 4vw;
-  font-weight: 700;
-  border: none;
-  border-radius: 3vh;
-  padding: 2vh 3vh 2vh 3vh;
-  margin: 2vh 0 2vh 0;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.Information-shadow {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(44, 44, 44, 0.5);
+  z-index: -1;
+}
+
+.Information-shadow-v1 {
+  background: transparent;
+}
+
+@media (max-width: 360px) {
+}
+
+@media (min-width: 648px) {
+  .Information-background {
+    align-items: center;
+  }
+
+  .Information-content {
+    width: 29rem;
+    border-radius: 0.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
 }
