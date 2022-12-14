@@ -20,6 +20,7 @@ const SectionPage = () => {
 
   useEffect(() => {
     setSectionPagePath(Path1);
+    window.scrollTo(0, 0);
   }, [setSectionPagePath, Path1]);
 
   useEffect(() => {

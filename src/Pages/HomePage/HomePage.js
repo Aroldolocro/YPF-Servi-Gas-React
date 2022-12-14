@@ -3,10 +3,14 @@ import Explorer from "../../Components/HomePage_Components/Explorer/Explorer";
 import Main from "../../Components/HomePage_Components/Main/Main";
 import Filter from "../../Components/HomePage_Components/Filter/Filter";
 import { AppContext } from "../../AppContext/AppContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 const HomePage = () => {
   const { ProductoTipo } = useContext(AppContext);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="HomePage-background">

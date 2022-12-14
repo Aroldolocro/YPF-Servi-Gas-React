@@ -28,6 +28,7 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
+  object-position: 50% 25%;
 }
 
 .SectionPage-B1B1 {
@@ -135,8 +136,8 @@
   overflow-x: auto;
   display: grid;
   grid-auto-flow: column;
+  grid-auto-columns: max-content;
   grid-column-gap: 1.5rem;
-  justify-content: flex-start;
 }
 
 .SectionPage-B3-Scroll {
@@ -153,20 +154,20 @@
 /*TitulosArray*/
 
 .TitulosArray-background {
-  width: fit-content;
   display: grid;
   grid-auto-flow: column;
+  grid-column-gap: 0.5rem;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
 }
 
 .TitulosArray-txt-1 {
-  min-width: max-content;
+  width: max-content;
   margin: 0;
   font-size: 0.9rem;
   font-weight: 800;
-  color: black;
+  color: bredlack;
 }
 
 .TitulosArray-svg-1 {
@@ -233,10 +234,20 @@
     grid-auto-flow: row;
     grid-row-gap: 1.5rem;
     justify-content: stretch;
+    grid-auto-columns: auto;
   }
 
   .TitulosArray-background {
     width: 100%;
+  }
+
+  .TitulosArray-txt-1 {
+    width: auto;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
 
   .TitulosArray-svg-1 {

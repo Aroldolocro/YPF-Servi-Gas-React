@@ -8,9 +8,9 @@ import {
   collection,
   updateDoc,
 } from "firebase/firestore";
-import Café_con_leche from "../Images/Products photos/Desayunos/Café_con_leche.png";
-import Pizza_especial from "../Images/Products photos/Almuerzos/Pizza_especial.png";
-import Licuado from "../Images/Products photos/Promociones/Licuado.png";
+import Desayunos_Image from "../Images/Desayunos.png";
+import Almuerzos_Image from "../Images/Almuerzos.png";
+import Promociones_Image from "../Images/Promociones.png";
 import Logo1 from "../Images/Logo1.png";
 
 export const AppContext = createContext();
@@ -167,13 +167,13 @@ const ConstAppContext = ({ children }) => {
     .slice(0, 10);
   const ExplorerMobileArrayForLoader = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const ExplorerDesktopArrayForLoader = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
   ];
   const FilterArrayForLoader = [1, 2, 3, 4, 5];
 
-  const DesayunoImage = Café_con_leche;
-  const AlmuerzoImage = Pizza_especial;
-  const PromocionesImage = Licuado;
+  const DesayunoImage = Desayunos_Image;
+  const AlmuerzoImage = Almuerzos_Image;
+  const PromocionesImage = Promociones_Image;
   const ServiGasLogo1 = Logo1;
 
   const MainArray = [
