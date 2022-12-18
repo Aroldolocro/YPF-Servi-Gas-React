@@ -5,7 +5,6 @@ import { ExplorerMobileLoader } from "./ExplorerLoader";
 
 const ExplorerMobile = () => {
   const {
-    setCollection,
     setProductoTipo,
     ProductoTipo,
     ExplorerMobileImages_Function,
@@ -21,8 +20,7 @@ const ExplorerMobile = () => {
       }
       key={i}
       onClick={() =>
-        setProductoTipo(ProductoTipo === x.Tipo ? undefined : x.Tipo) &
-        setCollection(x.Colección)
+        setProductoTipo(ProductoTipo === x.Tipo ? undefined : x.Tipo)
       }
     >
       <div

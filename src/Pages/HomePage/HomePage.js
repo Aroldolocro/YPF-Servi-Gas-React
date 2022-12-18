@@ -4,13 +4,16 @@ import Main from "../../Components/HomePage_Components/Main/Main";
 import Filter from "../../Components/HomePage_Components/Filter/Filter";
 import { AppContext } from "../../AppContext/AppContext";
 import { useContext, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const HomePage = () => {
-  const { ProductoTipo } = useContext(AppContext);
+  const { ProductoTipo, setAppLocation } = useContext(AppContext);
+  const location = useLocation();
 
   useEffect(() => {
+    setAppLocation(location.pathname);
     window.scrollTo(0, 0);
-  }, []);
+  }, [location.pathname, setAppLocation]);
 
   return (
     <div className="HomePage-background">

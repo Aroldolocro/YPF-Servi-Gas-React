@@ -3,7 +3,7 @@ import { AppContext } from "../../../AppContext/AppContext";
 import { useContext } from "react";
 
 const RestaurantData = () => {
-  const { SectionData } = useContext(AppContext);
+  const { SectionData, setOpenPopUp1 } = useContext(AppContext);
   return (
     <div className="RestaurantData-background">
       <div className="RestaurantData-B1">
@@ -44,7 +44,10 @@ const RestaurantData = () => {
         </div>
         <p className="RestaurantData-txt-2 blue">{SectionData.Items}</p>
       </div>
-      <div className="RestaurantData-B1">
+      <div
+        className="RestaurantData-B1 pointer"
+        onClick={() => setOpenPopUp1(true)}
+      >
         <p className="RestaurantData-txt-1">Calificar</p>
         <div className="RestaurantData-B1B1">
           <svg

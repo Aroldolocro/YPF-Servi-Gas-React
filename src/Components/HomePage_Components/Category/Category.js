@@ -7,11 +7,10 @@ const Category = () => {
   const {
     AlldbCollections,
     PopUp4Close,
-    setCollection,
     setProductoTipo,
     ProductoTipo,
     CategoryImages_Function,
-    Loaded2,
+    CategoryLoaded,
   } = useContext(AppContext);
 
   const CategoryFromDB = AlldbCollections.filter((x) => x.ExplorerPosition)
@@ -21,10 +20,11 @@ const Category = () => {
     .map((x, i) => (
       <div
         key={i}
-        className={Loaded2 ? "CategoryFromDB-background" : "NotDisplayed"}
+        className={
+          CategoryLoaded ? "CategoryFromDB-background" : "NotDisplayed"
+        }
         onClick={() =>
           setProductoTipo(ProductoTipo === x.Tipo ? undefined : x.Tipo) &
-          setCollection(x.Colección) &
           PopUp4Close()
         }
       >
@@ -68,7 +68,7 @@ const Category = () => {
         <p className="Category-txt-1">Categorías</p>
         <div className="Category-B1B1">
           {CategoryFromDB}
-          {!Loaded2 && <CategoryLoader />}
+          {!CategoryLoaded && <CategoryLoader />}
         </div>
         <p className="Category-txt-2" onClick={() => PopUp4Close()}>
           Cerrar

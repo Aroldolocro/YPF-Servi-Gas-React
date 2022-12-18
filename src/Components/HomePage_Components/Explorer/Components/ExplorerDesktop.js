@@ -6,7 +6,6 @@ import { ExplorerDesktopLoader } from "./ExplorerLoader";
 const ExplorerDesktop = () => {
   const {
     AlldbCollections,
-    setCollection,
     setProductoTipo,
     ProductoTipo,
     ExplorerDesktopImages_Function,
@@ -26,8 +25,7 @@ const ExplorerDesktop = () => {
         }
         key={i}
         onClick={() =>
-          setProductoTipo(ProductoTipo === x.Tipo ? undefined : x.Tipo) &
-          setCollection(x.Colección)
+          setProductoTipo(ProductoTipo === x.Tipo ? undefined : x.Tipo)
         }
       >
         <div

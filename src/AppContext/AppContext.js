@@ -56,19 +56,22 @@ const ConstAppContext = ({ children }) => {
     };
   }, []);
 
-  /*CONTROLERS*/
+  /*App location*/
+
+  const [AppLocation, setAppLocation] = useState();
+
+  /*Product controllers*/
 
   const [ProductId, setProductId] = useState(" ");
   const [ProductCollection, setProductCollection] = useState(" ");
   const [ProductoTipo, setProductoTipo] = useState();
-  const [Collection, setCollection] = useState(" ");
 
-  /*CONDITIONAL DATA*/
+  /*Section data*/
 
   const [SectionPagePath, setSectionPagePath] = useState(" ");
   const [SectionData, setSectionData] = useState({});
 
-  /*SEARCHER DATA*/
+  /*Searcher data*/
 
   const [SearcherOn, setSearcherOn] = useState(false);
   const [Filtered, setFiltered] = useState([]);
@@ -76,13 +79,13 @@ const ConstAppContext = ({ children }) => {
   const [ResultInitialState, setResultInitialState] = useState(true);
   const [ResultFound, setResultFound] = useState(false);
 
-  /*FIREBASE DATA*/
+  /*Firebase data*/
 
-  const [DesayunoQuantity, setDesayunoQuantity] = useState({});
+  const [DesayunoQuantity, setDesayunoQuantity] = useState("");
   const [DesayunoQuality, setDesayunoQuality] = useState({});
-  const [AlmuerzoQuantity, setAlmuerzoQuantity] = useState({});
+  const [AlmuerzoQuantity, setAlmuerzoQuantity] = useState("");
   const [AlmuerzoQuality, setAlmuerzoQuality] = useState({});
-  const [PromocionesQuantity, setPromocionesQuantity] = useState({});
+  const [PromocionesQuantity, setPromocionesQuantity] = useState("");
   const [PromocionesQuality, setPromocionesQuality] = useState({});
   const [Desayunos, setDesayunos] = useState([]);
   const [Almuerzos, setAlmuerzos] = useState([]);
@@ -149,13 +152,13 @@ const ConstAppContext = ({ children }) => {
         )
       );
     }
-  }, [Collection, ProductId, ProductCollection, SectionPagePath]);
+  }, [ProductId, ProductCollection, SectionPagePath]);
 
-  const DesayunoQualification = (DesayunoQuality / DesayunoQuantity).toFixed(2);
-  const AlmuerzoQualification = (AlmuerzoQuality / AlmuerzoQuantity).toFixed(2);
+  const DesayunoQualification = (DesayunoQuality / DesayunoQuantity).toFixed(1);
+  const AlmuerzoQualification = (AlmuerzoQuality / AlmuerzoQuantity).toFixed(1);
   const PromocionesQualification = (
     PromocionesQuality / PromocionesQuantity
-  ).toFixed(2);
+  ).toFixed(1);
   const AlldbCollections = Desayunos.concat(Almuerzos, Promociones);
   const DesayunosLength = Desayunos.length;
   const AlmuerzosLength = Almuerzos.length;
@@ -167,10 +170,9 @@ const ConstAppContext = ({ children }) => {
     .slice(0, 10);
   const ExplorerMobileArrayForLoader = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const ExplorerDesktopArrayForLoader = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
   ];
   const FilterArrayForLoader = [1, 2, 3, 4, 5];
-
   const DesayunoImage = Desayunos_Image;
   const AlmuerzoImage = Almuerzos_Image;
   const PromocionesImage = Promociones_Image;
@@ -217,6 +219,7 @@ const ConstAppContext = ({ children }) => {
         Time: "10 - 15 min",
         Items: DesayunosLength,
         Qualification: DesayunoQualification,
+        QualificationQuantity: DesayunoQuantity,
         Hours: "8:00 - 00:00",
       },
       {
@@ -228,6 +231,7 @@ const ConstAppContext = ({ children }) => {
         Time: "20 - 25 min",
         Items: AlmuerzosLength,
         Qualification: AlmuerzoQualification,
+        QualificationQuantity: AlmuerzoQuantity,
         Hours: "8:00 - 00:00",
       },
       {
@@ -239,6 +243,7 @@ const ConstAppContext = ({ children }) => {
         Time: "10 - 25 min",
         Items: PromocionesLength,
         Qualification: PromocionesQualification,
+        QualificationQuantity: PromocionesQuantity,
         Hours: "8:00 - 00:00",
       },
     ];
@@ -257,13 +262,16 @@ const ConstAppContext = ({ children }) => {
     DesayunoQualification,
     AlmuerzoQualification,
     PromocionesQualification,
+    DesayunoQuantity,
+    AlmuerzoQuantity,
+    PromocionesQuantity,
     DesayunosLength,
     AlmuerzosLength,
     PromocionesLength,
     ServiGasLogo1,
   ]);
 
-  /* Condiftion For Mapping */
+  /* Condition For Mapping */
 
   const ConditionForMapping =
     ProductoTipo === "Menor A Mayor Precio"
@@ -276,7 +284,7 @@ const ConstAppContext = ({ children }) => {
       ? Promociones
       : AlldbCollections.filter((x) => x.Tipo === ProductoTipo);
 
-  /*POPUP*/
+  /*Popups*/
 
   const [OpenPopUp, setOpenPopUp] = useState(false);
   const [OpenPopUp1, setOpenPopUp1] = useState(false);
@@ -309,6 +317,16 @@ const ConstAppContext = ({ children }) => {
       "ItemDetail-content ItemDetail-content-v1";
     setTimeout(() => {
       setOpenPopUp(false);
+    }, 300);
+  };
+
+  const PopUp1Close = () => {
+    const Element1 = document.getElementById("Qualifier-shadow");
+    Element1.classList.add("Qualifier-shadow-v1");
+    const Element2 = document.getElementById("Qualifier-content");
+    Element2.classList.add("Qualifier-content-v1");
+    setTimeout(() => {
+      setOpenPopUp1(false);
     }, 300);
   };
 
@@ -352,7 +370,15 @@ const ConstAppContext = ({ children }) => {
     }, 300);
   };
 
-  /*LOADERS*/
+  /*Loaders*/
+
+  useEffect(() => {
+    if (AlldbCollections.length > 0) {
+      setSearcherOn(true);
+    } else {
+      setSearcherOn(false);
+    }
+  }, [AlldbCollections.length]);
 
   const [ExplorerMobileImages, setExplorerMobileImages] = useState(false);
   const [ExplorerMobileImages_Array, setExplorerMobileImages_Array] = useState(
@@ -395,6 +421,17 @@ const ConstAppContext = ({ children }) => {
     }
   };
 
+  const [CategoryLoaded, setCategoryLoaded] = useState(false);
+
+  useEffect(() => {
+    if (CategoryImages && OpenPopUp4) {
+      setCategoryLoaded(true);
+    } else {
+      setCategoryLoaded(false);
+      setCategoryImages(false);
+    }
+  }, [OpenPopUp4, CategoryImages]);
+
   const [MainImages, setMainImages] = useState(false);
   const [MainImages_Array, setMainImages_Array] = useState([]);
 
@@ -421,6 +458,7 @@ const ConstAppContext = ({ children }) => {
 
   useEffect(() => {
     if (
+      AppLocation === "/" &&
       (ExplorerMobileImages || ExplorerDesktopImages) &&
       MainImages &&
       DesayunosLength &&
@@ -431,8 +469,13 @@ const ConstAppContext = ({ children }) => {
       PromocionesQualification
     ) {
       setHomePageLoaded(true);
+    } else {
+      setHomePageLoaded(false);
+      setExplorerMobileImages(false);
+      setExplorerDesktopImages(false);
     }
   }, [
+    AppLocation,
     ExplorerMobileImages,
     ExplorerDesktopImages,
     MainImages,
@@ -458,23 +501,30 @@ const ConstAppContext = ({ children }) => {
     }
   }, [ItemDetailImage, OpenPopUp]);
 
-  const [Loaded2, setLoaded2] = useState(false);
-  const [Loaded5, setLoaded5] = useState(false);
-
-  const [Loader, setLoader] = useState(true);
+  const [QualifierLoaded, setQualifierLoaded] = useState(false);
 
   useEffect(() => {
-    if (AlldbCollections.length > 0) {
-      setSearcherOn(true);
+    if (
+      OpenPopUp1 &&
+      SectionData.Logo &&
+      SectionData.Qualification &&
+      SectionData.QualificationQuantity
+    ) {
+      setQualifierLoaded(true);
     } else {
-      setSearcherOn(false);
+      setQualifierLoaded(false);
     }
-  }, [AlldbCollections.length]);
+  }, [
+    OpenPopUp1,
+    SectionData.Logo,
+    SectionData.Qualification,
+    SectionData.QualificationQuantity,
+  ]);
 
-  /*LOADERS - Map Images*/
+  /*Up to here all approved*/
 
-  /*Map Images - 3*/
-
+  const [Loaded5, setLoaded5] = useState(false);
+  const [Loader, setLoader] = useState(true);
   const [MapImage_3, setMapImage_3] = useState(false);
   const [MapImage_3_Array, setMapImage_3_Array] = useState([]);
 
@@ -515,18 +565,7 @@ const ConstAppContext = ({ children }) => {
     }
   }, [OpenPopUp5, StateWord, MapImage_3, ResultInitialState, Filtered.length]);
 
-  /*Harcode Images - 2*/
-
-  useEffect(() => {
-    if (OpenPopUp4 && CategoryImages) {
-      setLoaded2(true);
-    } else {
-      setLoaded2(false);
-      setCategoryImages(false);
-    }
-  }, [OpenPopUp4, CategoryImages]);
-
-  /*SAVED ON LOCALSTORAGE*/
+  /*Save on localstorage*/
 
   const [QuealificatedDesayunos, setQuealificatedDesayunos] = useState(false);
   const [QuealificatedAlmuerzos, setQuealificatedAlmuerzos] = useState(false);
@@ -573,21 +612,13 @@ const ConstAppContext = ({ children }) => {
     QuealificatedPromociones,
   ]);
 
-  /*QUALIFIER*/
+  /*Qualifier logic*/
 
   const [Calification, setCalification] = useState();
-  const [Qualified, setQualified] = useState(false);
-
-  useEffect(() => {
-    if (!OpenPopUp1) {
-      setQualified(false);
-      setCalification();
-    }
-  }, [OpenPopUp1]);
 
   const SendCalification = () => {
     const db = getFirestore();
-    if (SectionPagePath === "Desayunos y meriendas") {
+    if (SectionData.Section === "Desayunos y meriendas") {
       const NewDoc = {
         Cantidad: DesayunoQuantity + 1,
         Calidad: DesayunoQuality + Calification,
@@ -595,8 +626,9 @@ const ConstAppContext = ({ children }) => {
       const dbdoc = doc(db, "Calificación", "Desayuno");
       updateDoc(dbdoc, NewDoc);
       setQuealificatedDesayunos(true);
+      setCalification();
     }
-    if (SectionPagePath === "Almuerzos y cenas") {
+    if (SectionData.Section === "Almuerzos y cenas") {
       const NewDoc1 = {
         Cantidad: AlmuerzoQuantity + 1,
         Calidad: AlmuerzoQuality + Calification,
@@ -604,8 +636,9 @@ const ConstAppContext = ({ children }) => {
       const dbdoc = doc(db, "Calificación", "Almuerzos");
       updateDoc(dbdoc, NewDoc1);
       setQuealificatedAlmuerzos(true);
+      setCalification();
     }
-    if (SectionPagePath === "Promociones") {
+    if (SectionData.Section === "Promociones") {
       const NewDoc2 = {
         Cantidad: PromocionesQuantity + 1,
         Calidad: PromocionesQuality + Calification,
@@ -613,12 +646,9 @@ const ConstAppContext = ({ children }) => {
       const dbdoc = doc(db, "Calificación", "Promociones");
       updateDoc(dbdoc, NewDoc2);
       setQuealificatedPromociones(true);
+      setCalification();
     }
   };
-
-  /*SECTION PAGE*/
-
-  const [Image, setImage] = useState();
 
   /*Section - ScrollToRef*/
 
@@ -642,12 +672,14 @@ const ConstAppContext = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        setAppLocation,
         Scroll,
         handleClick,
         refs,
         SectionData,
         setItemDetailImage,
         ItemDetailLoaded,
+        QualifierLoaded,
         HomePageLoaded,
         Mobile,
         ProductId,
@@ -656,8 +688,6 @@ const ConstAppContext = ({ children }) => {
         setProductCollection,
         ProductoTipo,
         setProductoTipo,
-        Collection,
-        setCollection,
         OpenPopUp4,
         setOpenPopUp4,
         QuealificatedDesayunos,
@@ -690,15 +720,14 @@ const ConstAppContext = ({ children }) => {
         Calification,
         setCalification,
         SendCalification,
+        SectionPagePath,
         setSectionPagePath,
         ProductsBySectionPath,
         OpenPopUp3,
         setOpenPopUp3,
-        Loaded2,
-        Image,
+        CategoryLoaded,
         Loaded5,
         OpenPopUp5,
-        setImage,
         setOpenPopUp5,
         StateWord,
         setStateWord,
@@ -708,9 +737,8 @@ const ConstAppContext = ({ children }) => {
         ResultFound,
         Loader,
         SearcherOn,
-        Qualified,
-        setQualified,
         PopUpClose,
+        PopUp1Close,
         PopUp2Close,
         PopUp3Close,
         PopUp4Close,

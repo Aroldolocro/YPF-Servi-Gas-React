@@ -1,5 +1,5 @@
 import "./SectionPage.css";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { AppContext } from "../../AppContext/AppContext";
 import RestaurantData from "../../Components/SectionPage_Components/RestaurantData/RestaurantData";
@@ -8,6 +8,7 @@ import Products from "../../Components/SectionPage_Components/Products/Products"
 const SectionPage = () => {
   const { Path1 } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const {
     setSectionPagePath,
     SectionData,
@@ -16,12 +17,14 @@ const SectionPage = () => {
     Scroll,
     Mobile,
     setOpenPopUp2,
+    setAppLocation,
   } = useContext(AppContext);
 
   useEffect(() => {
     setSectionPagePath(Path1);
+    setAppLocation(location.pathname);
     window.scrollTo(0, 0);
-  }, [setSectionPagePath, Path1]);
+  }, [setSectionPagePath, Path1, setAppLocation, location.pathname]);
 
   useEffect(() => {
     const element1 = document.getElementById("SectionPage-B1");

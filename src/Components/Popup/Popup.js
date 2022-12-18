@@ -1,9 +1,9 @@
 import ItemDetail from "../ItemDetail/ItemDetail";
-import Qualifier from "../SectionPage_Components/Qualifier/Qualifier";
 import Information from "../SectionPage_Components/Information/Information";
 import Menu from "../Navbar/Components/Menu/Menu";
 import Category from "../HomePage_Components/Category/Category";
 import Result from "../Navbar/Components/Result/Result";
+import Qualifier from "../SectionPage_Components/Qualifier/Qualifier";
 import { AppContext } from "../../AppContext/AppContext";
 import { useContext } from "react";
 
