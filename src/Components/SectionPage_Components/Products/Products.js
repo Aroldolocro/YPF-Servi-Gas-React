@@ -9,6 +9,7 @@ const Products = () => {
     setProductId,
     setProductCollection,
     refs,
+    SectionImages_Function,
   } = useContext(AppContext);
 
   const SectionPageProducts = ProductsBySectionPath.sort(function (x, y) {
@@ -49,7 +50,12 @@ const Products = () => {
             }).format(x.Precio)}
           </p>
         </div>
-        <img src={x.Imagen} className="SectionPageProducts-img-1" alt="" />
+        <img
+          src={x.Imagen}
+          className="SectionPageProducts-img-1"
+          alt=""
+          onLoad={() => SectionImages_Function(i)}
+        />
       </div>
     </div>
   ));

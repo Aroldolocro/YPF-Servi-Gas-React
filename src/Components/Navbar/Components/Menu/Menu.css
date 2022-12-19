@@ -6,7 +6,7 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  z-index: 2;
+  z-index: 3;
 }
 
 .Menu-content {

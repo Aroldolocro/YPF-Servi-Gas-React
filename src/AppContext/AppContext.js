@@ -454,6 +454,18 @@ const ConstAppContext = ({ children }) => {
     }
   }
 
+  const [SectionImages, setSectionImages] = useState(false);
+  const [SectionImages_Array, setSectionImages_Array] = useState([]);
+  // const [SectionPageLoaded, setSectionPageLoaded] = useState(false);
+
+  function SectionImages_Function(i) {
+    SectionImages_Array.push(i);
+    if (SectionImages_Array.length === ProductsBySectionPath.length) {
+      setSectionImages(true);
+      setSectionImages_Array([]);
+    }
+  }
+
   const [HomePageLoaded, setHomePageLoaded] = useState(false);
 
   useEffect(() => {
@@ -669,9 +681,14 @@ const ConstAppContext = ({ children }) => {
     });
   };
 
+  /*Footer logic*/
+
+  const FooterBreakPoint = windowSize.innerWidth > 648 ? true : false;
+
   return (
     <AppContext.Provider
       value={{
+        FooterBreakPoint,
         setAppLocation,
         Scroll,
         handleClick,
@@ -748,6 +765,7 @@ const ConstAppContext = ({ children }) => {
         CategoryImages_Function,
         MainImages_Function,
         FilterImages_Function,
+        SectionImages_Function,
         ExplorerMobileArray,
         ExplorerMobileArrayForLoader,
         ExplorerDesktopArrayForLoader,

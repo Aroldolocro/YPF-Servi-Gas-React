@@ -1,5 +1,134 @@
 .Footer-background {
-  height: 30rem;
-  width: 100%;
-  background-color: gainsboro;
+  padding: 0 0 2.5rem 0;
+  background-color: white;
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 1.5rem;
+  align-content: flex-start;
+}
+
+.Footer-B1 {
+  display: grid;
+  grid-auto-flow: row;
+}
+
+.Footer-B1B1 {
+  display: grid;
+  grid-auto-flow: row;
+  align-content: flex-start;
+}
+
+.Footer-B1B1B1 {
+  width: calc(100% - 3rem);
+  padding: 1.2rem 1.5rem 1.2rem 1.5rem;
+  border-bottom: 0.05rem solid rgb(128, 128, 128, 0.2);
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Footer-txt-1 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(100, 100, 100);
+}
+
+.Footer-svg-1 {
+  display: block;
+}
+
+.Rotate {
+  transform: rotate(180deg);
+}
+
+.Footer-B1B1B2 {
+  width: calc(100% - 5rem);
+  padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 0.5rem;
+  border-bottom: 0.05rem solid rgb(128, 128, 128, 0.2);
+}
+
+.Hide {
+  display: none;
+}
+
+.Footer-txt-2 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgb(100, 100, 100);
+  cursor: pointer;
+}
+
+.Footer-B2 {
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 0.25rem;
+  align-content: flex-start;
+  justify-content: center;
+}
+
+.Footer-txt-3 {
+  margin: 0;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: rgb(120, 120, 120);
+}
+
+.Footer-B3 {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 1.3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.Footer-svg-2 {
+  cursor: pointer;
+}
+
+@media (min-width: 648px) {
+  .Footer-background {
+    grid-row-gap: 2.5rem;
+  }
+
+  .Footer-B1 {
+    grid-auto-flow: column;
+    grid-column-gap: 3rem;
+    justify-content: center;
+  }
+
+  .Footer-B1B1 {
+    padding: 1rem 0 1rem 0;
+    min-width: 25rem;
+    border: 0.05rem solid rgb(128, 128, 128, 0.5);
+  }
+
+  .Footer-B1B1B1 {
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    justify-content: center;
+    border: none;
+  }
+
+  .Footer-txt-1 {
+    font-weight: 800;
+    color: black;
+  }
+
+  .Footer-svg-1 {
+    display: none;
+  }
+
+  .Footer-B1B1B2 {
+    border: none;
+  }
+
+  .Footer-txt-2 {
+    text-align: center;
+  }
 }
