@@ -1,76 +1,18 @@
 /*SectionPageLoader1*/
 
 .SectionPageLoader1-background {
-  height: auto;
-  width: 100%;
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto;
-  grid-column-gap: 2vh;
-  align-items: center;
-  justify-content: space-between;
-  padding: 3vh 0 3vh 0;
-  border-bottom: 0.2vh solid rgb(128, 128, 128, 0.1);
-}
-
-.SectionPageLoader1-B1 {
-  height: 14vh;
-  width: auto;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto auto;
-  align-content: space-between;
-}
-
-.SectionPageLoader1-B1B1 {
-  height: 3vh;
-  width: 35vw;
-  border-radius: 1vh;
+  height: 1.2rem;
+  width: 5rem;
   animation: skeleton-loading 1s linear infinite alternate;
+  border-radius: 0.6rem;
 }
 
-.SectionPageLoader1-B1B2 {
-  height: 6vh;
-  width: 50vw;
-  border-radius: 1vh;
-  animation: skeleton-loading 1s linear infinite alternate;
+.Size1 {
+  width: 8rem;
 }
-
-.SectionPageLoader1-B1B3 {
-  height: 3vh;
-  width: 25vw;
-  border-radius: 1vh;
-  animation: skeleton-loading 1s linear infinite alternate;
+.Size2 {
+  width: 4rem;
 }
-
-.SectionPageLoader1-B2 {
-  height: 14vh;
-  width: 14vh;
-  border-radius: 3vh;
-  animation: skeleton-loading 1s linear infinite alternate;
-}
-
-/*SectionPageLoader2*/
-
-.SectionPageLoader2-background {
-  height: 100%;
-  width: 100%;
-  animation: skeleton-loading 1s linear infinite alternate;
-  border-radius: 1vh;
-}
-
-/*SectionPageLoader3*/
-
-.SectionPageLoader3-background {
-  height: 100%;
-  width: 100%;
-  animation: skeleton-loading 1s linear infinite alternate;
-}
-
-/*SectionPageLoader4*/
-
-.SectionPageLoader4-background {
-  height: 100%;
-  width: 100%;
-  animation: skeleton-loading 1s linear infinite alternate;
+.Size3 {
+  width: 6rem;
 }

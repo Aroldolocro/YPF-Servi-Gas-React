@@ -1,84 +1,91 @@
 .ContactPage-background {
-  height: auto;
-  width: 90%;
+  padding: 6rem 0;
+  background: rgb(194, 226, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(194, 226, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ContactPage-content {
+  min-width: 15rem;
+  width: calc(98% - 3rem);
+  padding: 2rem 1.5rem 2rem 1.5rem;
   background-color: white;
-  padding: 16vh 5% 0vh 5%;
+  border-radius: 1rem;
+  box-shadow: 0px 5px 10px -5px rgba(80, 80, 80, 0.5);
+  -webkit-box-shadow: 0px 5px 10px -5px rgba(80, 80, 80, 0.5);
+  -moz-box-shadow: 0px 5px 10px -5px rgba(80, 80, 80, 0.5);
   display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto auto;
-  grid-row-gap: 4vh;
+  grid-auto-flow: row;
+  grid-row-gap: 1.5rem;
+  align-content: flex-start;
 }
 
 .ContactPage-txt-1 {
   margin: 0;
-  font-size: 5vw;
-  font-weight: 700;
-  color: rgb(44, 44, 44);
-  width: fit-content;
-  animation: ContactPage-animation 2s ease-in;
-}
-
-.ContactPage-B1 {
-  height: auto;
-  display: grid;
-  grid-auto-flow: row;
-  grid-auto-rows: auto;
-  grid-template-columns: auto;
-  grid-row-gap: 4vh;
-  justify-content: flex-start;
+  font-size: 1.5rem;
+  font-weight: 800;
+  border-bottom: 0.05rem solid rgb(128, 128, 128, 0.5);
+  padding: 0 0 0.5rem 0;
 }
 
 .ContactPage-txt-2 {
   margin: 0;
-  font-size: 3.5vw;
+  font-size: 1rem;
   font-weight: 600;
-  color: black;
 }
 
 .ContactPage-txt-3 {
   margin: 0;
-  font-size: 2.8vw;
+  font-size: 0.9rem;
   font-weight: 600;
-  color: rgb(88, 88, 88);
+  color: gray;
+}
+
+.ContactPage-B1 {
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 1rem;
 }
 
 .ContactPage-B1B1 {
   display: grid;
-  grid-template-columns: auto;
-  grid-auto-flow: row;
-  grid-auto-rows: auto;
-  grid-row-gap: 2vh;
-}
-
-.ContactPage-B1B1B1 {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto;
+  grid-auto-flow: column;
+  grid-column-gap: 1rem;
   justify-content: flex-start;
   align-items: center;
-  grid-column-gap: 2vh;
+  width: fit-content;
+  cursor: pointer;
 }
 
 .ContactPage-svg-1 {
-  height: 2vh;
-  width: auto;
-  fill: rgb(24, 24, 24);
-  background-color: rgb(200, 200, 200);
-  border-radius: 0.5vh;
-  padding: 0.6vh;
+  background-color: rgb(220, 220, 220);
+  border-radius: 0.2rem;
+  padding: 0.3rem;
 }
 
 .ContactPage-txt-4 {
   margin: 0;
-  font-size: 3.5vw;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: black;
 }
 
 .ContactPage-txt-5 {
   margin: 0;
-  font-size: 2.8vw;
+  font-size: 0.9rem;
   font-weight: 600;
-  color: rgb(100, 100, 100);
+  color: gray;
   text-align: center;
+}
+
+@media (min-width: 648px) {
+  .ContactPage-content {
+    max-width: 40rem;
+  }
 }

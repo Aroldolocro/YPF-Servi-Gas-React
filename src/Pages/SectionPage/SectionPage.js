@@ -2,6 +2,8 @@ import "./SectionPage.css";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { AppContext } from "../../AppContext/AppContext";
+import { SectionPageLoader1 } from "../../Components/SectionPage_Components/SectionPageLoader/SectionPageLoader";
+import { ProductsLoader } from "../../Components/SectionPage_Components/Products/ProductsLoader";
 import RestaurantData from "../../Components/SectionPage_Components/RestaurantData/RestaurantData";
 import Products from "../../Components/SectionPage_Components/Products/Products";
 
@@ -18,6 +20,7 @@ const SectionPage = () => {
     Mobile,
     setOpenPopUp2,
     setAppLocation,
+    SectionPageLoaded,
   } = useContext(AppContext);
 
   useEffect(() => {
@@ -126,7 +129,7 @@ const SectionPage = () => {
       </div>
       <RestaurantData />
       <div className="SectionPage-B3" id="SectionPage-B3">
-        {TitulosArray}
+        {SectionPageLoaded ? TitulosArray : <SectionPageLoader1 />}
       </div>
       <div className="SectionPage-B4">
         <div className="SectionPage-B4B1">
@@ -150,7 +153,7 @@ const SectionPage = () => {
           </svg>
           <p className="SectionPage-txt-3">{SectionData.Section}</p>
         </div>
-        <Products />
+        {SectionPageLoaded ? <Products /> : <ProductsLoader />}
       </div>
     </div>
   );

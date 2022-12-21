@@ -42,7 +42,9 @@ const Navbar = () => {
       <Searcher />
       <div className="Navbar-B2">
         <div className="Navbar-B1B1">
-          <p className="Navbar-txt-1">Contactanos</p>
+          <p className="Navbar-txt-1" onClick={() => navigate("/Contacto")}>
+            Contactános
+          </p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

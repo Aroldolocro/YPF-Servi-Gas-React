@@ -172,6 +172,10 @@ const ConstAppContext = ({ children }) => {
   const ExplorerDesktopArrayForLoader = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
   ];
+  const ProductsArrayForLoader = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24,
+  ];
   const FilterArrayForLoader = [1, 2, 3, 4, 5];
   const DesayunoImage = Desayunos_Image;
   const AlmuerzoImage = Almuerzos_Image;
@@ -454,17 +458,37 @@ const ConstAppContext = ({ children }) => {
     }
   }
 
-  const [SectionImages, setSectionImages] = useState(false);
-  const [SectionImages_Array, setSectionImages_Array] = useState([]);
-  // const [SectionPageLoaded, setSectionPageLoaded] = useState(false);
+  const [SectionPageLoaded, setSectionPageLoaded] = useState(false);
 
-  function SectionImages_Function(i) {
-    SectionImages_Array.push(i);
-    if (SectionImages_Array.length === ProductsBySectionPath.length) {
-      setSectionImages(true);
-      setSectionImages_Array([]);
+  useEffect(() => {
+    if (
+      (AppLocation === "/Desayunos" ||
+        AppLocation === "/Almuerzos" ||
+        AppLocation === "/Promociones") &&
+      ProductsBySectionPath.length > 0 &&
+      DesayunoQualification > 0 &&
+      AlmuerzoQualification > 0 &&
+      PromocionesQualification > 0 &&
+      DesayunosLength &&
+      AlmuerzosLength &&
+      PromocionesLength
+    ) {
+      setTimeout(() => {
+        setSectionPageLoaded(true);
+      }, 700);
+    } else {
+      setSectionPageLoaded(false);
     }
-  }
+  }, [
+    AppLocation,
+    ProductsBySectionPath,
+    DesayunoQualification,
+    AlmuerzoQualification,
+    PromocionesQualification,
+    DesayunosLength,
+    AlmuerzosLength,
+    PromocionesLength,
+  ]);
 
   const [HomePageLoaded, setHomePageLoaded] = useState(false);
 
@@ -688,6 +712,7 @@ const ConstAppContext = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        SectionPageLoaded,
         FooterBreakPoint,
         setAppLocation,
         Scroll,
@@ -765,7 +790,6 @@ const ConstAppContext = ({ children }) => {
         CategoryImages_Function,
         MainImages_Function,
         FilterImages_Function,
-        SectionImages_Function,
         ExplorerMobileArray,
         ExplorerMobileArrayForLoader,
         ExplorerDesktopArrayForLoader,
@@ -778,6 +802,7 @@ const ConstAppContext = ({ children }) => {
         AlmuerzoImage,
         PromocionesImage,
         MainArray,
+        ProductsArrayForLoader,
       }}
     >
       {children}

@@ -89,7 +89,7 @@
 .ItemDetail-B2 {
   height: fit-content;
   width: calc(100% - 3rem);
-  padding: 0 1.5rem;
+  padding: 0 1.5rem 3rem 1.5rem;
   margin: 2rem 0;
   display: grid;
   grid-template-rows: auto auto;

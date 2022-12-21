@@ -32,6 +32,13 @@
   align-items: center;
 }
 
+.RestaurantData-B1B1-Loader {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 1rem;
+  width: 3rem;
+  border-radius: 0.6rem;
+}
+
 .RestaurantData-txt-1 {
   margin: 0;
   font-size: 0.9rem;
@@ -47,6 +54,13 @@
   font-weight: 800;
   color: black;
   text-align: center;
+}
+
+.RestaurantData-txt-2-Loader {
+  animation: skeleton-loading 1s linear infinite alternate;
+  height: 1rem;
+  width: 2rem;
+  border-radius: 0.6rem;
 }
 
 .blue {

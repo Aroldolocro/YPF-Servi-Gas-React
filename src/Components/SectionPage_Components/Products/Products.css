@@ -86,6 +86,55 @@
   -moz-box-shadow: 0px 5px 10px -5px rgba(80, 80, 80, 0.5);
 }
 
+/*ProductsLoader*/
+
+.Products-background {
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 1rem;
+}
+
+.Product-background {
+  border-bottom: 0.05rem solid rgb(128, 128, 128, 0.2);
+  height: auto;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 1.5rem;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+
+.Product-B1 {
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 0.9rem;
+  align-content: flex-start;
+}
+
+.Product-B1B1 {
+  height: 1rem;
+  width: 10rem;
+  animation: skeleton-loading 1s linear infinite alternate;
+  border-radius: 0.6rem;
+}
+
+.Product-B1B1-v1 {
+  height: 2.2rem;
+  width: 135%;
+}
+.Product-B1B1-v2 {
+  width: 5rem;
+}
+
+.Product-B2 {
+  animation: skeleton-loading 1s linear infinite alternate;
+  margin: 0 0 1rem 0;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 1.6rem;
+  border: 0.1rem solid white;
+}
+
 @media (min-width: 648px) {
   .Products-background {
     grid-template-columns: repeat(2, 1fr);
