@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import "./ContactPage.css";
 
 const ContactPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const GoToWhatsApp = () =>
     (window.location.href = "https://wa.me/5493875065900");
 
@@ -89,7 +94,7 @@ const ContactPage = () => {
             </p>
           </div>
           <p className="ContactPage-txt-5">
-            YPF Servi Gas - 17 años siendo una #EstacionAlServicio
+            YPF Servi Gas - 18 años siendo una #EstacionAlServicio
           </p>
         </div>
       </div>
