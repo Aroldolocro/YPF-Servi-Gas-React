@@ -112,16 +112,20 @@
 }
 
 .Product-B1B1 {
-  height: 1rem;
   width: 10rem;
+  height: 1rem;
   animation: skeleton-loading 1s linear infinite alternate;
   border-radius: 0.6rem;
 }
 
+.Product-B1B1-v0 {
+  width: 7rem;
+}
+
 .Product-B1B1-v1 {
   height: 2.2rem;
-  width: 135%;
 }
+
 .Product-B1B1-v2 {
   width: 5rem;
 }

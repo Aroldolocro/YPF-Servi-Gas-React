@@ -557,8 +557,6 @@ const ConstAppContext = ({ children }) => {
     SectionData.QualificationQuantity,
   ]);
 
-  /*Up to here all approved*/
-
   const [Loaded5, setLoaded5] = useState(false);
   const [Loader, setLoader] = useState(true);
   const [MapImage_3, setMapImage_3] = useState(false);

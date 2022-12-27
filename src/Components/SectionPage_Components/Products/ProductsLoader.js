@@ -9,7 +9,7 @@ export const ProductsLoader = () => {
       {ProductsArrayForLoader.map((x, i) => (
         <div key={i} className="Product-background">
           <div className="Product-B1">
-            <div className="Product-B1B1"></div>
+            <div className="Product-B1B1 Product-B1B1-v0"></div>
             <div className="Product-B1B1 Product-B1B1-v1"></div>
             <div className="Product-B1B1 Product-B1B1-v2"></div>
           </div>
